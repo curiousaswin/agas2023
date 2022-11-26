@@ -60,7 +60,16 @@
         if (optiondropdown =="+"){
             var result1= firstbox * fourthbox + secondbox * thirdbox;
             var result2 = thirdbox*fourthbox;
-            var finalresult = result1 + "/"+result2;
+ var okresult = result1 + "/"+result2;
+             var a = result1;
+    var b = result2;
+    var c;
+    while (b) {
+        c = a % b; a = b; b = c;
+    }
+    var num = result1 / a;
+   var den = result2 / a;
+            var finalresult= num + "/"+ den;
             document.getElementById('result').innerHTML = finalresult;
             
         }
@@ -68,19 +77,47 @@
             
             var result1 = firstbox*secondbox;
             var result2 = thirdbox*fourthbox;
-            var finalresult = result1 + "/"+result2;
+       var okresult = result1 + "/"+result2;
+             var a = result1;
+    var b = result2;
+    var c;
+    while (b) {
+        c = a % b; a = b; b = c;
+    }
+    var num = result1 / a;
+   var den = result2 / a;
+            var finalresult= num + "/"+ den;
             document.getElementById('result').innerHTML = finalresult; 
         }
         else if (optiondropdown =="/"){
             var result1 = firstbox * fourthbox;
             var result2 = secondbox * thirdbox;
-            var finalresult = result1 + "/"+result2;
+             var okresult = result1 + "/"+result2;
+             var a = result1;
+    var b = result2;
+    var c;
+    while (b) {
+        c = a % b; a = b; b = c;
+    }
+    var num = result1 / a;
+   var den = result2 / a;
+            var finalresult= num + "/"+ den;
             document.getElementById('result').innerHTML = finalresult; 
         }
         else if (optiondropdown =="-"){
             var result1= firstbox * fourthbox - secondbox * thirdbox;
             var result2 = thirdbox*fourthbox;
-            var finalresult = result1 + "/"+result2;
+            
+            var okresult = result1 + "/"+result2;
+             var a = result1;
+    var b = result2;
+    var c;
+    while (b) {
+        c = a % b; a = b; b = c;
+    }
+    var num = result1 / a;
+   var den = result2 / a;
+            var finalresult= num + "/"+ den;
              document.getElementById('result').innerHTML = finalresult; 
         }
         }
