@@ -60,9 +60,9 @@
     function go(){
         var value1= document.getElementById('num').value;
         var value2=document.getElementById('denom').value;
-        var result= value1 / value2 * 100+"%";
-        
-        document.getElementById('result').innerHTML= result;
+        var okresult= value1 / value2 * 100;
+       var result= Math.round((okresult + Number.EPSILON) * 100) / 100
+        document.getElementById('result').innerHTML= result+"%";
     }
     </script>
     <div id="head" colspan="5"><h6>Aswin®</h6><p style="text-align:right;">Percentage Calculator</p></div>
