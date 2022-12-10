@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.attrs{
+background-color:aqua;
+font-weight:bold;
+}
+span{
+font-weight:normal;
+}
+</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <button id="button1" class="btn btn-warning">Get Card</button>
+<div id="card" class="card" style="background-color:yellow;width:200px; height:500px;" width="50px"  height="150px">
+<h2 class="text" id="text"></h2>
+<div class="attrs">Strength:<span id="strength" style="text-align:Right;"></span></div><br>
+<div class="attrs">Charisma:<Span id="charisma"></Span></div><br>
+<div class="attrs">Wisdom:<span id="wisdom"></span></div>
+<button type="btn" onclick="add()" class="btn btn-success">Add Card</button>
+</div>
+
+<div id="level1" style="display:none;"><span id="levelnum">Level 1</span><div class="row"><div class="col">You <span id="good">100</span>/100 lives.<div id="battlecards" ></div><button class="btn btn-primary" onclick="strength()">Strength</button><button class="btn btn-primary" onclick="charisma()">Charisma</button><button class="btn btn-primary" onclick="wisdom()">Wisdom</button></div><div class="col"><h3 id="enemyname">Evil Dog</h3><br><span id="evil">30</span><span id="evill">/30 lives.</span> <div id="evilcards" style="display:none; "></div><br><div id="damages"></div><button class="btn btn-danger" onclick="startlevel()" style="display:none;" id="next"> NEXT</button></div></div></div>
+
+<!-- The Modal -->
+<div class="modal" id="Roundover">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Good Job!</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="actions">
+     <button class="btn btn-primary" onclick="recoverhealth()">Recover 10 health</button><span id="or">OR</span><button class="btn btn-primary" onclick="getcard()">Get A Card</button>
+     <div id="rounds">Number of Round So far(Excluding this):<span id="numberofrounds">0</span></div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick=" document.getElementById('actions').style.display='block'">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="Rest">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">One Rest Found!</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="actions">
+  <b>Choose an Option for rest:</b>
+  <button type="btn" class="btn btn-success" onclick="upgrades()">Upgrade 4 attributes for the next card</button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick=" document.getElementById('actions').style.display='block'">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+
+let num = 4;
+var Orte = ['Unicorn(Epic)', 'Santa Claus(Legendary)', 'Giraffe', 'Dinousar', 'Star', 'King(Epic)', 'Strawberry', 'Huge Monster(Legendary)', 'Dog', 'Cat', 'Heart(Epic)','Duck']
+var zufall = Orte[Math.random()*Orte.length | 0]
+
+var button1 = document.getElementById('button1');
+
+button1.onclick = function(){
+    document.getElementById('button1').style.display="none";
+  zufall = Orte[Math.random()*Orte.length | 0]
+  document.getElementsByClassName('text')[0].innerHTML = zufall;
+  setTimeout(cards,1)
+
+}
+function cards(){
+  if(document.getElementById('text').innerHTML== "Giraffe"){
+  document.getElementById('strength').innerHTML= "21";
+  document.getElementById('wisdom').innerHTML= "12";
+    document.getElementById('charisma').innerHTML= "15";
+  }else if(document.getElementById('text').innerHTML== "Star"){
+  document.getElementById('strength').innerHTML= "12";
+  document.getElementById('wisdom').innerHTML= "13";
+    document.getElementById('charisma').innerHTML= "14";
+  }else if(document.getElementById('text').innerHTML== "King(Epic)"){
+  document.getElementById('strength').innerHTML= "21";
+  document.getElementById('wisdom').innerHTML= "20";
+    document.getElementById('charisma').innerHTML= "21";
+  }
+  else if(document.getElementById('text').innerHTML== "Dinousar"){
+  document.getElementById('strength').innerHTML= "20";
+  document.getElementById('wisdom').innerHTML= "15";
+    document.getElementById('charisma').innerHTML= "15";
+  }else if(document.getElementById('text').innerHTML== "Santa Claus(Legendary)"){
+  document.getElementById('strength').innerHTML= "21";
+  document.getElementById('wisdom').innerHTML= "21";
+    document.getElementById('charisma').innerHTML= "21";
+  }else if(document.getElementById('text').innerHTML== "Unicorn(Epic)"){
+  document.getElementById('strength').innerHTML= "20";
+  document.getElementById('wisdom').innerHTML= "20";
+    document.getElementById('charisma').innerHTML= "20";
+  }else if(document.getElementById('text').innerHTML== "Strawberry"){
+  document.getElementById('strength').innerHTML= "10";
+  document.getElementById('wisdom').innerHTML= "8";
+    document.getElementById('charisma').innerHTML= "8";
+  }else if(document.getElementById('text').innerHTML== "Huge Monster(Legendary)"){
+  document.getElementById('strength').innerHTML= "25";
+  document.getElementById('wisdom').innerHTML= "21";
+    document.getElementById('charisma').innerHTML= "24"
+  }else if(document.getElementById('text').innerHTML== "Dog"){
+  document.getElementById('strength').innerHTML= "7";
+  document.getElementById('wisdom').innerHTML= "20";
+    document.getElementById('charisma').innerHTML= "7"
+  }else if(document.getElementById('text').innerHTML== "Cat"){
+  document.getElementById('strength').innerHTML= "15";
+  document.getElementById('wisdom').innerHTML= "22";
+    document.getElementById('charisma').innerHTML= "9"
+  }else if(document.getElementById('text').innerHTML== "Heart(Epic)"){
+  document.getElementById('strength').innerHTML= "30";
+  document.getElementById('wisdom').innerHTML= "17";
+    document.getElementById('charisma').innerHTML= "24"
+  }else if(document.getElementById('text').innerHTML== "Duck"){
+  document.getElementById('strength').innerHTML= "18";
+  document.getElementById('wisdom').innerHTML= "14";
+    document.getElementById('charisma').innerHTML= "19"
+  }
+  }
+   function add(){
+       var div= document.createElement('div');
+       div.className= "donecards";
+       div.style.display='none';
+       div.innerHTML = document.getElementById('card').innerHTML;
+       document.body.appendChild(div);
+       var numbers = document.querySelectorAll('.donecards').length;
+       if(numbers>=5){
+            document.getElementById('level1').style.display='block';
+            document.getElementById('card').style.display="none";
+             setTimeout(startlevel,1)
+             
+       }else{
+         document.getElementById('strength').innerHTML= "";
+  document.getElementById('wisdom').innerHTML= "";
+    document.getElementById('charisma').innerHTML= "";
+       document.getElementById('text').innerHTML= "";
+       document.getElementById('button1').style.display='block';
+       }
+   }
+
+   
+
+   function startlevel(){
+     
+              var randomnum1 = Math.floor(Math.random() * num) + 1;
+       document.getElementById('evilcards').style.display="none";
+       document.getElementById('battlecards').innerHTML = document.getElementsByClassName("donecards")[randomnum1].innerHTML;
+       var randomnum = Math.floor(Math.random() * num) + 1;
+           document.getElementById('evilcards').innerHTML = document.getElementsByClassName("donecards")[randomnum].innerHTML;
+           setTimeout(checks,1)
+   }
+  
+   
+   function strength(){
+       document.getElementById('evilcards').style.display= 'block';
+       var enemy=document.querySelectorAll("#evilcards #strength")[0].innerHTML;
+        var user=document.querySelectorAll(" #strength")[1].innerHTML;
+        var enemmylives = document.getElementById('evil').innerHTML * 1;
+        var userlives = document.getElementById('good').innerHTML * 1;
+      
+       var numbers = enemy-user;
+       document.getElementById('damages').innerHTML = "You lose:Deal " + numbers + " damages";
+       if((numbers < 0)){
+           var newnumbers= numbers*-1
+          document.getElementById("damages").innerHTML = "You Win: Deal " + newnumbers + " Damage";
+          var livesofenemy= enemmylives - newnumbers;
+          document.getElementById('evil').innerHTML= livesofenemy;
+               
+       } else{
+          var livesofuser = userlives-numbers;
+          document.getElementById('good').innerHTML= livesofuser;
+       }
+       document.getElementById('next').style.display="block";
+ 
+   }
+    function charisma(){
+        document.getElementById('evilcards').style.display= 'block';
+       var enemy=document.querySelectorAll("#evilcards #charisma")[0].innerHTML;
+        var user=document.querySelectorAll(" #charisma")[1].innerHTML;
+        var enemmylives = document.getElementById('evil').innerHTML * 1;
+        var userlives = document.getElementById('good').innerHTML * 1;
+   
+       var numbers = enemy-user;
+       document.getElementById('damages').innerHTML = "You lose:Deal " + numbers + " damages";
+       if((numbers < 0)){
+           var newnumbers= numbers*-1
+          document.getElementById("damages").innerHTML = "You Win: Deal " + newnumbers + " Damage";
+          var livesofenemy= enemmylives - newnumbers;
+          document.getElementById('evil').innerHTML= livesofenemy;
+       } else{
+          var livesofuser = userlives-numbers;
+          document.getElementById('good').innerHTML= livesofuser;
+       }
+       document.getElementById('next').style.display="block";
+    }
+      function wisdom(){
+        document.getElementById('evilcards').style.display= 'block';
+       var enemy=document.querySelectorAll("#evilcards #wisdom")[0].innerHTML;
+        var user=document.querySelectorAll(" #wisdom")[1].innerHTML;
+        var enemmylives = document.getElementById('evil').innerHTML * 1;
+        var userlives = document.getElementById('good').innerHTML * 1;
+      
+       var numbers = enemy-user;
+       document.getElementById('damages').innerHTML = "You lose:Deal " + numbers + " damages";
+       if((numbers < 0)){
+           var newnumbers= numbers*-1
+          document.getElementById("damages").innerHTML = "You Win: Deal " + newnumbers + " Damage";
+          var livesofenemy= enemmylives - newnumbers;
+          document.getElementById('evil').innerHTML= livesofenemy;
+       } else{
+          var livesofuser = userlives-numbers;
+          document.getElementById('good').innerHTML= livesofuser;
+       }
+       document.getElementById('next').style.display="block";
+    }
+    function checks(){
+        var enemmylives = document.getElementById('evil').innerHTML * 1;
+         if(enemmylives<=0){
+            
+          let myModal = new bootstrap.Modal(
+          document.getElementById("Roundover"),
+          {}
+      
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        myModal.show();
+       
+
+            var roundchanger=document.getElementById('numberofrounds').innerHTML * 1;
+           var numofround= roundchanger+1
+   
+   document.getElementById('numberofrounds').innerHTML=numofround;
+            //clearInterval(checkers);
+       }
+       
+    }
+    function recoverhealth(){
+        
+
+        var userlives = document.getElementById('good').innerHTML * 1;
+    document.getElementById('evil').innerHTML = 48;
+     document.getElementById('evill').innerHTML = "/48 lives";
+     document.getElementById('enemyname').innerHTML= "Evil Strawberry"
+        var number = userlives + 10;
+      
+        document.getElementById('good').innerHTML= number;
+           
+        document.getElementById('actions').style.display="none";
+        
+        setTimeout(animalnamer, 1)
+        
+    }
+     
+function animalnamer(){
+         let myModal = new bootstrap.Modal(
+          document.getElementById("Rest"),
+          {}
+      
+        );
+   var roundnumber= document.getElementById('numberofrounds').innerHTML;
+   if(roundnumber == 2){
+        document.getElementById('enemyname').innerHTML= "Evil Huge Monster"
+   } else if(roundnumber == 3){
+        document.getElementById('enemyname').innerHTML= "Evil Star"
+   }else if(roundnumber == 4){
+        document.getElementById('enemyname').innerHTML= "Evil Unicorn";
+           document.getElementById('evil').innerHTML = 75;
+     document.getElementById('evill').innerHTML = "/75 lives";
+      myModal.show();
+   }else if(roundnumber == 5){
+       document.getElementById('levelnum').innerHTML ="Level 2"
+        document.getElementById('enemyname').innerHTML= "Evil Giraffe";
+           document.getElementById('evil').innerHTML = 36;
+     document.getElementById('evill').innerHTML = "/36 lives";
+     alert('level 1 passed. Extra 20 health.');
+      var userlives = document.getElementById('good').innerHTML * 1;
+      var numberoflives= userlives+20;
+     document.getElementById('good').innerHTML = numberoflives;
+   }else if(roundnumber == 6){
+        document.getElementById('enemyname').innerHTML= "Evil Duck";
+      
+        myModal.show();
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        
+   }else if(roundnumber == 7){
+        document.getElementById('enemyname').innerHTML= "Evil King"
+   }else if(roundnumber == 8){
+        document.getElementById('enemyname').innerHTML= "Evil Slime"
+   }else if(roundnumber == 9){
+        document.getElementById('enemyname').innerHTML= "Evil Santa Claus"
+           document.getElementById('evil').innerHTML = 104;
+     document.getElementById('evill').innerHTML = "/104 lives";
+   }else if(roundnumber == 10){
+        document.getElementById('levelnum').innerHTML ="Level 3"
+        document.getElementById('enemyname').innerHTML= "Evil Heart";
+           document.getElementById('evil').innerHTML = 45;
+     document.getElementById('evill').innerHTML = "/45 lives";
+     alert('level 2 passed. Extra 25 health.');
+      var userlives1 = document.getElementById('good').innerHTML * 1;
+      var numberoflives1= userlives1+25;
+     document.getElementById('good').innerHTML = numberoflives1;
+   
+}else if(roundnumber == 11){
+        document.getElementById('enemyname').innerHTML= "Evil Elephant"
+           document.getElementById('evil').innerHTML = 55;
+     document.getElementById('evill').innerHTML = "/55 lives";
+      myModal.show();
+   }
+}
+function getcard(){
+     
+    document.getElementById('evil').innerHTML = 48;
+     document.getElementById('evill').innerHTML = "/48 lives";
+     document.getElementById('enemyname').innerHTML= "Evil Strawberry"
+   
+           
+        document.getElementById('actions').style.display="none";
+        
+        setTimeout(animalnamer, 1) 
+        document.getElementById('button1').style.display="block";
+        document.getElementById('card').style.display="block";
+        num=num+1;
+}
+   function upgrades(){
+               var wisdom=document.querySelectorAll(" #wisdom")[1].innerHTML*1;
+                       var strength=document.querySelectorAll(" #strength")[1].innerHTML*1;
+                    var charisma=document.querySelectorAll(" #charisma")[1].innerHTML*1;
+                       var newwisdom= wisdom+4;
+                         var newstrength= strength+4;
+                         var newcharisma= charisma+4;
+                         document.querySelectorAll(" #wisdom")[1].innerHTML= newwisdom;
+                         document.querySelectorAll(" #charisma")[1].innerHTML= newcharisma;
+                         document.querySelectorAll(" #strength")[1].innerHTML= newstrength;
+   }
+   
+    
+</script>
+
+</body>
+
+</html>
