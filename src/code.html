@@ -52,6 +52,7 @@ p{
   font-size:25px;
 }
         </style>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
 
     
@@ -65,6 +66,11 @@ p{
 
 function myFunction() {
   myVar = setTimeout(showPage, 3000);
+   var getinfo = localStorage.getItem("Name");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!";
+  if(document.getElementById('signin').innerHTML== "Hello null!"){
+       document.getElementById("signin").innerHTML = "Not Logged In"
+  }
 }
 
 function showPage() {
@@ -104,8 +110,36 @@ var elem = document.getElementById("textToUse");
 
 
             }
+function save(){
+     if(document.getElementById('signin').innerHTML== "Not Logged In"){
+        document.getElementById('fornonmembers').className = "modal fade show";
+    document.getElementById('fornonmembers').style.display="block";
+    }else{
+    var projname = document.getElementById('codename').value;
+    var codetosave = document.getElementById('textToUse').value;;
+    localStorage.setItem(projname,codetosave)
+    }
+}
+function retrieve(){
+     if(document.getElementById('signin').innerHTML== "Not Logged In"){
+        document.getElementById('fornonmembers').className = "modal fade show";
+    document.getElementById('fornonmembers').style.display="block";
+    }else{
+    var nametoretrieve = document.getElementById('retrievename').value;
+    var thecode =  localStorage.getItem(nametoretrieve);
+    document.getElementById('textToUse').value=thecode;
+    document.getElementById('codename').value= nametoretrieve;
+    }
+}
         </script>
       <center> <h2> Aswin's Code Editor</h2></center>
+       <p style="text-align:right;" id="signin"> Not Logged In</p>
+      <input type="text" class="form-control" id="codename" placeholder="Page / Code Name (Required for saving)">
+      <br>
+      <button type="btn" class="btn btn-primary" onclick="save()"><i class="fa-solid fa-floppy-disk"></i>Save Code Online</button>
+      <button type="btn" class="btn btn-warning"  data-toggle="modal" data-target="#retrieves"><span class="material-icons">
+file_open
+</span>Retrieve Saved Document</button>
        <div class="container-fluid">
             <div class="container-fluid"> 
     <div class="row">
@@ -152,8 +186,56 @@ var elem = document.getElementById("textToUse");
 </div>
   </div>
 </div>
-      
-       
+      <!-- The Modal -->
+<div class="modal" id="retrieves">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Enter document name to retrieve document.</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <input type="text" id="retrievename" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="retrieve()">Done.</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+       
+<div class="modal fade" id="fornonmembers">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Option is available for members only</h4>
+        <button type="button" class="close"  onclick="document.getElementById('fornonmembers').style.display=null;">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+We're sorry, but this option is available for memebers only. <br>
+Have an account?  Visit the <a href="https://goodapps.w3spaces.com">Main Page<i class="material-icons">&#xe879;</i></a> to log in.<br>
+Don't have an account? Visit the <a href="https://goodapps.w3spaces.com">Main Page<i class="material-icons">&#xe879;</i></a> to sign up.It is completely free.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="document.getElementById('fornonmembers').style.display=null;">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
     </body>
 </html>
