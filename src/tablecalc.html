@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,8 +28,9 @@
     }
 </style>
   </head>
-  <body>
+  <body onload="startup()">
      <center> <h1>Aswin's TableCalc<span class="badge badge-info">Under Development</span></h1></center>
+         <p style="text-align:right;color:white;" id="signin" > Not Logged In</p>
     <button class="btn btn-primary" data-toggle="collapse" data-target="#export">Export</button> 
      <button class="btn btn-primary" data-toggle="collapse" data-target="#formating">Formating</button> 
      <div class="custom-control custom-switch" style="text-align:right;">
@@ -223,6 +223,10 @@ for (let i = 0; i < collection.length; i++) {
   collection[i].style.backgroundColor = "yellow";
 
 }
+}
+function startup(){
+        var getinfo = localStorage.getItem("Name");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!";
 }
     </script>
   </body>
