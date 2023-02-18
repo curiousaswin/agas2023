@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    #correct{
+        text-align:center;
+          justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 18px 20px 18px 20px;
+  
+    }
+    #wrong{
+           text-align:center;
+          justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  padding: 18px 20px 18px 20px;
+   
+    }
+ div{
+     font-size:48pt;
+ }
+ button{
+     font-size:36pt;
+ }
+ 
+</style>
+</head>
+<body>
+    <script>
+        function go(){
+            if(document.getElementById('gogo').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('go').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1mSzz8HqjXN5?autoplay=0";
+                document.getElementById('my').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function my(){
+            if(document.getElementById('mymy').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('my').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1lA4ocipGZeb?autoplay=0";
+                document.getElementById('so').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function so(){
+            if(document.getElementById('soso').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('so').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1gyv9LzB9vvn?autoplay=0";
+                document.getElementById('on').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function on(){
+            if(document.getElementById('onon').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('on').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1bbxRn46aUFy?autoplay=0";
+                document.getElementById('off').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function off(){
+            if(document.getElementById('offoff').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('off').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1ehX2U0ANGdQ?autoplay=0";
+                document.getElementById('to').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+        function to(){
+            if(document.getElementById('toto').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('to').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1hYJptLJ8Fx1?autoplay=0";
+                document.getElementById('do').style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+         function dofinal(){
+            if(document.getElementById('dodo').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('do').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1cQSS9HscN5o?autoplay=0";
+             document.getElementById("me").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+           function me(){
+            if(document.getElementById('meme').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('me').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1kuCgW8BAN6v?autoplay=0";
+             document.getElementById("we").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+         function we(){
+            if(document.getElementById('wewe').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('we').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1e87aXUU9ymG?autoplay=0";
+             document.getElementById("no").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+            function no(){
+            if(document.getElementById('nono').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('no').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1jhgZhiEl7np?autoplay=0";
+             document.getElementById("of").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function of(){
+            if(document.getElementById('ofof').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('of').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1l2F1V4vZLl3?autoplay=0";
+             document.getElementById("is").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+         function is(){
+            if(document.getElementById('isis').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('is').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/11UGQOjIFFAx?autoplay=0";
+             document.getElementById("it").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+              function it(){
+            if(document.getElementById('itit').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('it').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/11aWppetdRNc?autoplay=0";
+             document.getElementById("in").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+          function ins(){
+            if(document.getElementById('inin').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('in').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1jXdkLQ9o5kG?autoplay=0";
+             document.getElementById("up").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+         function up(){
+            if(document.getElementById('upup').checked){
+                document.getElementById('correct').style.display="block";
+                document.getElementById('up').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/1lCafN5yQe9e?autoplay=0";
+             document.getElementById("he").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+        function he(){
+            if(document.getElementById('hehe').checked){
+          
+                document.getElementById('he').style.display="none";
+                document.getElementById('audioplayer').src="https://vocaroo.com/embed/19EHfxwpY8RU?autoplay=1";
+             document.getElementById("done").style.display="block";
+            }
+            else{
+                document.getElementById('wrong').style.display ="block";
+            }
+        }
+        // for final: https://vocaroo.com/embed/19EHfxwpY8RU?autoplay=1 , document.getElementById("done").style.display="block";
+          
+    </script>
+
+<div><iframe width="300" id="audioplayer" height="60" src="https://vocaroo.com/embed/11QKlTwKXHSS?autoplay=0" frameborder="0" allow="autoplay"></iframe><br></div>
+
+<div id="go" style="position:absolute;">
+    <input type="radio" name="go" value="so" id="sogo">
+   <label for="sogo">So</label><br>
+       <input type="radio"  name="go" value="my" id="mygo">
+       <label for="mygo">My</label><br>
+          <input type="radio"  name="go" value="go" id="gogo">
+          <label for="gogo">Go</label><Br>
+          <button type="btn" onclick="go()" class="btn btn-primary">Done</button>
+</div> 
+
+<div id="my" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="gomy">
+   <label for="gomy">Go</label><br>
+       <input type="radio"  name="go" value="my" id="mymy">
+       <label for="mymy">My</label><br>
+          <input type="radio"  name="go" value="go" id="somy">
+          <label for="somy">So</label><br>
+          <button type="btn" onclick="my()" class="btn btn-primary">Done</button>
+</div> 
+<div id="so" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="soso">
+   <label for="soso">So</label><br>
+       <input type="radio"  name="go" value="my" id="doso">
+       <label for="doso">Do</label><br>
+          <input type="radio"  name="go" value="go" id="myso">
+          <label for="myso">My</label><br>
+          <button type="btn" onclick="so()" class="btn btn-primary">Done</button>
+</div> 
+<div id="on" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="offon">
+   <label for="offon">Off</label><br>
+       <input type="radio"  name="go" value="my" id="onon">
+       <label for="onon">On</label><br>
+          <input type="radio"  name="go" value="go" id="doon">
+          <label for="doon">Do</label><Br>
+          <button type="btn" onclick="on()" class="btn btn-primary">Done</button>
+</div> 
+<div id="off" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="tooff">
+   <label for="tooff">To</label><br>
+       <input type="radio"  name="go" value="my" id="offoff">
+       <label for="offoff">Off</label><Br>
+          <input type="radio"  name="go" value="go" id="onoff">
+          <label for="onoff">On</label><br>
+          <button type="btn" onclick="off()" class="btn btn-primary">Done</button>
+</div> 
+<div id="to" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="doto">
+   <label for="doto">Do</label><br>
+       <input type="radio"  name="go" value="my" id="toto">
+       <label for="toto">To</label><br>
+          <input type="radio"  name="go" value="go" id="soto">
+          <label for="soto">So</label><br>
+          <button type="btn" onclick="to()" class="btn btn-primary">Done</button>
+</div> 
+<div id="do" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="dodo">
+   <label for="dodo">Do</label><br>
+       <input type="radio"  name="go" value="my" id="toto">
+       <label for="todo">To</label><br>
+          <input type="radio"  name="go" value="go" id="soto">
+          <label for="sodo">So</label><br>
+          <button type="btn" onclick="dofinal()" class="btn btn-primary">Done</button>
+</div> 
+<div id="me" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="weme">
+   <label for="weme">We</label><br>
+       <input type="radio"  name="go" value="my" id="meme">
+       <label for="meme">Me</label><br>
+          <input type="radio"  name="go" value="go" id="heme">
+          <label for="heme">He</label><br>
+          <button type="btn" onclick="me()" class="btn btn-primary">Done</button>
+</div> 
+<div id="we" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="mewe">
+   <label for="mewe">Me</label><br>
+       <input type="radio"  name="go" value="my" id="wewe">
+       <label for="wewe">We</label><br>
+          <input type="radio"  name="go" value="go" id="upwe">
+          <label for="upwe">Up</label><br>
+          <button type="btn" onclick="we()" class="btn btn-primary">Done</button>
+</div> 
+<div id="no" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="nono">
+   <label for="nono">No</label><br>
+       <input type="radio"  name="go" value="my" id="gono">
+       <label for="gono">Go</label><br>
+          <input type="radio"  name="go" value="go" id="dono">
+          <label for="dono">Do</label><br>
+          <button type="btn" onclick="no()" class="btn btn-primary">Done</button>
+</div> 
+<div id="of" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="offof">
+   <label for="offof">Off</label><br>
+       <input type="radio"  name="go" value="my" id="ofof">
+       <label for="ofof">Of</label><br>
+          <input type="radio"  name="go" value="go" id="onof">
+          <label for="onof">On</label><br>
+          <button type="btn" onclick="of()" class="btn btn-primary">Done</button>
+</div> 
+<div id="is" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="nois">
+   <label for="nois">No</label><br>
+       <input type="radio"  name="go" value="my" id="dois">
+       <label for="dois">Do</label><br>
+          <input type="radio"  name="go" value="go" id="isis">
+          <label for="isis">Is</label><br>
+          <button type="btn" onclick="is()" class="btn btn-primary">Done</button>
+</div> 
+<div id="it" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="itit">
+   <label for="itit">It</label><br>
+       <input type="radio"  name="go" value="my" id="upit">
+       <label for="upit">Up</label><br>
+          <input type="radio"  name="go" value="go" id="goit">
+          <label for="goit">Go</label><br>
+          <button type="btn" onclick="it()" class="btn btn-primary">Done</button>
+</div> 
+<div id="in" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="itin">
+   <label for="itin">It</label><br>
+       <input type="radio"  name="go" value="my" id="inin">
+       <label for="inin">In</label><br>
+          <input type="radio"  name="go" value="go" id="wein">
+          <label for="wein">We</label><br>
+          <button type="btn" onclick="ins()" class="btn btn-primary">Done</button>
+</div> 
+<div id="up" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="heup">
+   <label for="heup">He</label><br>
+       <input type="radio"  name="go" value="my" id="meup">
+       <label for="meup">Me</label><br>
+          <input type="radio"  name="go" value="go" id="upup">
+          <label for="upup">Up</label><br>
+          <button type="btn" onclick="up()" class="btn btn-primary">Done</button>
+</div> 
+<div id="he" style="display:none;position:absolute;">
+    <input type="radio" name="go" value="so" id="mehe">
+   <label for="mehe">Me</label><br>
+       <input type="radio"  name="go" value="my" id="hehe">
+       <label for="hehe">He</label><br>
+          <input type="radio"  name="go" value="go" id="dohe">
+          <label for="dohe">Do</label><br>
+          <button type="btn" onclick="he()" class="btn btn-primary">Done</button>
+</div> 
+<Div id="correct" style="display:none;" onclick="this.style.display='none'">
+    <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/smiling-face-with-smiling-eyes_1f60a.gif" alt="😊 Smiling Face with Smiling Eyes Emoji" width="150px" height="150px"/>
+<h2 id="correct" class="alert alert-success"  >Correct<br>Click to continue👍>>>></h2>
+<iframe width="300" height="60" src="https://vocaroo.com/embed/1jEQiaqUQZgz?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+</Div>
+<div id="wrong" style="display:none;"  onclick="this.style.display='none'">
+    <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/disappointed-face_1f61e.gif" alt="😞 Disappointed Face Emoji" width="150px" height="150px"/>
+<h2 id="wrong" class="alert alert-danger" >Incorrect<br>Click to Try Again😭</h2>
+<iframe width="300" height="60" src="https://vocaroo.com/embed/19kDl6xapO9P?autoplay=1" frameborder="0" allow="autoplay"></iframe>
+</div>
+<img src="https://www.funimada.com/assets/images/cards/big/congrats-7.gif" style="display:none" alt="Congratulations GIFs - Download on Funimada.com" id="done"/>
+
+</body>
+</html>
