@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+        p{
+            font-size:50pt;
+        }
+         .btn-light{
+            border:3px dashed blue;
+           
+        }
+        div{
+            font-size:50pt;
+          color:white;
+        }
+        #awesome{
+              background-image: linear-gradient( purple, blue, pink);
+              width:1000px;
+              height:700px;
+        }
+    .form-control{
+                  font-size:50pt;
+    }
+    h4{
+    color:black;
+    }
+    .modal{
+        background-image: linear-gradient( #00FFFF, yellow, pink);
+    
+    }
+    .btn-warning{
+        font-size:50pt;
+    }
+</style>
+</head>
+
+<body>
+    <script>
+    function twos(){
+        if(document.getElementById('2n').value == "3"){   
+            
+        document.getElementById('correct').style.display="block"; 
+             document.getElementById('2').style.display="none";
+             document.getElementById('5').style.display="block";
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+  
+    }
+     function fives(){
+        if(document.getElementById('5n').value == "6"){   
+            document.getElementById('5').style.display="none";
+             document.getElementById('7').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+     function sevens(){
+        if(document.getElementById('7n').value == "8"){   
+            document.getElementById('7').style.display="none";
+                     document.getElementById('3').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+         function threes(){
+        if(document.getElementById('3n').value == "4"){   
+            document.getElementById('3').style.display="none";
+                     document.getElementById('6').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+     function sixs(){
+        if(document.getElementById('6n').value == "7"){   
+            document.getElementById('6').style.display="none";
+                     document.getElementById('4').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+     function fours(){
+        if(document.getElementById('4n').value == "5"){   
+            document.getElementById('4').style.display="none";
+                     document.getElementById('1').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+       function ones(){
+        if(document.getElementById('1n').value == "2"){   
+            document.getElementById('1').style.display="none";
+                     document.getElementById('8').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+       function eights(){
+        if(document.getElementById('8n').value == "9"){   
+            document.getElementById('8').style.display="none";
+                     document.getElementById('10').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+    function tens(){
+        if(document.getElementById('10n').value == "11"){   
+            document.getElementById('10').style.display="none";
+                     document.getElementById('9').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+    function nines(){
+        if(document.getElementById('9n').value == "10"){   
+            document.getElementById('9').style.display="none";
+             document.getElementById('12').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+      function twelves(){
+        if(document.getElementById('12n').value == "13"){   
+            document.getElementById('12').style.display="none";
+             document.getElementById('14').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+    //fourteens
+   function fourteens(){
+        if(document.getElementById('14n').value == "15"){   
+            document.getElementById('14').style.display="none";
+             document.getElementById('11').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } 
+       function elevens(){
+        if(document.getElementById('11n').value == "12"){   
+            document.getElementById('11').style.display="none";
+             document.getElementById('13').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } 
+    //thirteens
+     function thirteens(){
+        if(document.getElementById('13n').value == "14"){   
+            document.getElementById('13').style.display="none";
+             document.getElementById('16').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } 
+    //sixteens
+    function sixteens(){
+        if(document.getElementById('16n').value == "17"){   
+            document.getElementById('16').style.display="none";
+             document.getElementById('15').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } 
+    //fifteens
+      function fifteens(){
+        if(document.getElementById('15n').value == "16"){   
+            document.getElementById('15').style.display="none";
+             document.getElementById('17').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } //seventeens
+     function seventeens(){
+        if(document.getElementById('17n').value == "18"){   
+            document.getElementById('17').style.display="none";
+             document.getElementById('20').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    } //twentys
+     function twentys(){
+        if(document.getElementById('20n').value == "21"){   
+            document.getElementById('20').style.display="none";
+             document.getElementById('18').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }//eighteens
+      function eighteens(){
+        if(document.getElementById('18n').value == "19"){   
+            document.getElementById('18').style.display="none";
+             document.getElementById('19').style.display="block";
+        document.getElementById('correct').style.display="block";    
+        }else{
+            document.getElementById('wrong').style.display="block";
+        }
+       
+    }
+</script>
+<div id="awesome" >
+<div class="modal" id="correct">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">CORRECT</h4>
+        <button type="button" class="close"  onclick="document.getElementById('correct').style.display='none'" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <img src="https://i.pinimg.com/originals/06/ae/07/06ae072fb343a704ee80c2c55d2da80a.gif" width="550px" height="400px"/>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="document.getElementById('correct').style.display='none'">Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="wrong">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">WRONG</h4>
+        <button type="button" class="close"  onclick="document.getElementById('wrong').style.display='none'" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <img src="https://www.cliparts101.com/files/269/F04558A9E7EC5CACEEECD726F708F823/RedXIcon.png" width="400px" height="400px"/>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="document.getElementById('wrong').style.display='none'">Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="done">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Done</h4>
+        <button type="button" class="close"  data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <img src="https://media0.giphy.com/media/YRzrxz86YLKnmiCUhn/giphy.gif?cid=6c09b95297qlb3vdfz2xhh9sa4kghui4gegyjupck9hbs7gp&rid=giphy.gif&ct=s" width="400px" height="400px"/>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Finish</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="2">
+<form class="form-inline">    <span>What is next to 2 &#10140;?</span>  <input type="number" id="2n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="twos()">Done</button>
+</div>
+<div id="5" style="display:none;">
+<form class="form-inline">    <span>What is next to 5  &#10140;?</span>  <input type="number" id="5n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="fives()">Done</button>
+</div>
+<div id="7" style="display:none;">
+<form class="form-inline">    <span>What is next to 7  &#10140;?</span>  <input type="number" id="7n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="sevens()">Done</button>
+</div>
+<div id="3" style="display:none;">
+<form class="form-inline">    <span>What is next to 3  &#10140;?</span>  <input type="number" id="3n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="threes()">Done</button>
+</div>
+<div id="6" style="display:none;">
+<form class="form-inline">    <span>What is next to 6  &#10140;?</span>  <input type="number" id="6n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="sixs()">Done</button>
+</div>
+<div id="4" style="display:none;">
+<form class="form-inline">    <span>What is next to 4  &#10140;?</span>  <input type="number" id="4n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="fours()">Done</button>
+</div>
+<div id="1" style="display:none;">
+<form class="form-inline">    <span>What is next to 1  &#10140;?</span>  <input type="number" id="1n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="ones()">Done</button>
+</div>
+<div id="8" style="display:none;">
+<form class="form-inline">    <span>What is next to 8  &#10140;?</span>  <input type="number" id="8n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="eights()">Done</button>
+</div>
+<div id="10" style="display:none;">
+<form class="form-inline">    <span>What is next to 10  &#10140;?</span>  <input type="number" id="10n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="tens()">Done</button>
+</div>
+<div id="9" style="display:none;">
+<form class="form-inline">    <span>What is next to 9  &#10140;?</span>  <input type="number" id="9n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="nines()">Done</button>
+</div>
+<div id="12" style="display:none;">
+<form class="form-inline">    <span>What is next to 12  &#10140;?</span>  <input type="number" id="12n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="twelves()">Done</button>
+</div>
+<div id="14" style="display:none;">
+<form class="form-inline">    <span>What is next to 14  &#10140;?</span>  <input type="number" id="14n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="fourteens()">Done</button>
+</div>
+<div id="11" style="display:none;">
+<form class="form-inline">    <span>What is next to 11  &#10140;?</span>  <input type="number" id="11n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="elevens()">Done</button>
+</div>
+<div id="13" style="display:none;">
+<form class="form-inline">    <span>What is next to 13  &#10140;?</span>  <input type="number" id="13n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="thirteens()">Done</button>
+</div>
+<div id="16" style="display:none;">
+<form class="form-inline">    <span>What is next to 16  &#10140;?</span>  <input type="number" id="16n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="sixteens()">Done</button>
+</div>
+<div id="15" style="display:none;">
+<form class="form-inline">    <span>What is next to 15  &#10140;?</span>  <input type="number" id="15n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="fifteens()">Done</button>
+</div>
+<div id="17" style="display:none;">
+<form class="form-inline">    <span>What is next to 17  &#10140;?</span>  <input type="number" id="17n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="seventeens()">Done</button>
+</div>
+<div id="20" style="display:none;">
+<form class="form-inline">    <span>What is next to 20  &#10140;?</span>  <input type="number" id="20n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="twentys()">Done</button>
+</div>
+<div id="18" style="display:none;">
+<form class="form-inline">    <span>What is next to 18  &#10140;?</span>  <input type="number" id="18n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" onclick="eighteens()">Done</button>
+</div>
+<div id="19" style="display:none;">
+<form class="form-inline">    <span>What is next to 19  &#10140;?</span>  <input type="number" id="19n" class="form-control"></form>
+    <button class="btn btn-warning" type="btn" data-toggle="modal" data-target="#done">Done</button>
+</div>
+</div>
+</body>
+</html>
