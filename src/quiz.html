@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel = "icon" href = 
+"/AswinIcon.png"
+		type = "image/x-icon">
+    <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
+    <title>Aswin's Good Apps | Quizzes</title>
+    <meta name="google-site-verification" content="ZuIBSy1jNwRYqyhCZ4kQjzVM9GbQsXihCHHQ8FHu2Us" />
+    <style>
+       
+
+        #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  margin: -76px 0 0 -76px;
+ 
+
+}
+
+
+
+.container{
+   border:2px solid black; 
+}
+#notlogin{
+    background:black;
+}
+    </style>
+           <script type="text/javascript" src="//cdn.tectite.com/formval-v17.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223753011-1"> </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
+</head>
+<body onload="myFunction()">
+    <script>
+       function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+        function makeFullScreen() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('count');
+    requestFullScreen(elem);
+}
+function makeFullScreenphonics() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('phonics');
+    requestFullScreen(elem);
+}
+function makeFullScreenlowerupper() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('lowerUpper');
+    requestFullScreen(elem);
+}
+function makeFullScreenfb() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('fb');
+    requestFullScreen(elem);
+}
+function makeFullScreenword() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('word');
+    requestFullScreen(elem);
+}
+function makeFullScreenafter() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.getElementById('after');
+    requestFullScreen(elem);
+}
+document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+     return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+     return false;
+    }      
+ }
+
+        function myFunction() {
+  myVar = setTimeout(showPage, 2000);
+console.log(localStorage.getItem("Name"));
+
+   document.getElementById('p1').innerHTML = "Hello "+localStorage.getItem("Name")+"!";
+   if(document.getElementById('p1').innerHTML == "Hello null!"){
+       document.getElementById('p1').innerHTML = "Not Logged In."
+       document.getElementById('notlogin').style.display="block";
+   } else{
+        document.getElementById("signup2").style.display = "none" ;
+     document.getElementById("login1").style.display = "none" ;
+   }
+}   
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+ document.getElementById('goonthetrack').style.display='none';
+ document.getElementById('nextstep').style.display="none";
+
+
+
+}
+    </script>
+    <div class="spinner-border text-warning" id="loader"></div>
+      	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="https://www.aswinapps.com">Aswin's Good Apps</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav sticky-top">
+    <li class="nav-item">
+      <a class="nav-link" href="https://www.aswinapps.com"><i class="fa fa-home"></i>Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/applist.html"><i class="material-icons">apps</i>Apps List</a>
+    </li>
+    <li class="nav-item" id="login1" >
+      <a class="nav-link " href="/login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
+    </li>
+     <li class="nav-item" id="signup2">
+      <a class="nav-link" href="/signup.html"><i class="fas fa-user-plus"></i>Sign Up</a>
+    </li>
+         <li class="nav-item">
+      <a class="nav-link active" href="/quiz.html"><i class="fa-solid fa-circle-question"></i>Quizzes</a>
+    </li>
+      <li class="nav-item" >
+      <a class="nav-link"   href="https://docs.aswinapps.com"><i class="fa-solid fa-file"></i>Docs(Updated)</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="https://curiousaswin.github.io/aswinappsbeta"><i class="material-icons">developer_mode</i>Pre-Release</a>
+    </li>
+  </ul>
+</nav>
+
+ <ul class="nav nav-tabs" style="justify-content:right;">
+    
+          <li class="nav-item" style="text-align:right;">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notifications">
+  <i class="fa fa-bell" aria-hidden="true"> </i>
+  </button>
+  </li>
+    <li class="nav-item" style="text-align:right;">
+        <button id="p1" type="button" style="background-color:white;" onclick="localStorage.clear();alert('done');" class="nav-link"> Not Logged In
+        </button>
+    </li>
+     </ul>
+        <h1><Center>Quizzes</Center></h1>
+<h5><center><i>Quizzes for each subject</i></center></h5>
+
+<div class="row">
+ <div class="col-sm-3">
+     
+  <br>
+  <!-- Nav pills -->
+  <ul class="nav nav-pills flex-column"  role="tablist">
+   <li class="nav-item " style="display:flex;">
+      <a class="nav-link active" data-toggle="pill" width="50%" href="#science">Science</a>
+    </li>
+    <li class="nav-item"  style="display:flex;">
+      <a class="nav-link" data-toggle="pill" href="#math">Math</a>
+    </li>
+    <li class="nav-item"  style="display:flex;">
+      <a class="nav-link" data-toggle="pill" href="#english" >English</a>
+    </li>
+  </ul>
+</div>
+<div class="col-sm-7">
+  <!-- Tab panes -->
+  <div class="tab-content" style="text-align:center;">
+      
+    <div id="science" class="container tab-pane active"><br><br><br>
+      <h3>Science</h3>
+      <p>No Current Tutorials</p>
+    </div>
+    <div id="math" class="container tab-pane fade"><br>
+       <h3>Math</h3>
+      <h4><u>Preschool</u></h4>
+      <center><table >
+          <tr >
+              <td style="border:2px solid gray;" >
+                  <iframe id="count" src="https://docs.google.com/forms/d/e/1FAIpQLSd8z9OcFBhihI61lqFjGBFwD9p6wDPOpTYvqsZ0NJTWdpNAaw/viewform?embedded=true" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> Counting<br></center>
+              <button type="btn" onclick="makeFullScreen()" class="btn btn-primary">Start Quiz</button>
+            </td>
+              <td style="border:2px solid gray;" >
+                  <iframe id="fb" src="https://aswinarulvel.wixsite.com/mysite/" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> Find Big/Small One<br></center>
+              <button type="btn" onclick="makeFullScreenfb()" class="btn btn-primary">Start Quiz</button>
+            </td>
+               <td style="border:2px solid gray;" >
+                  <iframe id="after" src="https://www.aswinapps.com/quiz/after.html" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> What come after<br></center>
+              <button type="btn" onclick="makeFullScreenafter()" class="btn btn-primary">Start Quiz</button>
+            </td>
+          </tr>
+      </table></center>
+    </div>
+    <div id="english" class="container tab-pane fade"><br>
+      <h3>English</h3>
+      <h4><u>Preschool</u></h4>
+      <center><table >
+          <tr>
+              <td style="border:2px solid gray;">
+                  <iframe id="phonics" src="https://docs.google.com/forms/d/e/1FAIpQLSfYiJ9knEcAbbWIpp3w3zz9DTthHGH9a8x5PuW5f8D3BbJx-w/viewform?embedded=true" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> Phonics<br></center>
+              <button type="btn" onclick="makeFullScreenphonics()" class="btn btn-primary">Start Quiz</button>
+            </td>
+            <td style="border:2px solid gray;">
+                  <iframe id="lowerUpper" src="https://aswinarulvel.wixsite.com/mysite/awesome" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> LowerCase and UpperCase<br></center>
+              <button type="btn" onclick="makeFullScreenlowerupper()" class="btn btn-primary">Start Quiz</button>
+            </td>
+            <td style="border:2px solid gray;" >
+                  <iframe id="word" src="https://www.aswinapps.com/quiz/word.html" width="100" height="100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><br>
+             <center> Find Correct Word<br></center>
+              <button type="btn" onclick="makeFullScreenword()" class="btn btn-primary">Start Quiz</button>
+            </td>
+          </tr>
+      </table></center>
+    </div>
+  </div>
+</div>
+</div>
+ <div class="modal" id="notifications">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <div class="jumbotron">
+          <h5 style="color:black;"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h5><span class="small font-italic">Updated as of 12/17/22 </span>
+          <ul>
+ 
+
+
+<li>Aswin's Fraction Calculator started giving Simplified fractions. <a href="/calculator/fractionscalc.html">Explore Now!</a></li>        
+<li>Aswin's Percentage Calculator Now rounds the percents to the nearest hundredth. <a href="/calculator/percent.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a new calculator called slope calculator.<a href="/calculator/slope.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a calculator to find x and y intercepts.<a href="/calculator/intercept.html">Explore Now</a></li>
+<li>We're Creating an app called Aswin's Worksheet Finder<a href="/worksheet.html">Explore Now</a></li>
+<li>Aswin's Writer has some new changes.<a href="/docs.html">Explore Now</a></li>
+
+</ul>
+      </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="notlogin">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Content is available to memebers only.</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h3>Quizzes are available to memebers only</h3>
+        <a href="/login.html">Login For Access</a><br>
+        <a href="/sign.html">Sign Up For Access</a>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+    Please choose one of the options to continue.
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
