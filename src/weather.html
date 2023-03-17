@@ -88,6 +88,7 @@ font-weight:bold;
     </li>
   </ul>
 </nav>
+<Div id="signin" style="display:none"></Div>
 <Div id="editlocation" style="display:none;background-color:#D3D3D3;text-align:center;"><button type="btn" class="btn btn-secondary" style="background-color:#D3D3D3;border:3px solid black;color:black" onclick="editlocation()"><i class="fa-solid fa-pencil"></i> Edit Location</button></Div>
     <input type="text" id="city" class="form-control" placeholder="Enter City Name"><button type="btn" class="btn-success form-control" id="exe" onclick="loadweather()">Get Weather</button>
     <div id="weatherdata" width="400px" height="300px">
@@ -112,13 +113,41 @@ font-weight:bold;
     <br>
         <a href="./weather/7day.html" class="form-control btn-success" style"text-align:center" >View Full 7 Day Forecast --></a>
         </div>
+        <div class="modal fade" id="fornonmembers">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">App is available for members only</h4>
+        
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+ ForecastStar is available to members of Aswin's Good Apps Only. We are sorry for the inconvenience. <br>
+Have an account?  Visit the <a href="/index.html">Main Page<i class="material-icons">&#xe879;</i></a> to log in.<br>
+Don't have an account? Visit the <a href="/index.html">Main Page<i class="material-icons">&#xe879;</i></a> to sign up.It is completely free.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+     
+          <a href="/applist.html" type="button" class="btn btn-danger" >Back to App List</a>
+      </div>
+
+    </div>
+  </div>
+</div>
 <script>
 var cityvaluetosave = null;
 setTimeout(stopload,3000);
 var citysaved=null;
 function retrieve(){
        citysaved = localStorage.getItem("cityname")
-
+  var getinfo = localStorage.getItem("Name");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!";
+ 
     setTimeout(stopload,3000)
     if(citysaved=== null){
         document.getElementById('city').style.display="block"
@@ -138,6 +167,11 @@ function stopload(){
     document.getElementById('loader').style.display="none";
     document.getElementById('loader2').style.display="none";
     document.getElementById('loading').style.display="none";
+     if(document.getElementById('signin').innerHTML== "Hello null!"){
+    document.getElementById('fornonmembers').className = "modal fade show";
+    document.getElementById('fornonmembers').style.display="block";
+    document.getElementById('content').style.opacity="0.5";
+    }
 }  
 
  function loadweather(){
