@@ -184,18 +184,18 @@ function stopload(){
       var weatherdesc= document.getElementById('weatherdesc');
       var citytemp=document.getElementById('citytemp')
  var feelslike = document.getElementById('feels');
-      fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&units=imperial&appid=de804dd005d7921a28409643522d3330')
+      fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+city+'?key=2ASQ7TVJSGDFN6RL4RBAACDAR')
       .then(response => response.json())
       .then(data => {
-          var namevalue= data['name'];
-          var temp = data['main']['temp'];
-          var desc = data['weather'][0]['description']
-         var feels =  data['main']['feels_like']
+           var namevalue= data.resolvedAddress;
+          var temp = data.currentConditions.temp;;
+          var desc = data.currentConditions.conditions;
+         var feels =  data.currentConditions.feelslike;
           cityname.innerHTML = namevalue;
           citytemp.innerHTML = temp+"°F";
           weatherdesc.innerHTML = desc;
           feelslike.innerHTML= feels+"°F";
-          if(document.getElementById('weatherdesc').innerHTML=="clear sky"){
+          if(document.getElementById('weatherdesc').innerHTML=="Clear"){
           document.getElementById('weatherdata').style.backgroundImage="url('https://wallpapercave.com/wp/q0wBa2M.jpg')";
           document.getElementById('weatherdata').style.color = "white";
           const d = new Date();
@@ -207,24 +207,24 @@ if(hour<17){
     document.getElementById('weatherdata').style.backgroundImage="url('https://wallpapercave.com/dwp1x/CqOvBFE.jpg')";
     document.getElementById('weatherdata').style.color = "black";
 }
-      }else if(document.getElementById('weatherdesc').innerHTML==="overcast clouds"){
+      }else if(document.getElementById('weatherdesc').innerHTML==="Overcast"){
            
       }
       var desc= document.getElementById('weatherdesc').innerHTML;
       var icon=document.getElementById('weathericon');
       
-                    if(desc==="overcast clouds"){
+                    if(desc==="Overcast"){
                       document.getElementById('weathericon').className="fa-solid fa-cloud";
                          document.getElementById('weatherdata').style.backgroundImage="url('https://www.photos-public-domain.com/wp-content/uploads/2012/04/cloudy-overcast-sky-600x400.jpg')";
     document.getElementById('weatherdata').style.color = "black";
     
-                   }else if(desc==="broken clouds"){
+                   }else if(desc==="Partially cloudy"){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-sun";
                        document.getElementById('weatherdata').style.backgroundImage="url('https://i.ytimg.com/vi/qK_GoKKxzOI/maxresdefault.jpg')";
     document.getElementById('weatherdata').style.color = "black";
                    }else if(desc==="Rain and snow"){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
-                   }else if(desc.inclueds("snow")){
+                   }else if(desc.inclueds("Snow")){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
                       document.getElementById('weatherdata').style.backgroundImage="url('https://www.wallpaperup.com/uploads/wallpapers/2015/12/22/866247/82cbad376d1a97b88b9dca2220225513.jpg')";
     document.getElementById('weatherdata').style.color = "black";
@@ -232,7 +232,7 @@ if(hour<17){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
                    }else if(desc==="Sunny"){
                       document.getElementById('weathericon').className="fa-solid fa-sun";
-                   }else if(desc.includes('rain')){
+                   }else if(desc.includes('Rain')){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-rain";
                    }else if(desc.includes('t-storms')){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-bolt";
@@ -249,13 +249,15 @@ if(hour<17){
       var weatherdesc= document.getElementById('weatherdesc');
       var citytemp=document.getElementById('citytemp')
  var feelslike = document.getElementById('feels');
-      fetch('https://api.openweathermap.org/data/2.5/weather?q='+citysaved+'&units=imperial&appid=de804dd005d7921a28409643522d3330')
+      fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+citysaved+'?key=2ASQ7TVJSGDFN6RL4RBAACDAR')
       .then(response => response.json())
       .then(data => {
-          var namevalue= data['name'];
-          var temp = data['main']['temp'];
-          var desc = data['weather'][0]['description']
-         var feels =  data['main']['feels_like']
+        
+      
+          var namevalue= data.resolvedAddress;
+          var temp = data.currentConditions.temp;;
+          var desc = data.currentConditions.conditions;
+         var feels =  data.currentConditions.feelslike;
           cityname.innerHTML = namevalue;
           citytemp.innerHTML = temp+"°F";
           weatherdesc.innerHTML = desc;
@@ -278,26 +280,26 @@ if(hour<17){
       var desc= document.getElementById('weatherdesc').innerHTML;
       var icon=document.getElementById('weathericon');
       
-                    if(desc==="overcast clouds"){
+                    if(desc==="Overcast"){
                       document.getElementById('weathericon').className="fa-solid fa-cloud";
                          document.getElementById('weatherdata').style.backgroundImage="url('https://www.photos-public-domain.com/wp-content/uploads/2012/04/cloudy-overcast-sky-600x400.jpg')";
     document.getElementById('weatherdata').style.color = "black";
     
-                   }else if(desc==="broken clouds"){
+                   }else if(desc==="Partially cloudy"){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-sun";
                        document.getElementById('weatherdata').style.backgroundImage="url('https://i.ytimg.com/vi/qK_GoKKxzOI/maxresdefault.jpg')";
     document.getElementById('weatherdata').style.color = "black";
                    }else if(desc==="Rain and snow"){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
-                   }else if(desc.includes("snow")){
+                   }else if(desc.includes("Snow")){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
                       document.getElementById('weatherdata').style.backgroundImage="url('https://www.wallpaperup.com/uploads/wallpapers/2015/12/22/866247/82cbad376d1a97b88b9dca2220225513.jpg')";
                    }else if(desc==="Flurries"){
                       document.getElementById('weathericon').className="fa-solid fa-snowflake";
-                   }else if(desc==="Sunny"){
+                   }else if(desc==="Clear"){
                       document.getElementById('weathericon').className="fa-solid fa-sun";
-                   }else if(desc.includes('rain')){
+                   }else if(desc.includes('Rain')){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-rain";
                    }else if(desc.includes('t-storms')){
                       document.getElementById('weathericon').className="fa-solid fa-cloud-bolt";
