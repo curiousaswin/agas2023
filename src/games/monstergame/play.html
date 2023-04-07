@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monster Finding Full Game | Aswin Games</title>
+    <style>
+        img{
+            position:relative;
+            display:inline;
+        }
+        div{
+            position:relative;
+            dispaly:inline;
+        }
+        body{
+              overflow-x: hidden;
+                overflow-y: hidden;
+                background-image:url('https://cdn.wallpapersafari.com/74/75/Jwpblz.jpg');
+            
+        }
+        span{
+            display:inline;
+        }
+    
+    </style>
+</head>
+<body>
+    <div  id="imgforgame" style="width:1;height:1;">
+        <div class="row">
+            <div class="col-sm-0">
+<img src="https://www.aswinapps.com/monstergame.png" id="avatar" width="50" height="50" style="display:inline;"><span id="darkimage" style="display:none;width:90px;height:40px; background-color:black;"></span></div><div class="col-sm-0" id="col2"><span id="rapidlaser"  style="display:none;"><span id="coolbro"  style="display:block;border:3px solid red;width:100px;"></span></span></div><div class="col-sm-0" id="col3"></div></div></div>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+			   <div class="modal" id="defeat">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Defeated</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" style="background-color:Red;color:white;">
+      <h1>Defeated</h1><br><h5><i>You ran out of health</i></h5>
+       
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div> 
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Choose option</h4>
+        <button type="button" class="close" >(C) Aswin's Good Apps</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <ul>
+            <li><button type="btn" class="btn btn-success" onclick="darkenergy()" data-dismiss="modal">Dark Energy<br><i>Piece of wood that kills enemies</i><br><span id="darkdamage">Damage --> 5</span><br>Level <span id="darklvl">1</span></button></li>
+         
+                <li><button type="btn" class="btn btn-success" onclick="laser()" data-dismiss="modal">Laser<br><i>Shoot out lasers that Give Good Amount of Damage</i><br><span id="laserdamage">Damage --> 10</span><Br>Level <span id="laserlvl">1</span></button></li>
+          
+                
+                <li><button type="btn" class="btn btn-success" onclick="sphere()" data-dismiss="modal">Sphere<br><i>Throw Spheres that give damage</i><br><span id="spheredamage">Damage --> 7</span><Br>Level <span id="spherelvl">1</span></button></li>
+               
+                     <li><button type="btn" class="btn btn-success" onclick="stickypuddles()" data-dismiss="modal">Sticky Syrup Puddles<br><i>Put Random Sticky Syrup Puddles</i><span id="puddledamage"><br>Damage --> 2</span><Br>Level <span id="puddlelvl">1</span></button></li>
+                     
+                  
+        </ul>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" >Choose Option To Continue</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="levelmove">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Level Completed</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <button type="btn" class="btn btn-success" data-dismiss="modal" data-toggle="modal" data-target="#myModal">
+          ✅
+           <br> Click here to Continue
+           
+       </button>
+       <h2>Coming Up:</h2>
+             <div style="Background-color:Gray;color:white; border:2px solid green;">Lvl <span id="lvln">1</span></div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+		</div>
+	</div>
+<div class="progress fixed-botttom" id="stylingprogress" style="height:10px">
+  <div class="progress-bar" id="health" style="width:100%;height:10px"></div>
+</div>
+<Script>
+var darkenergydamage = 5;
+var laserdamage = 10;
+var spheredamage = 7;
+var puddledamage = 2;
+var health = 100;
+document.getElementById('stylingprogress').style.top = window.innerHeight-100+"px";
+var topgo = 0 ; 
+var leftgo = 0;
+
+setInterval(function() { 
+                 
+    
+       
+                  numberofkills = 0;
+                   let levelmover = new bootstrap.Modal(
+          document.getElementById("levelmove"),
+          {}
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        levelmover.show();
+    
+        var leveldisplay= document.getElementById('lvln').innerHTML*1;
+    
+            var newnumber= leveldisplay+1;
+                document.getElementById('lvln').innerHTML=newnumber;
+        if(newnumber=== 3){
+            setInterval(secondenemy,500);
+        }else if(newnumber=== 9){
+            setInterval(thirdenemy,100);
+        }
+          },15000);
+   
+document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.keyCode == 38){
+   topgo = topgo-5
+     document.getElementById('imgforgame').style.top = topgo+"px";
+    }
+    if(e.keyCode == 40){
+
+     topgo = topgo+5
+     document.getElementById('imgforgame').style.top = topgo+"px";
+    }
+    if(e.keyCode == 37){
+     leftgo = leftgo-5
+     document.getElementById('imgforgame').style.left = leftgo+"px";
+    }
+
+    if(e.keyCode == 39){
+     
+     leftgo = leftgo+5
+     document.getElementById('imgforgame').style.left = leftgo+"px";
+    }      
+ }
+ setInterval(firstenemy, 2000);
+ function checkCollision(el1, el2) {
+  var rect1 = el1.getBoundingClientRect();
+  var rect2 = el2.getBoundingClientRect();
+
+  return !(
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right ||
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom
+  );
+}
+
+
+  var spheres = document.createElement('img');
+spheres.src = "https://th.bing.com/th/id/R.0c1dedb6d450d427ce7d8e38266a23a9?rik=d2Qt1cXTlFFvxg&pid=ImgRaw&r=0";
+spheres.style.width = "70px";
+spheres.style.height = "70px";
+
+ var puddles = document.createElement('img');
+puddles.src = "https://lh3.googleusercontent.com/proxy/AyXyWN9uQFo02oQrggFkUZOKxW8CJzKuyskp7fhfgFev4K0hFsO93y7W9xlWjO7EqNLDKnTia4T4Q_uIm7RI844jzVlfmo7JgDjNoO2vZ-YJwdccvQ=s0-d";
+puddles.style.width = "80px";
+puddles.style.height = "80px";
+puddles.style.top = Math.floor(Math.random() * window.innerHeight);
+puddles.style.left = Math.floor(Math.random() * window.innerWidth);
+
+
+ function firstenemy(){
+    var div = document.createElement('div');
+  div.style.width = "50px";
+  div.style.height = "50px";
+  div.style.backgroundImage = "url('/games/monstergame/enemy/1enemy.png')";
+  var left= Math.floor((Math.random() * 753)+1);
+  div.style.left =left + "px";  
+ var top =  Math.floor((Math.random() * 805)+1);
+  div.style.top = top  + "px";
+  setInterval(function() { left = left-1; div.style.left = left+"px"; top = top-1; div.style.top= top+"px";}, 500);
+
+  div.innerHTML= 5;
+  document.body.appendChild(div);
+
+var level = 1;
+
+setInterval(function() {
+  
+  if(darkstatus === "c"){
+ 
+  if (checkCollision(div, document.getElementById('darkimage'))) {
+      div.innerHTML = div.innerHTML - darkenergydamage;
+      if(div.innerHTML <= 0){
+          div.remove();
+        
+      
+     
+      }
+    }
+         
+  }
+  //lasertry
+   if(laserstatus === "c"){
+
+
+  if (checkCollision(div, document.getElementById('rapidlaser'))) {
+      div.innerHTML = div.innerHTML - laserdamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+    
+      
+       
+      }
+    }
+         
+  }
+  
+
+  
+     if(spherestatus === "c"){
+
+
+
+ 
+  if (checkCollision(div,spheres)) {
+           
+      div.innerHTML = div.innerHTML - spheredamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+       
+      
+      }
+    }
+         
+  }
+  
+    if(syrupstatus === "c"){
+
+
+        
+
+  if (checkCollision(div,puddles)) {
+      div.innerHTML = div.innerHTML - puddledamage;
+      if(div.innerHTML <= 0){
+              
+          div.remove();
+       
+      
+        
+      }
+    }
+         
+  }
+  
+  
+  
+       if (checkCollision(div, document.getElementById('avatar'))) {
+     document.getElementById('health').style.width = health - 5 + "%"; 
+     health = health - 5;
+    }
+    
+    if(health === 0){
+                let defeat = new bootstrap.Modal(
+          document.getElementById("defeat"),
+          {}
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        defeat.show();
+    
+        
+    }
+    
+}
+, 500);
+    
+    
+  };
+  function secondenemy(){
+    var div = document.createElement('div');
+  div.style.width = "80px";
+  div.style.height = "80px";
+  div.style.backgroundImage = "url('/games/monstergame/enemy/2enemy.png')";
+  var left= Math.floor((Math.random() * 753)+1);
+  div.style.left =left + "px";  
+ var top =  Math.floor((Math.random() * 805)+1);
+  div.style.top = top  + "px";
+  setInterval(function() { left = left-1; div.style.left = left+"px"; top = top-1; div.style.top= top+"px";}, 500);
+
+  div.innerHTML= 30;
+  document.body.appendChild(div);
+
+var level = 1;
+
+setInterval(function() {
+  
+  if(darkstatus === "c"){
+ 
+  if (checkCollision(div, document.getElementById('darkimage'))) {
+      div.innerHTML = div.innerHTML - darkenergydamage;
+      if(div.innerHTML <= 0){
+          div.remove();
+        
+      
+     
+      }
+    }
+         
+  }
+  //lasertry
+   if(laserstatus === "c"){
+
+
+  if (checkCollision(div, document.getElementById('rapidlaser'))) {
+      div.innerHTML = div.innerHTML - laserdamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+    
+      
+       
+      }
+    }
+         
+  }
+  
+
+  
+     if(spherestatus === "c"){
+
+
+
+
+  if (checkCollision(div,spheres)) {
+          
+      div.innerHTML = div.innerHTML - spheredamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+       
+      
+      }
+    }
+         
+  }
+  
+    if(syrupstatus === "c"){
+
+
+
+  if (checkCollision(div,puddlesr)) {
+      div.innerHTML = div.innerHTML - puddledamage;
+      if(div.innerHTML <= 0){
+              
+          div.remove()
+       
+      
+        
+      }
+    }
+    
+     if (checkCollision(div,puddles)) {
+      div.innerHTML = div.innerHTML - 2;
+      if(div.innerHTML <= 0){
+              
+          div.remove()
+       
+      
+        
+      }
+    }
+         
+  }
+  
+  
+  
+       if (checkCollision(div, document.getElementById('avatar'))) {
+     document.getElementById('health').style.width = health - 10 + "%"; 
+     health = health - 10;
+    }
+    
+    if(health === 0){
+                let defeat = new bootstrap.Modal(
+          document.getElementById("defeat"),
+          {}
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        defeat.show();
+    
+        
+    }
+    
+}
+, 500);
+    
+    
+  };
+  
+  
+  //third
+    function thirdenemy(){
+    var div = document.createElement('div');
+  div.style.width = "100px";
+  div.style.height = "100px";
+  div.style.backgroundImage = "url('/games/monstergame/enemy/3enemy.png')";
+  var left= (Math.random() * window.innerWidth)-100;;
+  div.style.left =left + "px";  
+ var top =  (Math.random() * window.innerHeight)-100;
+  div.style.top = top  + "px";
+  setInterval(function() { left = left-1; div.style.left = left+"px"; top = top-1; div.style.top= top+"px";}, 500);
+
+  div.innerHTML= 60;
+  document.body.appendChild(div);
+
+var level = 1;
+
+setInterval(function() {
+  
+  if(darkstatus === "c"){
+ 
+  if (checkCollision(div, document.getElementById('darkimage'))) {
+      div.innerHTML = div.innerHTML - darkenergydamage;
+      if(div.innerHTML <= 0){
+          div.remove();
+        
+      
+     
+      }
+    }
+         
+  }
+  //lasertry
+   if(laserstatus === "c"){
+
+
+  if (checkCollision(div, document.getElementById('rapidlaser'))) {
+      div.innerHTML = div.innerHTML - laserdamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+    
+      
+       
+      }
+    }
+         
+  }
+  
+
+  
+     if(spherestatus === "c"){
+
+
+
+
+  if (checkCollision(div,spheres)) {
+          
+      div.innerHTML = div.innerHTML - spheredamage;
+      if(div.innerHTML <= 0){
+              
+        div.remove()
+       
+      
+      }
+    }
+         
+  }
+  
+    if(syrupstatus === "c"){
+
+
+
+  if (checkCollision(div,puddlesr)) {
+      div.innerHTML = div.innerHTML - puddledamage;
+      if(div.innerHTML <= 0){
+              
+          div.remove()
+       
+      
+        
+      }
+    }
+    
+     if (checkCollision(div,puddles)) {
+      div.innerHTML = div.innerHTML - 2;
+      if(div.innerHTML <= 0){
+              
+          div.remove()
+       
+      
+        
+      }
+    }
+         
+  }
+  
+  
+  
+       if (checkCollision(div, document.getElementById('avatar'))) {
+     document.getElementById('health').style.width = health - 20 + "%"; 
+     health = health - 10;
+    }
+    
+    if(health === 0){
+                let defeat = new bootstrap.Modal(
+          document.getElementById("defeat"),
+          {}
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        defeat.show();
+    
+        
+    }
+    
+}
+, 500);
+    
+    
+  };
+     
+ var darkstatus= "f" ;
+ function darkenergy(){
+     document.getElementById('darkimage').style.display="block";
+     darkstatus = "c";
+     var darkdamageword = document.getElementById('darkdamage');
+     var darklevel = document.getElementById('darklvl').innerHTML;
+     if(darklevel == "1"){
+         darkenergydamage= 5;
+         darkdamageword.innerHTML="Damage --> 10"
+         
+     }else if(darklevel == "2"){
+         darkenergydamage = 10;
+         darkdamageword.innerHTML = "Damage --> 15"
+     }else if(darklevel == "3"){
+         darkenergydamage = 15;
+         darkdamageword.innerHTML = "Damage --> 30"
+     }else if(darklevel == "4"){
+         darkenergydamage = 30;
+         darkdamageword.innerHTML = "Damage --> 60"
+     }else if(darklevel == "5"){
+         darkenergydamage = 60;
+         darkdamageword.innerHTML = "Damage --> 70"
+     }else if(darklevel == "6"){
+         darkenergydamage = 70;
+         darkdamageword.innerHTML = "Damage --> 75"
+     }else if(darklevel == "7"){
+         darkenergydamage = 75;
+         darkdamageword.innerHTML = "Damage --> 85"
+     }else if(darklevel == "8"){
+         darkenergydamage = 85;
+         darkdamageword.innerHTML = "Damage --> 90<br>Increase Size";
+         
+     }else if(darklevel == "9"){
+         darkimage.style.height="90px";
+         darkenergydamage = 95;
+         darkdamageword.innerHTML = "Damage --> 97<br>Increase Size"
+     }else if(darklevel == "10"){
+         darkimage.style.height="100px";
+         darkenergydamage = 97;
+         darkdamageword.innerHTML = "Maxed Level"
+     }
+     
+     if(document.getElementById('darklvl').innerHTML=="11"){
+         document.getElementById('darklvl').innerHTML = "Maxed";
+     }else{
+     document.getElementById('darklvl').innerHTML= darklevel*1+1;
+     }
+ }
+ var laserstatus = "f";
+ function laser(){
+      document.getElementById('rapidlaser').style.display="inline";
+     laserstatus = "c";
+
+var laserlevel = document.getElementById('laserlvl').innerHTML;
+var laserdamageword = document.getElementById('laserdamage')
+if(laserlevel == "1"){
+    setInterval(function() { document.getElementById('rapidlaser').style.display = "none"; setTimeout(blink, 250)}, 500);
+    laserdamage = 10;
+    laserdamageword.innerHTML = "Damage --> 17"
+}else if(laserlevel == "2"){
+    laserdamage = 17;
+    laserdamageword.innerHTML = "Damage --> 23"
+}else if(laserlevel == "3"){
+    laserdamage = 23;
+    laserdamageword.innerHTML = "Damage --> 32"
+}else if(laserlevel == "4"){
+    laserdamage = 32;
+    laserdamageword.innerHTML = "Damage --> 39"
+}else if(laserlevel == "5"){
+    laserdamage = 39;
+    laserdamageword.innerHTML = "Damage --> 48<br>Increase Size(100px -> 125px)";
+}else if(laserlevel == "6"){
+    laserdamage = 48;
+    document.getElementById('coolbro').style.width = "125px";
+    laserdamageword.innerHTML = "Damage --> 57";
+}else if(laserlevel == "7"){
+    laserdamage = 57;
+    laserdamageword.innerHTML = "Damage --> 69";
+}else if(laserlevel == "8"){
+    laserdamage = 69;
+    laserdamageword.innerHTML = "Damage --> 72";
+}else if(laserlevel == "9"){
+    laserdamage = 72;
+    laserdamageword.innerHTML = "Damage --> 81<br>Increase Size (125px --> 130px)";
+}else if(laserlevel == "10"){
+    laserdamage = 81;
+    laserdamageword.innerHTML = "Maxed level";
+}
+   if(document.getElementById('laserlvl').innerHTML=="11"){
+         document.getElementById('laserlvl').innerHTML = "Maxed";
+     }else{
+     document.getElementById('laserlvl').innerHTML= laserlevel*1+1;
+     }
+//coolbro
+ 
+ }
+ var spherestatus = "f";
+ var n = 0
+ function sphere(){
+     spherestatus="c";
+     var spherelevel = document.getElementById('spherelvl').innerHTML;
+     var spheredamageword = document.getElementById('spheredamage');
+     if(spherelevel == "1"){
+         document.getElementById('col3').appendChild(spheres);
+   rotation =  setInterval(sphererotate,10)
+ setInterval(spherecreate, 5000);
+ spheredamageword.innerHTML = "Damage --> 14";
+ spheredamage = 7;
+     } else if(spherelevel == "2"){
+         spheredamage = 14;
+         spheredamageword.innerHTML = "Damage --> 21"
+     }else if(spherelevel == "3"){
+         spheredamage = 21;
+         spheredamageword.innerHTML = "Damage --> 28"
+     }else if(spherelevel == "4"){
+         spheredamage = 28;
+         spheredamageword.innerHTML = "Damage --> 35"
+     }else if(spherelevel == "5"){
+         spheredamage = 35;
+         spheredamageword.innerHTML = "Damage --> 42"
+     }else if(spherelevel == "6"){
+         spheredamage = 42;
+         spheredamageword.innerHTML = "Damage --> 49"
+     }else if(spherelevel == "7"){
+         spheredamage = 49;
+         spheredamageword.innerHTML = "Damage --> 56"
+     }else if(spherelevel == "8"){
+         spheredamage = 56;
+         spheredamageword.innerHTML = "Damage --> 63"
+     }else if(spherelevel == "9"){
+         spheredamage = 63;
+         spheredamageword.innerHTML = "Damage --> 70";
+     }else if(spherelevel == "10"){
+         spheredamage = 70;
+         spheredamageword.innerHTML = "Maxed Level"
+     }
+     
+     
+   if(document.getElementById('spherelvl').innerHTML=="11"){
+         document.getElementById('spherelvl').innerHTML = "Maxed";
+     }else{
+     document.getElementById('spherelvl').innerHTML= spherelevel*1+1;
+     }
+     
+ }
+ 
+ var spheretop = topgo;
+ var sphereleft = leftgo;
+ function sphererotate(){
+     n=n+1;
+         spheres.style.transform="rotate(" + n + "deg)"
+spheres.style.webkitTransform="rotate(" + n + "deg)"
+spheres.style.OTransform="rotate(" + n + "deg)"
+spheres.style.MozTransform="rotate(" + n + "deg)"
+spheretop = spheretop+1;
+sphereleft = sphereleft + 1;
+spheres.style.top=  spheretop+"px";
+spheres.style.left = sphereleft+"px";
+
+ }
+ function spherecreate(){
+spheretop = topgo;
+sphereleft = leftgo;
+    clearInterval(rotation);
+   rotation =  setInterval(sphererotate, 10)
+ }
+ function blink(){
+     document.getElementById('rapidlaser').style.display = "inline";
+ }
+ var syrupstatus = "f";
+ function stickypuddles(){
+     syrupstatus="c";
+     document.body.appendChild(puddles);
+     var puddlelevel = document.getElementById('puddlelvl').innerHTML;
+     var puddledamageword = document.getElementById('puddledamage');
+     
+     if(puddlelevel == "1"){
+         puddledamage=2;
+         puddledamageword.innerHTML = "Damage --> 7";
+         setInterval(movepuddle, 4000)
+     } else if(puddlelevel == "2"){
+         puddledamage=7;
+         puddledamageword.innerHTML = "Damage --> 12";
+        // setInterval(recreatepuddle, 1000)
+     } else if(puddlelevel == "3"){
+         puddledamage=12;
+         puddledamageword.innerHTML = "Damage --> 20";
+         
+     } else if(puddlelevel == "4"){
+         puddledamage=20;
+         puddledamageword.innerHTML = "Damage --> 27";
+         
+     }else if(puddlelevel == "5"){
+         puddledamage=27;
+         puddledamageword.innerHTML = "Damage --> 36";
+         
+     }else if(puddlelevel == "6"){
+         puddledamage=36;
+         puddledamageword.innerHTML = "Damage --> 51";
+         
+     }else if(puddlelevel == "7"){
+         puddledamage=51;
+         puddledamageword.innerHTML = "Damage --> 57";
+         
+     }else if(puddlelevel == "8"){
+         puddledamage=57;
+         puddledamageword.innerHTML = "Damage --> 60";
+         
+     }else if(puddlelevel == "9"){
+         puddledamage=60;
+         puddledamageword.innerHTML = "Damage --> 64";
+         
+     }else if(puddlelevel == "10"){
+         puddledamage=60;
+         puddledamageword.innerHTML = "Maxed Level";
+         
+     }
+     
+      if(document.getElementById('puddlelvl').innerHTML=="11"){
+         document.getElementById('puddlelvl').innerHTML = "Maxed";
+     }else{
+     document.getElementById('puddlelvl').innerHTML= puddlelevel*1+1;
+     }
+   
+     
+ }
+  var puddlesr = document.createElement('img');
+ function movepuddle(){
+ puddles.style.top = Math.floor(Math.random() * window.innerHeight)+"px";
+puddles.style.left = Math.floor(Math.random() * window.innerWidth)+"px";
+ }
+ var shellstatus = "f";
+ function shells(){
+     shellstatus = "c";
+ }
+ 
+    window.onload = function () {
+        // https://getbootstrap.com/docs/5.0/components/modal/#via-javascript
+        let myModal = new bootstrap.Modal(
+          document.getElementById("myModal"),
+          {}
+        );
+        // https://getbootstrap.com/docs/5.0/components/modal/#show
+        myModal.show();
+      };
+ 
+ </Script>
+</body>
+</html>
