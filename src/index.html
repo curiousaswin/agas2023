@@ -32,7 +32,12 @@ h5:hover{
     color:white;
 }
 
-
+p{
+    font-size:25pt;
+}
+h3{
+    font-size:65pt;
+}
     </style>
            <script type="text/javascript" src="//cdn.tectite.com/formval-v17.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223753011-1"> </script>
@@ -105,9 +110,16 @@ $(document).ready(function(){
     });
   });
 });
+var bannerwidth = window.innerWidth+"px";
+alert(bannerwidth)
+document.getElementById('banner').style.width = bannerwidth;
+element.setAttribute("width", bannerwidth);
 
-
-
+function Scrolldown(btntouse) {
+     window.scroll(0,1000); 
+     btntouse.style.display="none";
+     
+}
 
     </script>
     
@@ -177,28 +189,24 @@ $(document).ready(function(){
         </button>
     </li>
      </ul>
-
+<img src="https://www.aswinapps.com/newlogo.png" id="banner" style="width:1536px;" width="1536px">
+<button type="btn" class='btn-primary form-control fixed-bottom' onclick="Scrolldown(this)" >Scroll Down to Learn More <i class="fa-solid fa-angles-down fa-beat-fade"></i></button>
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
-	    <div class="jumbotron">&#9432; Fab Editor is officialy released from Pre-Release to Public. </div>
-      <h1><Center>Aswin's Good Apps</Center></h1>
-      <h2><Center>Free Apps To Use For All of the Purposes<br></Center></h2>
-      <h2 style="text-align:center;"><div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1" checked readonly>
-    <label class="custom-control-label" for="customCheck">Education</label>
-    </div><div class="custom-control custom-checkbox">
-     <input type="checkbox" class="custom-control-input" id="customCheck2" name="example1" checked readonly>
-    <label class="custom-control-label" for="customCheck2">Personal</label>
-  </div><div class="custom-control custom-checkbox">
-     <input type="checkbox" class="custom-control-input" id="customCheck3" name="example1" checked readonly>
-    <label class="custom-control-label" for="customCheck2">Professional</label>
-  </div></h2><br>
-  <h3 style="text-align:center;">Why Us?</h3>
+    
+      <h1 style="font-size:89pt;"><Center>Aswin's Good Apps</Center></h1>
+      <h2 style="font-size:76pt;"><Center>Free Apps For Real<br></Center></h2>
+    <br><br>
+    <h3 style="font-size:65pt;text-align:center;">Feel the Q U A L I T Y</h3>
+    <p>Our apps have the true quality and have good functions. None of our apps are useless and have the best quality ever possible. Our apps keep getting good updates and always get quality features.</p>
+    <h3 style="font-size:65pt;text-align:center;">I N N O V A T I V E</h3>
+    <p>Our apps are always innovative and always come up with new concepts every day. Our apps come up with some conepts that none of the other apps use.</p>
+  <h3 style="text-align:center;font-size:65pt;">Why Us?</h3>
   <p style="text-align:center;">We have good applications and are not malware unlike other providers. Our apps have only one purpose: to give the best experience.</p>
-  <br><h3 style="text-align:center;">Our Mission</h3>
+  <br><h3 style="text-align:center;font-size:65pt;">Our Mission</h3>
       <p style="text-align:center;"> Our mission is to give you the best experience for free so that you don't have to pay for anything. </p>
-      <h3 style="text-align:center;">
+      <h3 style="text-align:center;font-size:65pt">
           Why you Should Sign Up
       </h3>
       <p style="text-align:center;"> You should sign up to get a more personalized experience and to get the best possible experience of all.</p>
@@ -227,14 +235,17 @@ $(document).ready(function(){
       <!-- Modal body -->
       <div class="modal-body">
           <div class="jumbotron">
-          <h5 style="color:black;"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h5><span class="small font-italic">Updated as of 3/17/22 </span>
+          <h5 style="color:black;"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h5><span class="small font-italic">Updated as of 12/17/22 </span>
           <ul>
-		  <b><li>Introducing ForecastStar</li></b>
-		 <b> <li>ForecastStar is an App to check weather.</li></b>
-			  <br>
- 	  <li>Info- Aswin's Good Apps is updated</li>
-		  <li>Calculators from Pre-Release are released</li>
-		  <li>For Navigation use the navbar instead of pills (stories, tutorials)</li>
+ 
+
+
+<li>Aswin's Fraction Calculator started giving Simplified fractions. <a href="/calculator/fractionscalc.html">Explore Now!</a></li>        
+<li>Aswin's Percentage Calculator Now rounds the percents to the nearest hundredth. <a href="/calculator/percent.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a new calculator called slope calculator.<a href="/calculator/slope.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a calculator to find x and y intercepts.<a href="/calculator/intercept.html">Explore Now</a></li>
+<li>We're Creating an app called Aswin's Worksheet Finder<a href="/worksheet.html">Explore Now</a></li>
+<li>Aswin's Writer has some new changes.<a href="/docs.html">Explore Now</a></li>
 
 </ul>
       </div>
