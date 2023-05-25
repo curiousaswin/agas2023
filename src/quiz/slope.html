@@ -68,12 +68,12 @@
         .then(response => response.json())
     .then(data => {
         
-       var question = data.questions[numberforquestions-0].Question;
-      var option1 = data.questions[numberforquestions-0].Option1;
-      var option2 = data.questions[numberforquestions-0].Option2;
-      var option3 = data.questions[numberforquestions-0].Option3;
-      var option4 = data.questions[numberforquestions-0].Option4;
-      var correct = data.questions[numberforquestions-0].Correctans;
+       var question = data.questions[numberforquestions-1].Question;
+      var option1 = data.questions[numberforquestions-1].Option1;
+      var option2 = data.questions[numberforquestions-1].Option2;
+      var option3 = data.questions[numberforquestions-1].Option3;
+      var option4 = data.questions[numberforquestions-1].Option4;
+      var correct = data.questions[numberforquestions-1].Correctans;
       document.getElementById('question').innerHTML = question;
       document.getElementById('labelopt1').innerHTML = option1;
       document.getElementById('labelopt2').innerHTML = option2;
