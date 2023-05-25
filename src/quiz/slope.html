@@ -35,16 +35,16 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2" class="option" ><input type="radio" name="radior" id="option1"><label for="option1" > y=mx+b </label></td>
+        <td colspan="2" class="option" ><input type="radio" name="radior" id="option1"><label for="option1" id="labelopt1"> y=mx+b </label></td>
     </tr>
     <tr>
-        <td colspan="2" class="option" ><input type="radio" name="radior" id="option2"><label for="option2" > y=mx</label></td>
+        <td colspan="2" class="option" ><input type="radio" name="radior" id="option2"><label for="option2" id="labelopt2"> y=mx</label></td>
     </tr>
     <tr>
-        <td colspan="2" class="option" ><input type="radio" name="radior" id="option3"><label for="option3">ax+by=c</label> </td>
+        <td colspan="2" class="option" ><input type="radio" name="radior" id="option3"><label for="option3" id="labelopt3">ax+by=c</label> </td>
     </tr>
     <tr>
-        <td colspan="3" class="option" ><input type="radio" name="radior"  id="option4"><label for="option4">sqrt((x2-x1)^2+(y2-y1)^2)</label> </td>
+        <td colspan="3" class="option" ><input type="radio" name="radior"  id="option4"><label for="option4" id="labelopt4">sqrt((x2-x1)^2+(y2-y1)^2)</label> </td>
     </tr>
 </table>
 <button type="btn" onclick="questionchanger()">dd</button>
@@ -58,7 +58,16 @@
         .then(response => response.json())
     .then(data => {
        var question = data.questions.Q1.Question;
-       alert(question)
+      var option1 = data.questions.Q1.Option1;
+      var option2 = data.questions.Q1.Option2;
+      var option3 = data.questions.Q1.Option3;
+      var option4 = data.questions.Q1.Option4;
+      var correct = data.questions.Q1.Correctans;
+      document.getElementById('question').innerHTML = question;
+      document.getElementById('labelopt1').innerHTML = option1;
+      document.getElementById('labelopt2').innerHTML = option2;
+      document.getElementById('labelopt3').innerHTML = option3;
+      document.getElementById('labelopt4').innerHTML = option4;
     })
     }
 </script>
