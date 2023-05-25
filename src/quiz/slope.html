@@ -57,6 +57,7 @@
     var questioncode = "Q1";
     var correctans = 1;
     function questionchanger(){
+        document.getElementById('questionnumbr').innerHTML = document.getElementById('questionnumbr').innerHTML*1 +1;
         if(document.getElementById('option'+correctans).checked){
             document.getElementById('correct').innerHTML = document.getElementById('correct').innerHTML*1+1;
         }else{
