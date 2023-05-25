@@ -3,7 +3,7 @@
     "section": "Quizzes",
     "quizname": "slope",
     "questions": {
-    "1": {
+    "Set":{
       "Question":"What is the slope formula?",
      "Option1": "y=mx+b",
      "Option2": "y=mx",
@@ -11,7 +11,7 @@
      "Option4": "d=sqrt((x2-x1)^2+(y2-y1)^2)",
      "Correctans": 1
     },
-    "2": {
+    "Set":{
         "Question":"What does m stand for?",
         "Option1": "Y Intercept",
         "Option2": "X Intercept",
@@ -19,7 +19,7 @@
         "Option4": "Points",
         "Correctans": 3
     },
-    "3" : {
+    "Set" : {
         "Question":"What does b stand for in the slope formula?",
         "Option1" : "X Intercept",
         "Option2" : "Slope",
