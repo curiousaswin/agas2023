@@ -2,32 +2,38 @@
     "for": "Aswin's Good Apps",
     "section": "Quizzes",
     "quizname": "slope",
-    "questions": {
-    "Set":{
-      "Question":"What is the slope formula?",
-     "Option1": "y=mx+b",
-     "Option2": "y=mx",
-     "Option3": "ax+by=c",
-     "Option4": "d=sqrt((x2-x1)^2+(y2-y1)^2)",
-     "Correctans": 1
-    },
-    "Set":{
-        "Question":"What does m stand for?",
-        "Option1": "Y Intercept",
-        "Option2": "X Intercept",
-        "Option3" : "Slope",
-        "Option4": "Points",
-        "Correctans": 3
-    },
-    "Set" : {
-        "Question":"What does b stand for in the slope formula?",
-        "Option1" : "X Intercept",
-        "Option2" : "Slope",
-        "Option3" : "Rate of change",
-        "Option4": "Y Intercept",
-        "Correctans" : 4
-    }
-    
-    }
-    
+    "questions" : [
+        {
+            "Question":"What is the slope formula?",
+           "Option1": "y=mx+b",
+           "Option2": "y=mx",
+           "Option3": "ax+by=c",
+           "Option4": "d=sqrt((x2-x1)^2+(y2-y1)^2)",
+           "Correctans": 1
+          },
+          {
+            "Question":"What does m stand for?",
+            "Option1": "Y Intercept",
+            "Option2": "X Intercept",
+            "Option3" : "Slope",
+            "Option4": "Points",
+            "Correctans": 3
+        },
+        {
+            "Question":"What does b stand for in the slope formula?",
+            "Option1" : "X Intercept",
+            "Option2" : "Slope",
+            "Option3" : "Rate of change",
+            "Option4": "Y Intercept",
+            "Correctans" : 4
+        }
+
+    ]
 }
+   
+
+
+   
+  
+    
+    
