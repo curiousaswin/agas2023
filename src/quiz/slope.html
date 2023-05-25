@@ -54,7 +54,7 @@
 </table>
 <script>
     var numberforquestions = 1;
-    var questioncode = Q1;
+    var questioncode = "Q1";
     var correctans = 1;
     function questionchanger(){
         if(document.getElementById('option'+correctans).checked){
@@ -63,7 +63,7 @@
             document.getElementById('wrong').innerHTML = document.getElementById('wrong').innerHTML*1+1;
         }
        numberforquestions = numberforquestions+1;
-       questioncode = Q+numberforquestions;
+       questioncode = "Q"+numberforquestions;
         fetch('https://www.aswinapps.com/quiz/slopequestions.json')
         .then(response => response.json())
     .then(data => {
