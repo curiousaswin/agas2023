@@ -53,23 +53,35 @@
     <tr><Td>Wrong:</Td><td id="wrong"></td></tr>
 </table>
 <script>
+    var numberforquestions = 1;
+    var questioncode = Q1;
+    var correctans = 1;
     function questionchanger(){
+        if(document.getElementById('option'+correctans).checked){
+            document.getElementById('correct').innerHTML = document.getElementById('correct').innerHTML*1+1;
+        }else{
+            document.getElementById('wrong').innerHTML = document.getElementById('wrong').innerHTML*1+1;
+        }
+       numberforquestions = numberforquestions+1;
+       questioncode = Q+numberforquestions;
         fetch('https://www.aswinapps.com/quiz/slopequestions.json')
         .then(response => response.json())
     .then(data => {
-       var question = data.questions.Q1.Question;
-      var option1 = data.questions.Q1.Option1;
-      var option2 = data.questions.Q1.Option2;
-      var option3 = data.questions.Q1.Option3;
-      var option4 = data.questions.Q1.Option4;
-      var correct = data.questions.Q1.Correctans;
+        
+       var question = data.questions.questioncode.Question;
+      var option1 = data.questions.questioncode.Option1;
+      var option2 = data.questions.questioncode.Option2;
+      var option3 = data.questions.questioncode.Option3;
+      var option4 = data.questions.questioncode.Option4;
+      var correct = data.questions.questioncode.Correctans;
       document.getElementById('question').innerHTML = question;
       document.getElementById('labelopt1').innerHTML = option1;
       document.getElementById('labelopt2').innerHTML = option2;
       document.getElementById('labelopt3').innerHTML = option3;
       document.getElementById('labelopt4').innerHTML = option4;
     })
-    }
+   
+}
 </script>
 </body>
 </html>
