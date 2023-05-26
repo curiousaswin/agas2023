@@ -42,6 +42,13 @@
             "Option3" : "m=2/7",
             "Option4" : "m=1/7",
             "Correctans" : 3
+        },
+        {
+            "Question":"(7,5)(8,3)<br>What is slope",
+            "Option1":"m=2",
+            "Option2":"m=-2",
+            "Option3":"m=1/2",
+            "Option4":"m=-1/2"
         }
         
 
