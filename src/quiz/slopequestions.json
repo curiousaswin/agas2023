@@ -34,7 +34,16 @@
             "Option3" : "y=5/77x + 54",
             "Option4" : "y=0/8765x + 24",
             "Correctans" : 1
+        },
+        {
+            "Question" : "(2,5)(9,7)<br>What is slope.",
+            "Option1" : "m=6/7",
+            "Option2" : "m=3/7",
+            "Option3" : "m=2/7",
+            "Option4" : "m=1/7",
+            "Correctans" : 3
         }
+        
 
     ]
 }
