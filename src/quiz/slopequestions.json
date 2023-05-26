@@ -54,12 +54,35 @@
         {
             "Question" : "(0,5)(8,3)<br>What is slope?",
             "Option1" : "m=2/4",
-            "Option2" : "m=-1/4",
+            "Option2" : "m=1/4",
             "Option3" : "m=2/8",
             "Option4" :"m=-1/4",
             "Correctans" :4
+        },
+        {
+            "Question" : "(3,9)(8,12)<br>What's slope?",
+            "Option1" : "m=6/5",
+            "Option2" : "m=3/5",
+            "Option3" : "m=1/5",
+            "Option4" : "m=4/3",
+            "Correctans" : 2
+        },
+        {
+            "Question" : "(2,3)(4,6)<br>What's slope?",
+            "Option1" : "m=3/2",
+            "Option2" : "m=4/5",
+            "Option3" : "m=5/6",
+            "Option4" : "m=6/2",
+            "Correctans" : 1
+        },
+        {
+          "Question" : "(7,8)(4,3)<Br>What's slope?",
+          "Option1" : "m=-5/3",
+          "Option2" : "m=10/6",
+          "Option3" : "m=5/3",
+          "Option4" : "m=3/9",
+          "Correctans" : 3  
         }
-        
 
     ]
 }
