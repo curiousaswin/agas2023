@@ -33,14 +33,18 @@
                 height: 250px;;
             }
             h2{
-                background-color:yellow;
+                background-color:#dbdbdb;
                 font-size:50px;
             }
             body{
-                background-color: palegreen;
+                background-color: #d3d3d3;
             }
             div{
                 background-color: white;
+            
+            }
+            .result{
+                    border:3px solid black;
             }
             
             #loader {
@@ -71,10 +75,11 @@ color:green;
 p{
   font-size:25px;
 }
+
         </style>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
-    <body onload="myFunction()" style="margin:0;">
+    <body onload="myFunction()">
         <script>
             //this will bold the text
             function showTextinBold()
@@ -110,19 +115,14 @@ p{
             {     document.getElementById('result').style.textDecoration = "line-through";  
             }
             // this will show what you have wrote in the textarea but without formating
-            function showTextforResult()
-            {
-                let textToChange = document.getElementById('textToUse').value;
-                let resultDivElement =document.getElementById('result');
-                resultDivElement.innerHTML = textToChange ;    
-            }
+          
            // this will make the text like a heading
           
             function showTextforHeading()
             {
-                let textToChange = document.getElementById('textToUse').value;
-                let resultDivElement =document.getElementById('result');
-                resultDivElement.innerHTML = "<h1>" + textToChange +"</h1>";    
+            var heading= document.createElement('h2');
+            heading.innerHTML = "This is a heading."
+                document.getElementById('result').appendChild(heading)
             }
             //this will make the text slanted or italic
             function showTextforItalic()
@@ -228,40 +228,48 @@ function saveonline(){
     document.getElementById('fornonmembers').style.display="block";
     }else{
     var docname=document.getElementById('docname').value;
-    var contents= document.getElementById('forsaveuse').innerHTML;
+    var contents= document.getElementById('document').innerHTML;
     localStorage.setItem(docname,contents)
-    var textarea= document.getElementById('textToUse').value;
-    var savename = docname + "txt";
 
-    localStorage.setItem(savename,textarea)
 }
 }
 function retrieve(){
     var docnametoretrieve = document.getElementById('retrievename').value;
     var x = localStorage.getItem(docnametoretrieve);
-    document.getElementById('forsaveuse').innerHTML = x;
-    var z= localStorage.getItem(docnametoretrieve+"txt");
-     var textarea= document.getElementById('textToUse').value = z;
+    document.getElementById('document').innerHTML = x;
      document.getElementById('docname').value = docnametoretrieve;
 }
 function addimage(){
-    var textarea = document.getElementById('textToUse').value;
-    var media= document.getElementById('mediasrc').value;
-    var imageadding = "<img src='"+media+"' width='400px' height='500px'>"
-    var newtextarea= textarea + imageadding;
-    document.getElementById('textToUse').value=newtextarea;
-     document.getElementById('mediasrc').value="";
+
+    var img= document.getElementById('imgsrc').value;
+    var imgwidth = document.getElementById('imgwidth').value;
+    var imgheight= document.getElementById('imgheight').value;
+   
+  var imagecreation = document.createElement('img')
+  imagecreation.src = img;
+  imagecreation.style.width = imgwidth+"px";
+  imagecreation.style.height= imgheight+"px";
+  document.getElementById('result').appendChild(imagecreation)
+     
 }
 function addvideo(){
-        var textarea = document.getElementById('textToUse').value;
-    var media= document.getElementById('mediasrc').value;
-    var videoadding= "<video width='500px' height='400px' controls><source src='"+media+"'></video>"
-      var newtextarea= textarea + videoadding;
-       document.getElementById('textToUse').value=newtextarea;
-     document.getElementById('mediasrc').value="";
+        
+    var video= document.getElementById('vidsrc').value;
+     var vidwidth = document.getElementById('imgwidth').value;
+    var vidheight= document.getElementById('imgheight').value;
+   var videocreation = document.createElement('video');
+   var source= document.createElement('source')
+   source.src=video;
+   videocreation.style.width= vidwidth+"px";
+   videocreation.style.height= vidheight+"px";
+   videocreation.appendChild(source);
+   document.getElementById('result').appendChild(videocreation)
+     document.getElementById('vidsrc').value="";
 }
         </script>
-  
+        <div id="container" class="fixed-top" style="background:none;">
+  <div id="beginingarea" style="background-color:palegreen">
+      
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="#">Aswin's Writer</a>
@@ -281,34 +289,28 @@ function addvideo(){
 </nav>
       <span class="spinner-border text-success" id="loader"></span>
       <p style="text-align:right;" id="signin"> Not Logged In</p>
-      <input type="text" class="form-control" id="docname" placeholder="Document Name">
+
        <!-- this section defines the basic functions-->
-       <button type="button" id="loadformat"class="btn btn-primary">View Formating Options</button>
-       <div id="formating" class="bg-light">
-       <button   type = "button"  style="font-weight: bold; background-color: white; margin-top: 8px;
-       
-           padding: 14px;" id ="bold" onclick="showTextinBold()"><i class="fa-solid fa-bold"></i></button>
+      
+       <div id="toolbar"  > 
+         <input type="text" class="form-control-inline" style="height:50px;" id="docname" placeholder="Document Name">
+               <button   type = "button"  style="font-weight: bold; background-color: white; margin-top: 8px; padding: 14px;" id ="bold" title="bold" onclick="showTextinBold()"><i class="fa-solid fa-bold"></i></button>
        <button type="button"  id="und" style="text-decoration: underline ;background-color:white; margin-top: 8px;
       
-           padding: 14px;"onclick="showTextinUnderline()"><i class="fa-solid fa-underline"></i></button>
+           padding: 14px;" title="underline" onclick="showTextinUnderline()"><i class="fa-solid fa-underline"></i></button>
            
-       <button type="button"  id="strike" style="background-color: white; margin-top: 8px;
+       <button type="button"  id="strike" title="strole" style="background-color: white; margin-top: 8px;
        
            padding: 14px;" onclick="showTextinStrike()">
            <i class="fa-solid fa-strikethrough"></i></button>
-       <button type="button"  id="ita" style="  background-color: white; margin-top: 8px;
+       <button type="button"  id="ita" title="italic" style="  background-color: white; margin-top: 8px;
 
            padding: 14px;"onclick="showTextforItalic()"><i class="fa-solid fa-italic"></i></button>
        <button type="button" value = "Highlight" id="mark" style="background-color:white; margin-top: 8px;
       
-           padding: 14px;"onclick="showTextforHighlight()"><i class="fa-solid fa-highlighter"></i></button>
-       <button type="button" id="heading" style="background-color: white;margin-top: 8px;
-       
-           padding: 14px;"onclick="showTextforHeading()"><i class="fa-solid fa-heading"></i></button>
-            <div id="moreformat">
-            <form>
-       <!-- this will change the  font face... this is the dropdown menu-->
-         <select id="fonts" name="fonts" onchange=" showTextinFonts()" style="margin-top: 5px;
+           padding: 14px;" title="highlight" onclick="showTextforHighlight()"><i class="fa-solid fa-highlighter"></i></button>
+           
+       <select id="fonts" name="fonts" onchange=" showTextinFonts()" style="margin-top: 5px;
          
              padding: 14px;">
            <option value="Arial"  >Arial</option>
@@ -325,13 +327,8 @@ function addvideo(){
            <option value="American Typewriter">American Typewriter</option>
            <option value="cursive">Bradley Hand</option>
            <option value="select" selected >Select a Font Face</option>
-         </select>
-       
-      
-
-       <!-- this will change the font size...this is the dropdown menu-->
- 
-   <select id = "sizes" name="sizes " onchange="showTextinsizes()" style="margin-top: 5px;
+         </select> 
+           <select id = "sizes" name="sizes " onchange="showTextinsizes()" style="margin-top: 5px;
   
        padding: 14px;">
        <option value="12pt">12</option>
@@ -342,9 +339,7 @@ function addvideo(){
        <option value="72pt">72</option>
 <option value="select" selected>Select a Font Size</option>
    </select>
-<!-- this will change the font color... this is the dropdown menu-->
-      
-        <label for="color"></label>
+     <label for="color"></label>
        
         <select id="colors" name="colors" onchange="showTextinRed(this.options)" style="margin-top: 8px;
         margin-right: 90px;
@@ -367,12 +362,19 @@ function addvideo(){
           <option value="#0d98ba">Blue Green</option>
 <option value="select" selected>Select a Font Color</option>
         </select>
-       </form>
+        
+        <button data-toggle="modal" data-target="#add" href="#" class="btn btn-light" style="border:1px solid black" title="Add stuff">+</button>
+         <button type="btn" class="btn btn-success" onclick="saveonline()" title="Save Online"><i class="fa-solid fa-floppy-disk"></i></button>
+       <button type="btn" class="btn btn-warning"  data-toggle="modal" data-target="#retrieves" title="Retrieve Document"><span class="material-icons">
+file_open
+</span></button>  <button type="button" id="loadexport" class="btn btn-primary" title="Export Document"><i class="fa-solid fa-upload fa-flip"></i></button>
+
+   </div>
+    
        </div>
-       
-       </div>
-             <button type="button" id="loadexport" class="btn btn-primary">Export</button>
-           <div id="export">
+     
+           
+           <div id="export" class="collapse" >
        <button type="button" value="Show Result" id="pararesulting1" style="background-color: white;margin-top: 8px; padding: 14px;" onclick="showresultinnew()">Show Result</button>
        <button type="button"  value="Print" ID="PT" style="background-color: white; margin-top: 8px;
       
@@ -381,13 +383,9 @@ function addvideo(){
       
            padding: 14px;" onclick="savetopdf()"> <i class="fa-solid fa-download"></i></button>
            </div>
-           <button type="btn" class="btn btn-primary" data-toggle="collapse" data-target="#media"><i class="fa-solid fa-plus-minus"></i>Add Media</button>
-      <button type="btn" class="btn btn-success" onclick="saveonline()"><i class="fa-solid fa-floppy-disk"></i>Save Document Online</button>
-       <button type="btn" class="btn btn-warning"  data-toggle="modal" data-target="#retrieves"><span class="material-icons">
-file_open
-</span>Retrieve Saved Document</button>
        
-      
+       </div>
+     
        
       <div class="modal" id="help" style="background:transparent;">
   <div class="modal-dialog">
@@ -421,23 +419,18 @@ file_open
        
       
        <br>
-       <div id="media" class="collapse">
-<h4>Add Media</h4>
-<input type="text" id="mediasrc" class="form-control" placeholder="Source of the media(image/video)"><br><Small><i class="fa-solid fa-circle-info"></i>We don't support custom files yet. Get a url for the image/video and add the source.</Small>
-<button type="btn" class="btn btn-success" onclick="addimage()">Add Image</button><button type="btn" class="btn btn-success" onclick="addvideo()">Add Video</button>
-</div>
+     
  <!-- this is the spot where they need to enter the text-->
-       <textarea id="textToUse" onkeyup="showTextforResult()" spellcheck="true">
-           Welcome to Aswin's Writer. This is completely free. You can start typing here. Just Press show result or any of the buttons to try it.To go to the next line just write <br>, the break symbol in HTML.
-       </textarea>
-       <br/><!-- this is where you will see the result after click on any of the formatting buttons/ dropdown menus-->
-     <b> The Document:</b> 
-       <div id="forsaveuse">
-       <div id="result" class="result">
-
+      
+      <!-- this is where you will see the result after click on any of the formatting buttons/ dropdown menus-->
+   <div class="document" id="document" style="background-color:#d3d3d3;text-align:Center;">
+       <br><br><br><Br><br><Br><Br><br><br><Br><Br>
+       <div id="result" class="result"  contenteditable="true" style="width:900px;text-align:left; margin: auto;">
+<h2>This is a title</h2>
+This the regular body
        </div>
-
-      </div>
+</div>
+ 
        <!-- Button to Open the Modal -->
 
 
@@ -455,6 +448,45 @@ file_open
       <!-- Modal body -->
       <div class="modal-body">
        <input type="text" id="retrievename" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="retrieve()">Done.</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal" id="add" style="background:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       Choose item to add.
+       <ul class="list-group list-group-flush">
+  <li class="list-group-item" data-toggle="collapse" data-target="#imageadd">Image ></li>
+  <div class="collapse" id="imageadd">
+  <input type="text" id="imgsrc" class="form-control" placeholder="Image Source"><br><div class="form-inline"><input type="text" id="imgwidth" class="form-control" placeholder="Image Width"><input type="text" id="imgheight" class="form-control" placeholder="Image Height"></div>
+<button type="btn" class="btn btn-success" onclick="addimage()" data-toggle="collapse" data-target="#imageadd">Add Image</button></div>
+  <li class="list-group-item" data-toggle="collapse" data-target="#videoadd">Video ></li>
+  
+  <div class="collapse" id="videoadd">
+      <input type="text" id="vidsrc" class="form-control" placeholder="Video Source"><br><div class="form-inline"><input type="text" id="vidwidth" class="form-control" placeholder="Video Width"><input type="text" id="vidheight" class="form-control" placeholder="Video Height"><button type="btn" class="btn btn-success" onclick="addvideo()" data-toggle="collapse" data-target="#videoadd">Add Video</button>
+  </div>
+  </div>
+  <li class="list-group-item">Youtube Video ></li>
+   <li class="list-group-item" onclick="showTextforHeading()"  data-dismiss="modal">Heading ></li>
+</ul>
+ <Small><i class="fa-solid fa-circle-info"></i>We don't support custom files yet. Get a url for the image/video and add the source.</Small>
       </div>
 
       <!-- Modal footer -->
