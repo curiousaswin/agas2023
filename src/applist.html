@@ -87,80 +87,8 @@ function showPage() {
 
 
 }
-function validate(){
-    if(   document.getElementById("text1").value == "aswinemail@google.com"
-       && document.getElementById("text2").value == "aswinwebsitepass" )
-    {
-          document.getElementById("p1").innerHTML = "Hello Aswin";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-     localStorage.setItem("Name", "Aswin");
-    
-      
-    }
-    else if(   document.getElementById("text1").value == "sathyaemail@aswin.com"
-       && document.getElementById("text2").value == "sathyasaccount01" )
-       {
-          document.getElementById("p1").innerHTML = "Hello Sathya!";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-      localStorage.setItem("Name", "Sathya");
-    }
-   
-   else if(document.getElementById("text1").value == "arulvelmail@aswin.com"
-   &&  document.getElementById("text2").value == "skar$SP50zxcvArulaccount")
-   {
-     document.getElementById("p1").innerHTML = "Hello Arulvel!";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-     localStorage.setItem("Name", "Arulvel");
-}
 
-else if(document.getElementById("text1").value == "mine@3478"
-   &&  document.getElementById("text2").value == "mine@3478")
-   {
-   document.getElementById("p1").innerHTML = "Hello Shreyan!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Shreyan");
-}
-else if(document.getElementById("text1").value == "arnrcatr@gmail.com"
-   &&  document.getElementById("text2").value == "Number1")
-   {
-   document.getElementById("p1").innerHTML = "Hello Arun R!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Arun R");
-}
-else if(document.getElementById("text1").value == "callely400@millardps.org"
-   &&  document.getElementById("text2").value == "newy6782")
-   {
-   document.getElementById("p1").innerHTML = "Hello Connor Allely!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Connor Allely");
-}
-else if(document.getElementById("text1").value == "sbairagya920@millardps.org"
-   &&  document.getElementById("text2").value == "newv5342")
-   {
-   document.getElementById("p1").innerHTML = "Hello Sreeja Bairagya!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Sreeja Bairagya");
-}
-else
-    {
-        alert( "validation failed" );
-         document.getElementById("fail").style.display = "block" ;
-    }
-}
+
 
 //redisgned filter
 $(document).ready(function(){
@@ -176,7 +104,7 @@ $(document).ready(function(){
     	<div class="spinner-border text-warning" id="loader"></div>
     	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="https://www.aswinapps.com"<img src="/logoimg.png" style="width:40px"></a>
+  <a class="navbar-brand" href="https://www.aswinapps.com"><img src="/logoimg.png" style="width:40px"></a>
   
   <!-- Links -->
   <ul class="navbar-nav sticky-top">
