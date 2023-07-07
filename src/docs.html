@@ -36,6 +36,9 @@
                 background-color:#dbdbdb;
                 font-size:50px;
             }
+            h3{
+                 background-color:#dbdbdb;
+            }
             body{
                 background-color: #d3d3d3;
             }
@@ -55,7 +58,7 @@
   width: 130px;
   height: 130px;
   margin: -76px 0 0 -76px;
-
+}
 #myDiv {
   display: none;
 }
@@ -74,6 +77,31 @@ color:green;
 }
 p{
   font-size:25px;
+}
+#suggestionbox{
+    border:3px solid black;
+    width:350px;
+    height:450px;
+}
+
+.msg{
+ 
+  height:30px;
+  color:white;
+  background-color:#0affc2;
+  border-radius:10px;
+    margin-top: 5px;
+      margin-bottom: 5px;
+      color:black;
+}
+
+.usermsg{
+    width:230px;
+      background-color:#aaff00;
+}
+
+.suggestiionmsg{
+    width:300px;
 }
 
         </style>
@@ -266,6 +294,262 @@ function addvideo(){
    document.getElementById('result').appendChild(videocreation)
      document.getElementById('vidsrc').value="";
 }
+var typeofservice = null;
+function minisuggestionaimodel(service,part,ifdochere){
+    //starting points
+    if(part===1){
+    var div = document.createElement('div')
+    div.className= "msg usermsg float-right";
+    div.innerHTML = service.innerHTML;
+    document.getElementById('userinterface').appendChild(div);
+    typeofservice = service.value
+    document.getElementById('suggestionstarter').style.display='none';
+    //response for the org. one
+    var response = document.createElement('div');
+    response.innerHTML = "Whole doc or just a sentence?"
+    response.className= "msg suggestiionmsg float-left";
+    document.getElementById('userinterface').appendChild(response)
+    document.getElementById('docorsent').style.display="block";
+    }else if(part ===2){
+        var div= document.createElement('div');
+        div.className= "msg usermsg float-right";
+    div.innerHTML = service.innerHTML;
+      document.getElementById('userinterface').appendChild(div);
+    
+      document.getElementById('docorsent').style.display="none";
+      if(ifdochere === "docs"){
+        var texttouse=document.getElementById('result').innerText;
+              //response to do api stuff
+      if(typeofservice === "autocorrect"){
+          fetch('https://api.textgears.com/correct?text='+texttouse+'&ai=1&language=en-GB&key=JiNEucv4JYa41a1r')
+          .then(response => response.json())
+             .then(data => {
+                 var correctedtxt = data.response.corrected;
+                 var response= document.createElement('div');
+                 response.className = "msg suggestiionmsg float-left";
+                 response.innerHTML = correctedtxt;
+                 document.getElementById('userinterface').appendChild(response)
+             })
+      }else if(typeofservice==="grammercheck"){
+          fetch('https://api.textgears.com/grammar?text='+texttouse+'&language=en-GB&whitelist=&dictionary_id=&ai=0&key=JiNEucv4JYa41a1r')
+           .then(response => response.json())
+            .then(data => {
+                alert(data.response.errors.length);
+                if(data.response.errors.length=== 0){
+                    var response= document.createElement('div')
+                    response.innerHTML = "No grammer mistakes found."
+                    response.className="msg suggestiionmsg float-left";
+                    document.getElementById('userinterface').appendChild(response)
+                }else{
+                for (let i = 0; i < data.response.errors.length; i++){
+                    var errordescription = data.response.errors[i].description.en;
+                   var errortxt = data.response.errors[i].bad;
+                   var bettertxt= data.response.errors[i].better;
+                       var typeoferror= data.response.errors[i].type;
+                       var responsecreator = document.createElement('div');
+                       responsecreator.className= "msg suggestiionmsg float-left"
+                       responsecreator.style.height = "225px"
+                       var list = document.createElement('ul');
+                       //add error description
+                       var errordesc = document.createElement('li');
+                       errordesc.innerHTML = errordescription;
+                       list.appendChild(errordesc)
+                       //error text
+                       var errortxtlist = document.createElement('li');
+                       errortxtlist.innerHTML = "Text that has error:" + errortxt;
+                       list.appendChild(errortxtlist);
+                       //bettertext
+                       var bettertxtlist = document.createElement('li');
+                       bettertxtlist.innerHTML = "Words to replace it:"+ bettertxt;
+                       list.appendChild(bettertxtlist);
+                       //type
+                       var type =  document.createElement('li');
+                       type.innerHTML = "Type of error:" + typeoferror;
+                       list.appendChild(type);
+                       //now append list to div msg
+                       responsecreator.appendChild(list)
+                       document.getElementById('userinterface').appendChild(responsecreator)
+                }
+                }
+            })
+      }else if(typeofservice=== "spellcheck"){
+          fetch('https://api.textgears.com/spelling?text='+texttouse+'&language=en-GB&whitelist=&dictionary_id=&ai=1&key=JiNEucv4JYa41a1r')
+           .then(response => response.json())
+            .then(data => {
+             
+                
+                      for (let i = 0; i < data.response.errors.length; i++){
+                             var errortxt = data.response.errors[i].bad;
+                   var bettertxt= data.response.errors[i].better;
+                    var responsecreator = document.createElement('div');
+                       responsecreator.className= "msg suggestiionmsg float-left"
+                       responsecreator.style.height = "125px"
+                       var list = document.createElement('ul');
+                    
+                       //error text
+                       var errortxtlist = document.createElement('li');
+                       errortxtlist.innerHTML = "Text that has spelling mistake:" + errortxt;
+                       list.appendChild(errortxtlist);
+                       //bettertext
+                       var bettertxtlist = document.createElement('li');
+                       bettertxtlist.innerHTML = "Words to replace that text:"+ bettertxt;
+                       list.appendChild(bettertxtlist);
+                       //
+                       //now append list to div msg
+                       responsecreator.appendChild(list)
+                       document.getElementById('userinterface').appendChild(responsecreator)
+                      }
+            })
+          
+      }else if(typeofservice === "readability"){
+          fetch('https://api.textgears.com/readability?key=JiNEucv4JYa41a1r&text='+texttouse)
+           .then(response => response.json())
+            .then(data => {
+            var readeaseapi = data.response.stats.fleschKincaid.readingEase;
+            var grade = data.response.stats.fleschKincaid.grade;
+            var interpretation = data.response.stats.fleschKincaid.interpretation;
+            //readeaseapi
+            var readresponse =document.createElement('div')
+            readresponse.className = "msg suggestiionmsg float-left"
+            readresponse.innerHTML = "<b>Readability:</b>"+readeaseapi;
+            document.getElementById('userinterface').appendChild(readresponse)
+            //gradeapi
+            var graderesponse = document.createElement('div')
+            graderesponse.className = "msg suggestiionmsg float-left"
+            graderesponse.innerHTML= "<b>Grade level:</b>"+grade;
+            document.getElementById('userinterface').appendChild(graderesponse)
+            //interpretation
+            var interpretationresponse = document.createElement('div')
+            interpretationresponse.style.height = "45px"
+            interpretationresponse.className = "msg suggestiionmsg float-left";
+            interpretationresponse.innerHTML = interpretation;
+             document.getElementById('userinterface').appendChild(interpretationresponse)
+      })
+    }
+    document.getElementById('suggestionstarter').style.display="block";
+      }else{
+            var response= document.createElement('div');
+      response.className = "msg suggestiionmsg float-left";
+      response.innerHTML = "Type in your sentence."
+      document.getElementById('userinterface').appendChild(response)
+          document.getElementById('usertxtinputdiv').style.display="block"
+      }
+    
+    }else if(part===3){
+        var sentence = document.getElementById('senttxt').value;
+        var div= document.createElement('div');
+        div.className = "msg usermsg float-right";
+        div.innerHTML = sentence;
+        document.getElementById('userinterface').appendChild(div)
+        //response to do api stuff
+      if(typeofservice === "autocorrect"){
+          fetch('https://api.textgears.com/correct?text='+sentence+'&ai=1&language=en-GB&key=JiNEucv4JYa41a1r')
+          .then(response => response.json())
+             .then(data => {
+                 var correctedtxt = data.response.corrected;
+                 var response= document.createElement('div');
+                 response.className = "msg suggestiionmsg float-left";
+                 response.innerHTML = correctedtxt;
+                 document.getElementById('userinterface').appendChild(response)
+             })
+      }else if(typeofservice==="grammercheck"){
+          fetch('https://api.textgears.com/grammar?text='+sentence+'&language=en-GB&whitelist=&dictionary_id=&ai=0&key=JiNEucv4JYa41a1r')
+           .then(response => response.json())
+            .then(data => {
+                alert(data.response.errors.length);
+                if(data.response.errors.length=== 0){
+                    var response= document.createElement('div')
+                    response.innerHTML = "No grammer mistakes found."
+                    response.className="msg suggestiionmsg float-left";
+                    document.getElementById('userinterface').appendChild(response)
+                }else{
+                for (let i = 0; i < data.response.errors.length; i++){
+                    var errordescription = data.response.errors[i].description.en;
+                   var errortxt = data.response.errors[i].bad;
+                   var bettertxt= data.response.errors[i].better;
+                       var typeoferror= data.response.errors[i].type;
+                       var responsecreator = document.createElement('div');
+                       responsecreator.className= "msg suggestiionmsg float-left"
+                       responsecreator.style.height = "225px"
+                       var list = document.createElement('ul');
+                       //add error description
+                       var errordesc = document.createElement('li');
+                       errordesc.innerHTML = errordescription;
+                       list.appendChild(errordesc)
+                       //error text
+                       var errortxtlist = document.createElement('li');
+                       errortxtlist.innerHTML = "Text that has error:" + errortxt;
+                       list.appendChild(errortxtlist);
+                       //bettertext
+                       var bettertxtlist = document.createElement('li');
+                       bettertxtlist.innerHTML = "Words to replace it:"+ bettertxt;
+                       list.appendChild(bettertxtlist);
+                       //type
+                       var type =  document.createElement('li');
+                       type.innerHTML = "Type of error:" + typeoferror;
+                       list.appendChild(type);
+                       //now append list to div msg
+                       responsecreator.appendChild(list)
+                       document.getElementById('userinterface').appendChild(responsecreator)
+                }
+                }
+            })
+      }else if(typeofservice=== "spellcheck"){
+          fetch('https://api.textgears.com/spelling?text='+sentence+'&language=en-GB&whitelist=&dictionary_id=&ai=1&key=JiNEucv4JYa41a1r')
+           .then(response => response.json())
+            .then(data => {
+             
+                
+                      for (let i = 0; i < data.response.errors.length; i++){
+                             var errortxt = data.response.errors[i].bad;
+                   var bettertxt= data.response.errors[i].better;
+                    var responsecreator = document.createElement('div');
+                       responsecreator.className= "msg suggestiionmsg float-left"
+                       responsecreator.style.height = "125px"
+                       var list = document.createElement('ul');
+                    
+                       //error text
+                       var errortxtlist = document.createElement('li');
+                       errortxtlist.innerHTML = "Text that has spelling mistake:" + errortxt;
+                       list.appendChild(errortxtlist);
+                       //bettertext
+                       var bettertxtlist = document.createElement('li');
+                       bettertxtlist.innerHTML = "Words to replace that text:"+ bettertxt;
+                       list.appendChild(bettertxtlist);
+                       //
+                       //now append list to div msg
+                       responsecreator.appendChild(list)
+                       document.getElementById('userinterface').appendChild(responsecreator)
+                      }
+            })
+          
+      }else if(typeofservice === "readability"){
+          fetch('https://api.textgears.com/readability?key=JiNEucv4JYa41a1r&text='+sentence)
+           .then(response => response.json())
+            .then(data => {
+            var readeaseapi = data.response.stats.fleschKincaid.readingEase;
+            var grade = data.response.stats.fleschKincaid.grade;
+            var interpretation = data.response.stats.fleschKincaid.interpretation;
+            //readeaseapi
+            var readresponse =document.createElement('div')
+            readresponse.className = "msg suggestiionmsg float-left"
+            readresponse.innerHTML = "<b>Readability:</b>"+readeaseapi;
+            document.getElementById('userinterface').appendChild(readresponse)
+            //gradeapi
+            var graderesponse = document.createElement('div')
+            graderesponse.className = "msg suggestiionmsg float-left"
+            graderesponse.innerHTML= "<b>Grade level:</b>"+grade;
+            document.getElementById('userinterface').appendChild(graderesponse)
+            //interpretation
+            var interpretationresponse = document.createElement('div')
+            interpretationresponse.style.height = "45px"
+            interpretationresponse.className = "msg suggestiionmsg float-left";
+            interpretationresponse.innerHTML = interpretation;
+             document.getElementById('userinterface').appendChild(interpretationresponse)
+      })
+    }
+}
+}
         </script>
         <div id="container" class="fixed-top" style="background:none;">
   <div id="beginingarea" style="background-color:palegreen">
@@ -368,6 +652,7 @@ function addvideo(){
        <button type="btn" class="btn btn-warning"  data-toggle="modal" data-target="#retrieves" title="Retrieve Document"><span class="material-icons">
 file_open
 </span></button>  <button type="button" id="loadexport" class="btn btn-primary" title="Export Document"><i class="fa-solid fa-upload fa-flip"></i></button>
+ <button type="button" id="suggestions" class="btn btn-primary" title="Suggestions" onclick="document.getElementById('suggestionbox').style.display='block'"><i class="fa-solid fa-wand-sparkles fa-bounce"></i></button>
 
    </div>
     
@@ -522,6 +807,56 @@ Don't have an account? Visit the <a href="https://goodapps.w3spaces.com">Main Pa
 
     </div>
   </div>
+</div>
+
+<!-- Suggestion? Whatever... I'll try to do it -->
+<div class="float-right">
+<div id="suggestionbox" class="fixed-bottom" style="display:none;">
+     <button type="button" class="close" onclick="document.getElementById('suggestionbox').style.display='none'">&times;</button>
+    <h3>Suggestions</h3>
+    <div id="userinterface" style="width:345px;height:300px; overflow-y: scroll;">
+        <div id="orgmsg" class="msg" style=" width:320px;">
+            Choose from one of the options below.
+        </div><Br>
+    </div>
+  <div id="userinput">
+      <div id="suggestionstarter">
+      <Button type="Btn" class="btn btn-primary" onclick="minisuggestionaimodel(this,1)" value="grammercheck">
+          Grammer Check
+      </Button>
+            <Button type="Btn" class="btn btn-primary" onclick="minisuggestionaimodel(this,1)" value="spellcheck">
+          Spell Check
+      </Button>
+        <Button type="Btn" class="btn btn-primary" onclick="minisuggestionaimodel(this,1)" value="autocorrect">
+          Auto Correct
+      </Button>
+       <Button type="Btn" class="btn btn-primary" onclick="minisuggestionaimodel(this,1)" value="readability">
+Check Readablity
+      </Button>
+  </div>
+  <div id="docorsent" style="display:none;">
+      <button class="btn btn-primary" onclick="minisuggestionaimodel(this,2)">
+          Sentence
+      </button>
+       <button class="btn btn-primary" onclick="minisuggestionaimodel(this,2,'docs')">
+          Document
+      </button>
+  </div>
+  <div id="usertxtinputdiv" style="display:none;">
+  
+    
+        <div class="input-group mb-3">
+   
+    <input type="text" class="form-control" id="senttxt" placeholder="Enter text to send...">
+     <div class="input-group-append">
+      <span class="input-group-text">  <button class="btn btn-success" onclick="minisuggestionaimodel(this,3)">
+          Enter
+      </button></span>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
 </div>
 <!-- Perfect Tense Script-->
 
