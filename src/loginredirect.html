@@ -8,32 +8,30 @@
   <button onclick="test()">test</button>
   
   <script>
-    alert(window.location.href);
 function test() {
-  document.addEventListener('DOMContentLoaded', function () {
-    // Get the current URL
-    const currentUrl = window.location.href;
+  // Get the current URL
+  const currentUrl = window.location.href;
 
-    // Create a URLSearchParams object to parse the URL query parameters
-    const urlParams = new URLSearchParams(currentUrl);
+  // Find the position of 'token=' in the URL
+  const tokenIndex = currentUrl.indexOf('token=');
 
-    // Get the value of the 'token' parameter
-    const token = urlParams.get('token');
+  // Check if 'token=' exists in the URL
+  if (tokenIndex !== -1) {
+    // Extract the substring after 'token='
+    const tokenSubstring = currentUrl.substring(tokenIndex + 6); // 'token='.length is 6
 
     // Now you have the 'token' value from the URL
-    console.log('Token:', token);
+    console.log('Token:', tokenSubstring);
 
-    // Check if token exists
-    if (token) {
-      const payloadBase64 = token.split('.')[1];
-      const payload = window.atob(payloadBase64);
-      const decodedPayload = JSON.parse(payload);
-      console.log('Name:', decodedPayload.given_name);
-      console.log('Expiration Time:', decodedPayload.exp);
-    } else {
-      console.log('Token not found in URL.');
-    }
-  });
+    // Decode the token and access the payload if needed
+    const payloadBase64 = tokenSubstring.split('.')[1];
+    const payload = window.atob(payloadBase64);
+    const decodedPayload = JSON.parse(payload);
+    console.log('Name:', decodedPayload.given_name);
+    console.log('Expiration Time:', decodedPayload.exp);
+  } else {
+    console.log('Token not found in URL.');
+  }
 }
   </script>
 </body>
