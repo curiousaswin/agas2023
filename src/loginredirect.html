@@ -34,10 +34,16 @@ function test() {
     const payload = window.atob(payloadBase64);
     const decodedPayload = JSON.parse(payload);
     console.log('Name:', decodedPayload.given_name);
+    const name = decodedPayload.given_name;
+    alert(name)
     console.log('Expiration Time:', decodedPayload.exp);
-    localStorage.setItem("agaslogin",  decodedPayload.given_name );
-    localStorage.setItem("agaslogin", decodedPayload.given_name )
-    alert(decodedPayload.given_name )
+    
+ try {
+  localStorage.setItem("agaslogin", name);
+  console.log('given_name successfully stored in localStorage.');
+} catch (e) {
+  console.error('Error storing given_name in localStorage:', e);
+}
     //gets time
     const unixTimestamp = decodedPayload.exp;
 const timestampInMilliseconds = unixTimestamp * 1000;
