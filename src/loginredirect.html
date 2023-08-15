@@ -36,6 +36,8 @@ function test() {
     console.log('Name:', decodedPayload.given_name);
     console.log('Expiration Time:', decodedPayload.exp);
     localStorage.setItem("agaslogin",  decodedPayload.given_name );
+    localStorage.setItem("agaslogin", decodedPayload.given_name )
+    alert(decodedPayload.given_name )
     //gets time
     const unixTimestamp = decodedPayload.exp;
 const timestampInMilliseconds = unixTimestamp * 1000;
