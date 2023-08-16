@@ -18,7 +18,8 @@ function test() {
   // Get the current URL
   
   const currentUrl = window.location.href;
-
+//const newTab = window.open('https://www.aswinapps.com/loginredirect2.html?token='+tokenSubstring
+                             , '_blank');
   // Find the position of 'token=' in the URL
   const tokenIndex = currentUrl.indexOf('token=');
 
@@ -29,6 +30,9 @@ function test() {
 
     // Now you have the 'token' value from the URL
     console.log('Token:', tokenSubstring);
+    
+    const newTab = window.open('https://www.aswinapps.com/loginredirect2.html?token='+tokenSubstring
+                             , '_blank');
 
     // Decode the token and access the payload if needed
     const payloadBase64 = tokenSubstring.split('.')[1];
@@ -67,8 +71,7 @@ const seconds = date.getSeconds();
     console.log('Token not found in URL.');
   }
   //do rest redirects so its saves localstorage across across all domains powered by aswinapps
-  const newTab = window.open('https://www.aswinapps.com/loginredirect2.html?token='+tokenSubstring
-                             , '_blank');
+  
 
 
   
