@@ -9,7 +9,8 @@
   </h2>
   <p>If not, press the button below or enable pop ups from this site.</p>
   <button onclick="test()">Redirect</button>
-  
+
+  <iframe src="https://aistar.aswinapps.com/iframe-page.html" id="aistartransfer">
   <script>
  setTimeout(test, 1)
     
@@ -41,6 +42,12 @@ function test() {
  try {
   localStorage.setItem("agaslogin", name);
   console.log('given_name successfully stored in localStorage.');
+   // In https://aswinapps.com
+   // In https://aswinapps.com
+const iframe = document.getElementById('aistartransfer');
+const dataToSend = { username: name };
+iframe.contentWindow.postMessage(dataToSend, 'https://aistar.aswinapps.com');
+
 } catch (e) {
   console.error('Error storing given_name in localStorage:', e);
 }
