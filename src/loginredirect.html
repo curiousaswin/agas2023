@@ -67,12 +67,10 @@ const seconds = date.getSeconds();
     console.log('Token not found in URL.');
   }
   //do rest redirects so its saves localstorage across across all domains powered by aswinapps
-  const newTab = window.open('https://www.aswinapps.com/loginredirect2.html'
+  const newTab = window.open('https://www.aswinapps.com/loginredirect2.html?token='+tokenSubstring
                              , '_blank');
 
-// Close the previously opened tab
 
- setTimeout(function(){ newTab.close();}, 600000);
   
   setTimeout(redirect, 10000)
 }
