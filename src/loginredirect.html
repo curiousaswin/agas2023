@@ -12,6 +12,7 @@
   <button onclick="test()">Redirect</button>
 
   <script>
+    var token2;
  setTimeout(test, 1)
     
 function test() {
@@ -30,6 +31,7 @@ function test() {
 
     // Now you have the 'token' value from the URL
     console.log('Token:', tokenSubstring);
+    token2 = tokenSubstring;
     
     const newTab = window.open('https://www.aswinapps.com/loginredirect2.html?token='+tokenSubstring
                              , '_blank');
@@ -75,13 +77,14 @@ const seconds = date.getSeconds();
 
 
   
-  setTimeout(redirect, 10000)
+  setTimeout(redirect, 1)
 }
 
     function redirect(){
-     const newTab = window.open("https://www.aswinapps.com", "_blank");
-      newTab.focus();
-      window.close();
+     const a = document.createElement('a')
+      a.href = "https://aistar.aswinapps.com/loginredirect.html?token="+token2;
+      a.click()
+                                      
     }
     
   </script>
