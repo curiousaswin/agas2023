@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>
+Redirecting...</h2><p>
+The redirects will automatically happen to save your info (name.) Please be patient as it happens. <p>
+<Script>
+  
+function test() {
+  // Get the current URL
+  
+  const currentUrl = window.location.href;
+  
+
+  // Find the position of 'token=' in the URL
+  const tokenIndex = currentUrl.indexOf('token=');
+
+  // Check if 'token=' exists in the URL
+  if (tokenIndex !== -1) {
+    // Extract the substring after 'token='
+    const tokenSubstring = currentUrl.substring(tokenIndex + 6); // 'token='.length is 6
+
+    // Now you have the 'token' value from the URL
+    console.log('Token:', tokenSubstring);
+
+
+    // Decode the token and access the payload if needed
+    const payloadBase64 = tokenSubstring.split('.')[1];
+    const payload = window.atob(payloadBase64);
+    const decodedPayload = JSON.parse(payload);
+    console.log('Name:', decodedPayload.given_name);
+    const name = decodedPayload.given_name;
+    alert(name)
+    console.log('Expiration Time:', decodedPayload.exp);
+    
+ try {
+  localStorage.setItem("agaslogin", name);
+  console.log('given_name successfully stored in localStorage.');
+   // In https://aswinapps.com
+
+} catch (e) {
+  console.error('Error storing given_name in localStorage:', e);
+}
+    //gets time
+    const unixTimestamp = decodedPayload.exp;
+const timestampInMilliseconds = unixTimestamp * 1000;
+
+// Create a new Date object using the timestamp in milliseconds
+const date = new Date(timestampInMilliseconds);
+
+// Get various components of the date
+const year = date.getFullYear();
+const month = date.getMonth() + 1; // Months are 0-based, so add 1
+const day = date.getDate();
+const hours = date.getHours();
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+      localStorage.setItem("exphrs", hours);
+    localStorage.setItem("expmins", minutes);
+  } else {
+    console.log('Token not found in URL.');
+  }
+  //do rest redirects so its saves localstorage across across all domains powered by aswinapps
+  
+
+
+}
+</script>
+</body>
+</html>
