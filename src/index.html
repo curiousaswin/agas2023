@@ -67,22 +67,7 @@ a{
     <script>
 	    //check if login is active or is expired
 
-	    var exphours =  localStorage.getItem("exphours");
-	    var expmins = localStorage.getItem("expmins");
-	    console.log(exphours)
-	    //
-	    const d = new Date();
-var currenthrs = d.getHours();
-	    var currentmins = d.getMinutes();
-	    if(currenthrs>exphours){
-		localStorage.removeItem("agaslogin");
-		    location.reload();
-	    }else{
-		    if(currentmins>expmins){
-			    localStorage.removeItem("agaslogin");
-			    location.reload();
-		    }
-	    }
+	    
    
 document.onkeydown = function(e) {
     if(e.keyCode == 123) {
@@ -114,6 +99,23 @@ console.log(localStorage.getItem("Name"));
         document.getElementById("signup2").style.display = "none" ;
      document.getElementById("login1").style.display = "none" ;
    }
+
+		var exphours =  localStorage.getItem("exphours");
+	    var expmins = localStorage.getItem("expmins");
+	    console.log(exphours)
+	    //
+	    const d = new Date();
+var currenthrs = d.getHours();
+	    var currentmins = d.getMinutes();
+	    if(currenthrs>exphours){
+		localStorage.removeItem("agaslogin");
+		    location.reload();
+	    }else{
+		    if(currentmins>expmins){
+			    localStorage.removeItem("agaslogin");
+			    location.reload();
+		    }
+	    }
 }   
 
 function showPage() {
