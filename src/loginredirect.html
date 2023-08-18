@@ -69,6 +69,7 @@ const minutes = date.getMinutes();
 const seconds = date.getSeconds();
       localStorage.setItem("exphrs", hours);
     localStorage.setItem("expmins", minutes);
+    console.log(hours)
   } else {
     console.log('Token not found in URL.');
   }
