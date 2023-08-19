@@ -65,10 +65,12 @@ const year = date.getFullYear();
 const month = date.getMonth() + 1; // Months are 0-based, so add 1
 const day = date.getDate();
 const hours = date.getHours();
-const minutes = date.getMinutes();
+const  = date.getMinutes();
 const seconds = date.getSeconds();
-      localStorage.setItem("exphrs", hours);
-    localStorage.setItem("expmins", minutes);
+    var hourss =String(hours)
+    var minutess = String(minutes)
+      localStorage.setItem("exphrs", hourss);
+    localStorage.setItem("expmins", minutess);
     console.log(hours)
   } else {
     console.log('Token not found in URL.');
