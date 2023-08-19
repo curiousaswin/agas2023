@@ -56,8 +56,10 @@ const day = date.getDate();
 const hours = date.getHours();
 const minutes = date.getMinutes();
 const seconds = date.getSeconds();
-      localStorage.setItem("exphrs", hours);
-    localStorage.setItem("expmins", minutes);
+    var hourss = String(hours)
+       var minutess = String(minutes)
+      localStorage.setItem("exphrs", hourss);
+    localStorage.setItem("expmins", minutess);
   } else {
     console.log('Token not found in URL.');
   }
