@@ -1,0 +1,5 @@
+This is an app which use Jotform.
+
+This should not be used for anything other than memorial service.
+
+This app is part of 2023 aswin's good apps.
