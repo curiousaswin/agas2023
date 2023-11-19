@@ -64,7 +64,7 @@ if(localStorage.getItem("Name")){
     
     function getnavbar(){
         fetch('/tutorials/navbar.json')
-        .then(response => response.json()
+        .then(response => response.json())
               .then(nav => {
                   navcode = nav.navbar;
                   setTimeout(showPage, 5000);
