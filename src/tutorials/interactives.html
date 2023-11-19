@@ -48,8 +48,9 @@ h3{
 </head>
 <body onload="myFunction()">
 <script>
+    var navcode;
     function myFunction() {
-  myVar = setTimeout(showPage, 5000);
+  myVar = setTimeout(getnavbar, 5000);
 if(localStorage.getItem("Name")){
    var getinfo = localStorage.getItem("Name");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
@@ -60,14 +61,26 @@ if(localStorage.getItem("Name")){
   
 }
 
+    
+    function getnavbar(){
+        fetch('/tutorials/navbar.json')
+        .then(response => response.json()
+              .then(nav => {
+                  navcode = nav.navbar;
+                  setTimeout(showPage, 5000);
+              }
+                    )
+    }
+
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById('content').style.filter="blur(0px)"
-  var content = $("#content").contents();
+  var content = $(navcode).append($("#content").contents());
 $("#content").replaceWith(content);
   
  
 }
+    
 </script>
 <img src="https://www.aswinapps.com/tutorialsstartup.gif" id="loader">
 <div id="content" style="filter:blur(5px)">
