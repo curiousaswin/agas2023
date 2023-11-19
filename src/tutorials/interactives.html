@@ -75,7 +75,7 @@ if(localStorage.getItem("Name")){
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById('content').style.filter="blur(0px)"
-  var content = $(navcode).append($("#content").contents());
+  var content = navcode + document.getElementById('content').innerHTML
 $("#content").replaceWith(content);
   
  
