@@ -35,7 +35,7 @@ color:green;
       <script>
     var navcode;
     function myFunction() {
-  myVar = setTimeout(getnavbar, 5000);
+  myVar = setTimeout(getnavbar, 2000);
 if(localStorage.getItem("Name")){
    var getinfo = localStorage.getItem("Name");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
@@ -52,7 +52,7 @@ if(localStorage.getItem("Name")){
         .then(response => response.json())
               .then(nav => {
                   navcode = nav.navbar;
-                  setTimeout(showPage, 5000);
+                  setTimeout(showPage, 2000);
               }
                     ) 
     }
