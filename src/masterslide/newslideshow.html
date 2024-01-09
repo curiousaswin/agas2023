@@ -1,0 +1,2099 @@
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--draggable-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+   <link  href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!--Pacifico-->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <!--ICONS-->
+ <script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+      
+      <link rel="icon" href="https://www.aswinapps.com/MasterslideIcon.jpeg" 	type = "image/x-icon">
+ 
+    <meta charset="UTF-8">
+    <title>Aswin's MasterSlide</title>
+    <style>
+        .slideer{
+            width:700px;
+            height:500px;
+            background-color:white;
+        }
+        body{
+            background-image: url('https://cdn.wallpapersafari.com/93/24/oUE9uI.png');
+        }
+        .ui-effects-explode { margin : 0 }
+          #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  margin: -76px 0 0 -76px;
+ @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+}
+#additionalelements{
+    color:black;
+    background-color:#CC7722;
+}
+#formatingoption{
+    background-color:#CC7722
+;
+}
+#imgeditor{
+    background-color:#CC7722;
+}
+
+</style>
+    <script>
+      function leavepagealert(){
+    return"";
+}
+
+    
+     
+      </script>
+</head>
+
+<body  onbeforeunload="return leavepagealert()" onload="myFunction()">
+    <script>
+        function newslide(){
+          
+            var nameofslide= document.getElementById('slidename').value;
+            var div=document.createElement("div")
+            div.id=nameofslide+"container";
+            div.className = "slidecontainers collapse show";
+            div.style.position="relative";
+             div.setAttribute('name', 'slidesforuse');
+            document.getElementById('slides').appendChild(div);
+            var slide = document.createElement('div');
+            slide.style.width="700px";
+            slide.style.height="500px";
+            slide.className = "slideer";
+            slide.style.border = "9px solid black";
+            slide.style.position="relative";
+            slide.style.backgroundColor = "white";
+          
+            slide.id=nameofslide;
+           
+            document.getElementById(nameofslide+"container").appendChild(slide);
+            var heading=document.createElement('h1');
+            heading.contentEditable="true";
+            heading.innerHTML="This is a heading";
+            document.getElementById(nameofslide).appendChild(heading);
+            var paragraph=document.createElement('p');
+            paragraph.contentEditable="true";
+            paragraph.innerHTML="This is a Paragraph";
+            document.getElementById(nameofslide).appendChild(paragraph);
+             var remove = document.createElement('button');
+             remove.className="btn btn-warning";
+             remove.innerHTML = "Remove this Slide";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             div.appendChild(remove);
+            var slidename2="#" + nameofslide+"container";
+            var buttontext = "<br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button>";
+            $(slidename2).append(buttontext);
+            var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+
+   
+            $("#lists").append(controltext);
+            
+ $(function() {
+    var p = document.getElementsByTagName('p');
+    $(p).draggable();
+  });
+$(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+document.getElementById('slidename').value="";
+
+}
+   function headingandlist(){
+            var nameofslide= document.getElementById('slidename').value;
+            var div=document.createElement("div")
+            div.id=nameofslide+"container";
+            div.className = "slidecontainers collapse show";
+            div.style.position="relative";
+             div.setAttribute('name', 'slidesforuse');
+            document.getElementById('slides').appendChild(div);
+            var slide = document.createElement('div');
+            slide.style.width="700px";
+            slide.style.height="500px";
+            slide.className = "slideer";
+            slide.style.border = "9px solid black";
+            slide.style.position="relative";
+            slide.style.backgroundColor = "white";
+          
+            slide.id=nameofslide;
+          
+            document.getElementById(nameofslide+"container").appendChild(slide);
+            var heading=document.createElement('h1');
+            heading.contentEditable="true";
+            heading.innerHTML="This is a heading";
+            document.getElementById(nameofslide).appendChild(heading);
+     $("#"+nameofslide).append("<ul draggable='false' contenteditable='true'><li>This is a list</li></ul>");
+      var remove = document.createElement('button');
+             remove.className="btn btn-warning";
+             remove.innerHTML = "Remove this Slide";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             div.appendChild(remove);
+            var slidename2="#" + nameofslide+"container";
+            var buttontext = "<br><br><BR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span></div>";
+            $(slidename2).append(buttontext);
+             var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+
+   
+            $("#lists").append(controltext);
+            
+
+$(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+document.getElementById('slidename').value="";
+
+}
+   function headingandimage(){
+            var nameofslide= document.getElementById('slidename').value;
+            var div=document.createElement("div")
+            div.id=nameofslide+"container";
+            div.className = "slidecontainers collapse show";
+            div.style.position="relative";
+             div.setAttribute('name', 'slidesforuse');
+            document.getElementById('slides').appendChild(div);
+            var slide = document.createElement('div');
+            slide.style.width="700px";
+            slide.style.height="500px";
+            slide.className = "slideer";
+            slide.style.border = "9px solid black";
+            slide.style.position="relative";
+            slide.style.backgroundColor = "white";
+          
+            slide.id=nameofslide;
+            
+            document.getElementById(nameofslide+"container").appendChild(slide);
+            var heading=document.createElement('h1');
+            heading.contentEditable="true";
+            heading.innerHTML="This is a heading";
+            document.getElementById(nameofslide).appendChild(heading);
+    var imagediv = document.createElement('div');
+    imagediv.id= nameofslide + "imagediv";
+     
+       
+       document.getElementById(nameofslide).appendChild(imagediv);
+   
+
+   var imagestouse = document.getElementById('fileimage');
+  // Make sure we have files to use
+  var image = document.createElement('img');
+ image.src = window.URL.createObjectURL(imagestouse.files[0])
+ 
+image.id = nameofslide + "image";
+image.setAttribute("tabindex","-1")
+image.setAttribute("name", imagestouse.value)
+  // Allow us to control the audio
+ image.style.width=document.getElementById('widthforimage').value+"px";
+ image.style.height=document.getElementById('heightforimage').value+"px";
+  // Set the src and start loading the audio from the file
+ 
+
+document.getElementById(nameofslide).appendChild(image);
+ var remove = document.createElement('button');
+             remove.className="btn btn-warning";
+             remove.innerHTML = "Remove this Slide";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             div.appendChild(remove);
+
+            var slidename2="#" + nameofslide+"container";
+            var buttontext = "<br><br><BR><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            
+            $(slidename2).append(buttontext);
+            var usableid = nameofslide+"color";
+            /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
+                 $(slidename2).append(backgroundcolor);*/
+             var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+
+   
+            $("#lists").append(controltext);
+            
+
+$(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+$(function() {
+    var img = document.getElementsByTagName('img');
+    $(img).draggable();
+  });
+document.getElementById('slidename').value="";
+document.getElementById('widthforimage').value=0;
+      document.getElementById('heightforimage').value=0;
+      document.getElementById('fileimage').value="";
+}
+   function headingandvideo(){
+            var nameofslide= document.getElementById('slidename').value;
+            var div=document.createElement("div")
+            div.id=nameofslide+"container";
+            div.className = "slidecontainers collapse show";
+            div.style.position="relative";
+             div.setAttribute('name', 'slidesforuse');
+           
+            document.getElementById('slides').appendChild(div);
+            var slide = document.createElement('div');
+            slide.style.width="700px";
+            slide.style.height="500px";
+            slide.className = "slideer";
+            slide.style.border = "9px solid black";
+            slide.style.position="relative";
+            slide.style.backgroundColor = "white";
+            slide.id=nameofslide;
+               
+            document.getElementById(nameofslide+"container").appendChild(slide);
+            var heading=document.createElement('h1');
+            heading.contentEditable="true";
+            heading.innerHTML="This is a heading";
+            document.getElementById(nameofslide).appendChild(heading);
+    var video = document.createElement('video');
+    video.id= nameofslide + "video";
+     video.controls="true";
+        video.style.width=document.getElementById('widthforvideo').value+"px";
+ video.style.height=document.getElementById('heightforvideo').value+"px";
+       document.getElementById(nameofslide).appendChild(video);
+   
+
+   var videostouse = document.getElementById('filevideo');
+  // Make sure we have files to use
+  var source = document.createElement('source');
+ source.src = URL.createObjectURL(videostouse.files[0]);
+
+ 
+source.id = nameofslide + "videosource";
+
+  // Allow us to control the audio
+
+  // Set the src and start loading the audio from the file
+ 
+
+document.getElementById(nameofslide+"video").appendChild(source);
+
+  var remove = document.createElement('button');
+             remove.className="btn btn-warning";
+             remove.innerHTML = "Remove this Slide";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             div.appendChild(remove);
+             
+            var slidename2="#" + nameofslide+"container";
+            var buttontext = "<Br><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            
+            $(slidename2).append(buttontext);
+            var usableid = nameofslide+"color";
+            /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
+                 $(slidename2).append(backgroundcolor);*/
+        var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+   
+            $("#lists").append(controltext);
+            
+
+$(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+$(function() {
+    var video = document.getElementsByTagName('video');
+    $(video).draggable();
+  });
+document.getElementById('slidename').value="";
+document.getElementById('widthforimage').value=0;
+      document.getElementById('heightforimage').value=0;
+      document.getElementById('fileimage').value="";
+}
+
+    
+
+
+
+
+
+
+function present(){
+    let firstslide = document.getElementsByClassName("slideer")[0].innerHTML;
+document.getElementById("present").innerHTML = firstslide ;
+document.getElementById('present').style.display="block";
+document.getElementById('present').style.backgroundColor= document.getElementsByClassName("slideer")[0].style.backgroundColor;
+document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[0].style.backgroundImage;
+document.getElementById('end').style.display="block";
+document.getElementById('backgroundmusic').play();
+    const paragraphs = document.getElementsByTagName("p");
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].contentEditable= "false";
+}
+  const headings = document.getElementsByTagName("h1");
+for (let i = 0; i < headings.length; i++) {
+  headings[i].contentEditable= "false";
+}
+
+ var elem = document.getElementById('present');
+  requestFullScreen(elem);
+document.getElementById("present").innerHTML = firstslide + "<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
+ 
+
+
+}
+function slidemanager(){
+    var numbertouse = document.getElementById('presentnumber').value - 1;
+     var keeptext = document.getElementById('presentnumber').value;
+     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
+       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+ if(document.getElementById('transition').value == "Fade"){
+     
+ $("#present").fadeOut();
+    $("#present").fadeIn();
+ } else if(document.getElementById('transition').value == "SlideUp"){
+        $('h1').slideUp(1000);
+         $('h1').slideDown(1000);
+            $('ul').slideUp(1000);
+         $('ul').slideDown(1000);
+            $('img').slideUp(1000);
+         $('img').slideDown(1000);
+            $('table').slideUp(1000);
+         $('table').slideDown(1000);
+            $('video').slideUp(1000);
+         $('video').slideDown(1000);
+           $('p').slideUp(1000);
+         $('p').slideDown(1000);
+ }else if(document.getElementById('transition').value == "SlideLeft"){
+ $("ul").animate({width:'hide'},1000);
+ $("ul").animate({width:'show'},1000);
+  $("img").animate({width:'hide'},1000);
+ $("img").animate({width:'show'},1000);
+  $("table").animate({width:'hide'},1000);
+ $("table").animate({width:'show'},1000);
+  $("video").animate({width:'hide'},1000);
+ $("video").animate({width:'show'},1000);
+       $("h1").animate({width:'hide'},1000);
+         $("h1").animate({width:'show'},1000);
+           $("p").animate({width:'hide'},1000);
+         $("p").animate({width:'show'},1000);
+        
+ }else if(document.getElementById('transition').value == "Pulsate"){
+   
+  $( "p" ).effect( "pulsate", "slow" );
+  $( "h1" ).effect( "pulsate", "slow" );
+$( "ul" ).effect( "pulsate", "slow" );
+$( "img" ).effect( "pulsate", "slow" );
+$( "table" ).effect( "pulsate", "slow" );
+$( "video" ).effect( "pulsate", "slow" );
+}else if(document.getElementById('transition').value == "highlight"){
+   
+  $( "p" ).effect( "highlight", "slow" );
+  $( "h1" ).effect( "highlight", "slow" );
+$( "ul" ).effect( "highlight", "slow" );
+$( "img" ).effect( "highlight", "slow" );
+$( "table" ).effect( "highlight", "slow" );
+$( "video" ).effect( "highlight", "slow" );
+}else if(document.getElementById('transition').value == "bounce"){
+   
+  $( "p" ).effect( "bounce", "slow" );
+  $( "h1" ).effect( "bounce", "slow" );
+$( "ul" ).effect( "bounce", "slow" );
+$( "img" ).effect( "bounce", "slow" );
+$( "table" ).effect( "bounce", "slow" );
+$( "video" ).effect( "bounce", "slow" );
+}else if(document.getElementById('transition').value == "clip"){
+    
+     $( "p" ).effect( "clip", "slow" );
+  $( "h1" ).effect( "clip", "slow" );
+$( "ul" ).effect( "clip", "slow" );
+$( "img" ).effect( "clip", "slow" );
+$( "table" ).effect( "clip", "slow" );
+$( "video" ).effect( "clip", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "puff"){
+    
+     $( "p" ).effect( "puff", "slow" );
+  $( "h1" ).effect( "puff", "slow" );
+$( "ul" ).effect( "puff", "slow" );
+$( "img" ).effect( "puff", "slow" );
+$( "table" ).effect( "puff", "slow" );
+$( "video" ).effect( "puff", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "fold"){
+    
+     $( "p" ).effect( "fold", "slow" );
+  $( "h1" ).effect( "fold", "slow" );
+$( "ul" ).effect( "fold", "slow" );
+$( "img" ).effect( "fold", "slow" );
+$( "table" ).effect( "fold", "slow" );
+$( "video" ).effect( "fold", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "slide"){
+    
+     $( "p" ).effect( "slide", "slow" );
+  $( "h1" ).effect( "slide", "slow" );
+$( "ul" ).effect( "slide", "slow" );
+$( "img" ).effect( "slide", "slow" );
+$( "table" ).effect( "slide", "slow" );
+$( "video" ).effect( "slide", "slow" );
+
+}else if(document.getElementById('transition').value == "explode"){
+    
+    $( "p" ).toggle( "explode","slow" );
+        $( "h1" ).toggle( "explode","slow"  );
+            $( "ul" ).toggle( "explode","slow"  );
+                $( "img" ).toggle( "explode","slow"  );
+                    $( "table" ).toggle( "explode","slow"  );
+                        $( "video" ).toggle( "explode","slow"  );
+setTimeout(stopexplode, 1000);
+}
+
+ 
+  
+}
+function increaseslides(){
+   var newnumber = document.getElementById('presentnumber').value *1 +1;
+   document.getElementById('presentnumber').value = newnumber;
+    var numbertouse = document.getElementById('presentnumber').value - 1;
+     var keeptext = document.getElementById('presentnumber').value;
+     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
+       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+ if(document.getElementById('transition').value == "Fade"){
+     
+ $("#present").fadeOut();
+    $("#present").fadeIn();
+ } else if(document.getElementById('transition').value == "SlideUp"){
+        $('h1').slideUp(1000);
+         $('h1').slideDown(1000);
+            $('ul').slideUp(1000);
+         $('ul').slideDown(1000);
+            $('img').slideUp(1000);
+         $('img').slideDown(1000);
+            $('table').slideUp(1000);
+         $('table').slideDown(1000);
+            $('video').slideUp(1000);
+         $('video').slideDown(1000);
+           $('p').slideUp(1000);
+         $('p').slideDown(1000);
+ }else if(document.getElementById('transition').value == "SlideLeft"){
+ $("ul").animate({width:'hide'},1000);
+ $("ul").animate({width:'show'},1000);
+  $("img").animate({width:'hide'},1000);
+ $("img").animate({width:'show'},1000);
+  $("table").animate({width:'hide'},1000);
+ $("table").animate({width:'show'},1000);
+  $("video").animate({width:'hide'},1000);
+ $("video").animate({width:'show'},1000);
+       $("h1").animate({width:'hide'},1000);
+         $("h1").animate({width:'show'},1000);
+           $("p").animate({width:'hide'},1000);
+         $("p").animate({width:'show'},1000);
+        
+ }else if(document.getElementById('transition').value == "Pulsate"){
+   
+  $( "p" ).effect( "pulsate", "slow" );
+  $( "h1" ).effect( "pulsate", "slow" );
+$( "ul" ).effect( "pulsate", "slow" );
+$( "img" ).effect( "pulsate", "slow" );
+$( "table" ).effect( "pulsate", "slow" );
+$( "video" ).effect( "pulsate", "slow" );
+}else if(document.getElementById('transition').value == "highlight"){
+   
+  $( "p" ).effect( "highlight", "slow" );
+  $( "h1" ).effect( "highlight", "slow" );
+$( "ul" ).effect( "highlight", "slow" );
+$( "img" ).effect( "highlight", "slow" );
+$( "table" ).effect( "highlight", "slow" );
+$( "video" ).effect( "highlight", "slow" );
+}else if(document.getElementById('transition').value == "bounce"){
+   
+  $( "p" ).effect( "bounce", "slow" );
+  $( "h1" ).effect( "bounce", "slow" );
+$( "ul" ).effect( "bounce", "slow" );
+$( "img" ).effect( "bounce", "slow" );
+$( "table" ).effect( "bounce", "slow" );
+$( "video" ).effect( "bounce", "slow" );
+}else if(document.getElementById('transition').value == "clip"){
+    
+     $( "p" ).effect( "clip", "slow" );
+  $( "h1" ).effect( "clip", "slow" );
+$( "ul" ).effect( "clip", "slow" );
+$( "img" ).effect( "clip", "slow" );
+$( "table" ).effect( "clip", "slow" );
+$( "video" ).effect( "clip", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "puff"){
+    
+     $( "p" ).effect( "puff", "slow" );
+  $( "h1" ).effect( "puff", "slow" );
+$( "ul" ).effect( "puff", "slow" );
+$( "img" ).effect( "puff", "slow" );
+$( "table" ).effect( "puff", "slow" );
+$( "video" ).effect( "puff", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "fold"){
+    
+     $( "p" ).effect( "fold", "slow" );
+  $( "h1" ).effect( "fold", "slow" );
+$( "ul" ).effect( "fold", "slow" );
+$( "img" ).effect( "fold", "slow" );
+$( "table" ).effect( "fold", "slow" );
+$( "video" ).effect( "fold", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "slide"){
+    
+     $( "p" ).effect( "slide", "slow" );
+  $( "h1" ).effect( "slide", "slow" );
+$( "ul" ).effect( "slide", "slow" );
+$( "img" ).effect( "slide", "slow" );
+$( "table" ).effect( "slide", "slow" );
+$( "video" ).effect( "slide", "slow" );
+
+}else if(document.getElementById('transition').value == "explode"){
+    
+    $( "p" ).toggle( "explode","slow" );
+        $( "h1" ).toggle( "explode","slow"  );
+            $( "ul" ).toggle( "explode","slow"  );
+                $( "img" ).toggle( "explode","slow"  );
+                    $( "table" ).toggle( "explode","slow"  );
+                        $( "video" ).toggle( "explode","slow"  );
+setTimeout(stopexplode, 1000);
+}
+
+ 
+  
+}
+function decreaseslides(){
+    
+   var newnumber = document.getElementById('presentnumber').value *1 -1;
+   document.getElementById('presentnumber').value = newnumber;
+    var numbertouse = document.getElementById('presentnumber').value - 1;
+     var keeptext = document.getElementById('presentnumber').value;
+     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
+       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+ if(document.getElementById('transition').value == "Fade"){
+     
+ $("#present").fadeOut();
+    $("#present").fadeIn();
+ } else if(document.getElementById('transition').value == "SlideUp"){
+        $('h1').slideUp(1000);
+         $('h1').slideDown(1000);
+            $('ul').slideUp(1000);
+         $('ul').slideDown(1000);
+            $('img').slideUp(1000);
+         $('img').slideDown(1000);
+            $('table').slideUp(1000);
+         $('table').slideDown(1000);
+            $('video').slideUp(1000);
+         $('video').slideDown(1000);
+           $('p').slideUp(1000);
+         $('p').slideDown(1000);
+ }else if(document.getElementById('transition').value == "SlideLeft"){
+ $("ul").animate({width:'hide'},1000);
+ $("ul").animate({width:'show'},1000);
+  $("img").animate({width:'hide'},1000);
+ $("img").animate({width:'show'},1000);
+  $("table").animate({width:'hide'},1000);
+ $("table").animate({width:'show'},1000);
+  $("video").animate({width:'hide'},1000);
+ $("video").animate({width:'show'},1000);
+       $("h1").animate({width:'hide'},1000);
+         $("h1").animate({width:'show'},1000);
+           $("p").animate({width:'hide'},1000);
+         $("p").animate({width:'show'},1000);
+        
+ }else if(document.getElementById('transition').value == "Pulsate"){
+   
+  $( "p" ).effect( "pulsate", "slow" );
+  $( "h1" ).effect( "pulsate", "slow" );
+$( "ul" ).effect( "pulsate", "slow" );
+$( "img" ).effect( "pulsate", "slow" );
+$( "table" ).effect( "pulsate", "slow" );
+$( "video" ).effect( "pulsate", "slow" );
+}else if(document.getElementById('transition').value == "highlight"){
+   
+  $( "p" ).effect( "highlight", "slow" );
+  $( "h1" ).effect( "highlight", "slow" );
+$( "ul" ).effect( "highlight", "slow" );
+$( "img" ).effect( "highlight", "slow" );
+$( "table" ).effect( "highlight", "slow" );
+$( "video" ).effect( "highlight", "slow" );
+}else if(document.getElementById('transition').value == "bounce"){
+   
+  $( "p" ).effect( "bounce", "slow" );
+  $( "h1" ).effect( "bounce", "slow" );
+$( "ul" ).effect( "bounce", "slow" );
+$( "img" ).effect( "bounce", "slow" );
+$( "table" ).effect( "bounce", "slow" );
+$( "video" ).effect( "bounce", "slow" );
+}else if(document.getElementById('transition').value == "clip"){
+    
+     $( "p" ).effect( "clip", "slow" );
+  $( "h1" ).effect( "clip", "slow" );
+$( "ul" ).effect( "clip", "slow" );
+$( "img" ).effect( "clip", "slow" );
+$( "table" ).effect( "clip", "slow" );
+$( "video" ).effect( "clip", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "puff"){
+    
+     $( "p" ).effect( "puff", "slow" );
+  $( "h1" ).effect( "puff", "slow" );
+$( "ul" ).effect( "puff", "slow" );
+$( "img" ).effect( "puff", "slow" );
+$( "table" ).effect( "puff", "slow" );
+$( "video" ).effect( "puff", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "fold"){
+    
+     $( "p" ).effect( "fold", "slow" );
+  $( "h1" ).effect( "fold", "slow" );
+$( "ul" ).effect( "fold", "slow" );
+$( "img" ).effect( "fold", "slow" );
+$( "table" ).effect( "fold", "slow" );
+$( "video" ).effect( "fold", "slow" );
+setTimeout(StopTransition, 2000);
+}else if(document.getElementById('transition').value == "slide"){
+    
+     $( "p" ).effect( "slide", "slow" );
+  $( "h1" ).effect( "slide", "slow" );
+$( "ul" ).effect( "slide", "slow" );
+$( "img" ).effect( "slide", "slow" );
+$( "table" ).effect( "slide", "slow" );
+$( "video" ).effect( "slide", "slow" );
+
+}else if(document.getElementById('transition').value == "explode"){
+    
+    $( "p" ).toggle( "explode","slow" );
+        $( "h1" ).toggle( "explode","slow"  );
+            $( "ul" ).toggle( "explode","slow"  );
+                $( "img" ).toggle( "explode","slow"  );
+                    $( "table" ).toggle( "explode","slow"  );
+                        $( "video" ).toggle( "explode","slow"  );
+setTimeout(stopexplode, 1000);
+}
+
+ 
+  
+}
+function StopTransition(){
+     $( "p" ).hide().fadeIn();
+     $( "h1" ).hide().fadeIn();
+       $( "ul" ).removeAttr( "style" ).hide().fadeIn();
+         $( "img" ).hide().fadeIn();
+           $( "table" ).removeAttr( "style" ).hide().fadeIn();
+             $( "video" ).removeAttr( "style" ).hide().fadeIn();
+}
+function stopexplode(){
+     $( "p" ).toggle( "explode","slow" );
+        $( "h1" ).toggle( "explode","slow"  );
+            $( "ul" ).toggle( "explode","slow"  );
+                $( "img" ).toggle( "explode","slow"  );
+                    $( "table" ).toggle( "explode","slow"  );
+                        $( "video" ).toggle( "explode","slow"  );
+}
+function stopslideshow(){
+    document.getElementById("end").style.display = "none";
+alert("Thanks for using Aswin's MasterSlide. We will now go back to editing mode.");
+document.getElementById('present').style.display="none";
+    const paragraphs = document.getElementsByTagName("p");
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].contentEditable= "true";
+}
+  const headings = document.getElementsByTagName("h1");
+for (let i = 0; i < headings.length; i++) {
+  headings[i].contentEditable= "true";
+}
+}
+function starter(){
+    document.getElementById("present").style.display="none";
+      document.getElementById("loader").style.display = "none";
+      var getinfo = localStorage.getItem("savedslides");
+   console.log(getinfo);
+   console.log(localStorage.getItem("savednavigators"));
+   console.log(localStorage.getItem("nameofslide"));
+
+ document.getElementById('slides').innerHTML= localStorage.getItem("savedslides");
+ document.getElementById('lists').innerHTML = localStorage.getItem("savednavigators");
+ document.getElementById('masterslidename').value = localStorage.getItem("nameofslide");
+/*localStorage.setItem("savedslides", slidestosavecode);
+localStorage.setItem("savednavigators", liststosave);
+localStorage.setItem("nameofslide", slidename);
+localStorage.setItem("headingcolor",document.getElementById('headingcolor').value);
+localStorage.setItem("headingfont",document.getElementById('headingfont').value);
+localStorage.setItem("headingsize",document.getElementById('headingsize').value);
+localStorage.setItem("paragraphsize",document.getElementById('headingparagraph').value);
+localStorage.setItem("paragraphcolor",document.getElementById('paragraphcolor').value);
+localStorage.setItem("paragraphsize",document.getElementById('paragraphsize').value);
+*/
+
+ document.getElementById('headingcolor').value=localStorage.getItem("headingcolor");
+  document.getElementById('headingfont').value=localStorage.getItem("headingfont");
+  document.getElementById('headingsize').value=localStorage.getItem("headingsize");
+  document.getElementById('headingparagraph').value=localStorage.getItem("paragraphfont");
+    document.getElementById('paragraphcolor').value=localStorage.getItem("paragraphcolor");
+       document.getElementById('paragraphsize').value=localStorage.getItem("paragraphsize");
+       if(document.getElementById('headingfont').value === ""){
+           document.getElementById('headingfont').value="sans-serif";
+       }
+       if(document.getElementById('headingparagraph').value === ""){
+           document.getElementById('headingparagraph').value="sans-serif";
+       }
+          if(document.getElementById('headingsize').value === ""){
+           document.getElementById('headingsize').value="24";
+       }
+                if(document.getElementById('paragraphsize').value === ""){
+           document.getElementById('paragraphsize').value="12";
+       }
+}
+//this code is required in order for full screen
+function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+function musicapplier(){
+    var musicer = document.getElementById('musicinput');
+  // Make sure we have files to use
+  if (!musicer.files.length) return;
+
+  // Create a blob that we can use as an src for our audio element
+  const urlObj = URL.createObjectURL(musicer.files[0]);
+
+  // Create an audio element
+  const audio = document.getElementById('backgroundmusic');
+
+  // Clean up the URL Object after we are done with it
+  audio.addEventListener("load", () => {
+    URL.revokeObjectURL(urlObj);
+  });
+
+  // Allow us to control the audio
+ 
+  // Set the src and start loading the audio from the file
+  audio.src = urlObj;
+}
+function landscapeimage(){
+    document.getElementById('widthforimage').value=300;
+      document.getElementById('heightforimage').value=200;
+}
+function portraitimage(){
+    document.getElementById('widthforimage').value=200;
+      document.getElementById('heightforimage').value=300;
+}
+function portraitvideo(){
+    document.getElementById('widthforvideo').value=200;
+      document.getElementById('heightforvideo').value=300;
+}
+function landscapevideo(){
+    document.getElementById('widthforvideo').value=300;
+      document.getElementById('heightforvideo').value=200;
+}
+function changebackground(){
+    var slidename = document.getElementById('selectslideforbackground').value;
+    var color = document.getElementById('backgroundselecter').value;
+    document.getElementById(slidename).style.backgroundColor= color;
+    document.getElementById('selectslideforbackground').value="";
+    document.getElementById('backgroundselecter').value="#FFFFFF";
+}
+function lineargradient(){
+     var slidename = document.getElementById('slidenamelinear').value;
+     var color1 = document.getElementById('color1gradient').value;
+var color2 = document.getElementById('color2gradient').value;
+document.getElementById(slidename).style.backgroundImage = "linear-gradient("+color1+", "+color2+")";
+}
+function radialgradient(){
+     var slidename = document.getElementById('slidenameradial').value;
+     var color1 = document.getElementById('color1radial').value;
+var color2 = document.getElementById('color2radial').value;
+var color3 = document.getElementById('color3radial').value;
+document.getElementById(slidename).style.background = "radial-gradient("+color1+", "+color2+","+color3+")";
+}
+function conicgradient(){
+     var slidename = document.getElementById('slidenameconic').value;
+     var color1 = document.getElementById('color1conic').value;
+var color2 = document.getElementById('color2conic').value;
+var color3 = document.getElementById('color3conic').value;
+document.getElementById(slidename).style.backgroundImage = "conic-gradient("+color1+", "+color2+","+color3+")";
+}
+function additionalparagraph(){
+    var slidename = document.getElementById('slidenameforelements').value;
+    var paragraph = document.createElement('p');
+    paragraph.contentEditable="true";
+    paragraph.innerHTML="This is a Paragraph";
+
+     if(document.getElementById(slidename)){
+                 document.getElementById(slidename).appendChild(paragraph);
+            }else{
+                document.getElementById('slidenameerror').style.display="block";
+            }
+   
+    $(function() {
+    var p = document.getElementsByTagName('p');
+    $(p).draggable();
+  });
+    
+}
+function additionalheading(){
+    var slidename = document.getElementById('slidenameforelements').value;
+    var heading = document.createElement('h1');
+    heading.contentEditable="true";
+    heading.innerHTML="This is a heading";
+ 
+    if(document.getElementById(slidename)){
+          document.getElementById(slidename).appendChild(heading);
+            }else{
+                document.getElementById('slidenameerror').style.display="block";
+            }
+    $(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+    
+}
+function additionallist(){
+    var slidename = document.getElementById('slidenameforelements').value;
+    var list = document.createElement('ul');
+    list.contentEditable="true";
+    list.innerHTML="<li>This is a list</li>";
+ 
+    if(document.getElementById(slidename)){
+             document.getElementById(slidename).appendChild(list);
+            }else{
+                document.getElementById('slidenameerror').style.display="block";
+            }
+  
+    
+}
+function additionalquotation(){
+    var slidename = document.getElementById('slidenameforelements').value;
+    var quotation = document.createElement('q');
+    quotation.contentEditable="true";
+    quotation.innerHTML="This is a quotation";
+    quotation.style.fontStyle="italic";
+
+       if(document.getElementById(slidename)){
+           document.getElementById(slidename).appendChild(quotation);
+            }else{
+                document.getElementById('slidenameerror').style.display="block";
+            }
+   
+  
+    
+}
+function headingandtable(){
+        var nameofslide= document.getElementById('slidename').value;
+            var div=document.createElement("div")
+            div.id=nameofslide+"container";
+            div.className = "slidecontainers collapse show";
+            div.style.position="relative";
+            div.setAttribute('name', 'slidesforuse');
+            document.getElementById('slides').appendChild(div);
+            var slide = document.createElement('div');
+            slide.style.width="700px";
+            slide.style.height="500px";
+            slide.className = "slideer";
+            slide.style.border = "9px solid black";
+            slide.style.position="relative";
+            slide.style.backgroundColor = "white";
+            slide.id=nameofslide;
+     
+            document.getElementById(nameofslide+"container").appendChild(slide);
+            var heading=document.createElement('h1');
+            heading.contentEditable="true";
+            heading.innerHTML="This is a heading";
+            document.getElementById(nameofslide).appendChild(heading);
+   var table = document.createElement('TABLE');
+   var tablediv = document.createElement('div');
+   tablediv.id=nameofslide+"tablediv";
+   document.getElementById(nameofslide).appendChild(tablediv);
+
+   table.className= "table table-striped";
+             table.setAttribute("contenteditable", "true");
+   var numberofrows= document.getElementById('tablerows').value;
+   var numberofcolumns = document.getElementById('tablecolumns').value;
+    for (var i = 1; i <= numberofrows; i++) {
+      // Create the rows
+      var trL = document.createElement('TR');
+      trL.setAttribute('class', 'lettersTR');
+      
+        var td = document.createElement('TD');
+       
+      td.setAttribute("contenteditable", "true");
+        trL.appendChild(td);
+        for (var j = 0; j < numberofcolumns; j++) {
+          td = document.createElement("td");
+
+          td.innerHTML = "This is a table cell";
+          trL.appendChild(td);
+        }
+      // Append the rows to the body
+      table.appendChild(trL);
+       var remove = document.createElement('button');
+             remove.className="btn btn-warning";
+             remove.innerHTML = "Remove this Slide";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             div.appendChild(remove);
+             
+        $(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+    $(function() {
+    var tables = document.getElementById(nameofslide+"tablediv");
+    $(tables).resizable();
+  });
+    }
+     document.getElementById(nameofslide+"tablediv").appendChild(table);
+
+            var slidename2="#" + nameofslide+"container";
+            var buttontext = "<br><br><BR><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            
+            $(slidename2).append(buttontext);
+            var usableid = nameofslide+"color";
+            /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
+                 $(slidename2).append(backgroundcolor);*/
+              var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+
+   
+            $("#lists").append(controltext);
+  
+}
+function additionaltable(){
+            var slidename= document.getElementById('slidenameforelements').value;
+       
+   var table = document.createElement('TABLE');
+
+
+   table.className= "table table-striped";
+             table.setAttribute("contenteditable", "true");
+   var numberofrows= document.getElementById('additionaltablerow').value;
+   var numberofcolumns = document.getElementById('additionaltablecolumn').value;
+    for (var i = 1; i <= numberofrows; i++) {
+      // Create the rows
+      var trL = document.createElement('TR');
+      trL.setAttribute('class', 'lettersTR');
+      
+        var td = document.createElement('TD');
+       
+      td.setAttribute("contenteditable", "true");
+       
+        for (var j = 0; j < numberofcolumns; j++) {
+          td = document.createElement("td");
+
+          td.innerHTML = "This is a table cell";
+          trL.appendChild(td);
+        }
+      // Append the rows to the body
+  table.appendChild(trL);
+    }
+     $(function() {
+    var tables = document.getElementById(nameofslide+"tablediv");
+    $(tables).resizable();
+  });
+     document.getElementById(slidename).appendChild(table);
+
+}
+function additionalportraitmedia(){
+    document.getElementById('widthformediaadd').value=200;
+      document.getElementById('heightformediaadd').value=300;
+}
+function additionallandscapemedia(){
+    document.getElementById('widthformediaadd').value=300;
+      document.getElementById('heightformediaadd').value=200;
+}
+function additionalimage(){
+           var slidename= document.getElementById('slidenameforelements').value;
+     var imagestouse = document.getElementById('additionalmedia');
+  // Make sure we have files to use
+  var image = document.createElement('img');
+ image.src = window.URL.createObjectURL(imagestouse.files[0])
+ 
+image.setAttribute("tabindex","-1")
+
+  // Allow us to control the audio
+ image.style.width=document.getElementById('widthformediaadd').value+"px";
+ image.style.height=document.getElementById('heightformediaadd').value+"px";
+  // Set the src and start loading the audio from the file
+       $(function() {
+    var img = document.getElementsByTagName('img');
+    $(img).draggable();
+  });
+document.getElementById(slidename).appendChild(image);
+}
+function additionalvideo(){
+     var video = document.createElement('video');
+   var slidename= document.getElementById('slidenameforelements').value;
+     video.controls="true";
+        video.style.width=document.getElementById('widthformediaadd').value+"px";
+ video.style.height=document.getElementById('heightformediaadd').value+"px";
+
+   
+
+   var videostouse = document.getElementById('additionalmedia');
+  // Make sure we have files to use
+  var source = document.createElement('source');
+ source.src = window.URL.createObjectURL(videostouse.files[0])
+ 
+
+video.appendChild(source);
+       document.getElementById(slidename).appendChild(video);
+       
+       $(function() {
+    var video = document.getElementsByTagName('video');
+    $(video).draggable();
+  });
+}
+function exportthis(){
+    var HTML_Width = $(".slideer").width();
+    var HTML_Height = $(".slideer").height();
+    var top_left_margin = 5;
+    var PDF_Width = HTML_Width + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+    var slidename = document.getElementById('masterslidename').value;
+          var lengths = document.getElementsByClassName('slideer').length;
+          var cool= document.getElementsByName('slidesforuse');
+          for(var b = 0; b < cool.length; b++){
+              cool[b].style.display="block";
+          }
+            var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+       for (var j = 0; j < lengths; j++) {
+     
+    html2canvas($(".slideer")[j],{logging: true,useCORS: true}).then(function (canvas) {
+      
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+      
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+
+        pdf.save(slidename+".pdf");
+        
+        
+    });
+       }
+       alert('Allow to download multiple slides. Total number of slides:'+lengths)
+        setTimeout(revert,7000);
+}
+function revert(){
+        var cool= document.getElementsByName('slidesforuse');
+    for(var d = 0; d < cool.length; d++){
+              cool[d].style.display= null;
+          }
+}
+      function myFunction() {
+  myVar = setTimeout(starter, 2000);
+    var getinfo = localStorage.getItem("Name");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!";
+
+
+} 
+function save(){
+    if(document.getElementById('signin').innerHTML== "Hello null!"){
+    document.getElementById('fornonmembers').className = "modal fade show";
+    document.getElementById('fornonmembers').style.display="block";
+    } else {
+        var slidestosavecode = document.getElementById('slides').innerHTML;
+    var liststosave = document.getElementById('lists').innerHTML;
+    var slidename = document.getElementById('masterslidename').value;
+     localStorage.setItem("savedslides", slidestosavecode);
+localStorage.setItem("savednavigators", liststosave);
+localStorage.setItem("nameofslide", slidename);
+localStorage.setItem("headingcolor",document.getElementById('headingcolor').value);
+localStorage.setItem("headingfont",document.getElementById('headingfont').value);
+localStorage.setItem("headingsize",document.getElementById('headingsize').value);
+localStorage.setItem("paragraphfont",document.getElementById('headingparagraph').value);
+localStorage.setItem("paragraphcolor",document.getElementById('paragraphcolor').value);
+localStorage.setItem("paragraphsize",document.getElementById('paragraphsize').value);
+document.getElementById('savemodal').className ="modal fade show";
+document.getElementById('savemodal').style.display="block";
+      document.body.removeAttribute("onbeforeunload"); 
+    }
+    
+
+  
+}
+function discard(){
+      document.body.removeAttribute("onbeforeunload");
+  localStorage.removeItem("savedslides");
+   localStorage.removeItem("savednavigators");
+   localStorage.removeItem("nameofslide");
+   localStorage.removeItem("headingcolor");
+  localStorage.removeItem("headingfont");
+  localStorage.removeItem("headingsize");
+ localStorage.removeItem("paragraphfont");
+    localStorage.removeItem("paragraphcolor");
+   localStorage.removeItem("paragraphsize");
+}
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  pom.style.display = 'none';
+  document.body.appendChild(pom);
+
+  pom.click();
+
+  document.body.removeChild(pom);
+}
+    function importthefiles(){
+    document.getElementById('editor').innerHTML = "";
+  var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+  var fileReader = new FileReader();
+  fileReader.onload = function(fileLoadedEvent){
+      var textFromFileLoaded = fileLoadedEvent.target.result;
+      document.getElementById("editor").innerHTML = textFromFileLoaded;
+  };
+
+  fileReader.readAsText(fileToLoad, "UTF-8");
+
+}
+function restartaiprocess(){
+     document.getElementById('progresstxt').innerHTML="<h2>Please Wait for AI to respond ...</h2>"
+      document.getElementById('progresstxt').style.display = "none";
+         document.getElementById('infotxt').style.display = "block";
+}
+function aislides(){
+       document.getElementById('infotxt').style.display = "none";
+       document.getElementById('progresstxt').style.display = "block";
+       var nameofslide= document.getElementById('slidename').value;
+    var text = document.getElementById('slidesprompt').value;
+ const url = 'https://chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com/v1/chat/completions';
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': 'e585a89c03msh91a6829d1756bb9p1b12f3jsnf8118ea4fc9c',
+		'X-RapidAPI-Host': 'chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com'
+	},
+	body: JSON.stringify({
+    "model": "gpt-3.5-turbo",
+    "messages": [
+        {
+            "role": "user",
+            "content": "You are an AI bot who is a slide maker. Users will give a prompt and you give the response by giving the html response. Here is the template for your response: <div id='slidenamecontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='slidename' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>This is a heading</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>This is a Paragraph</p></div><button class='btn btn-warning' onclick='document.getElementById('slidenamecontainer').remove();document.getElementById('slidenamecontrol').remove()'>Remove this Slide</button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#slidenamecontainer' >Stop Editing This Slide</button></div>... If the user requests lists, use the ul and li elements. If you want to do additional formatting or other elements, use the html elements. For tables, use the table element. The max rows / columns for table is 5x5. If you do any text elemnt, make sure to always use contentedible='true' attribute. If you want to draw visuals, use the html 5 svg elements! It is recommended that you do that. If you user provides some image url, make it an image. Also, you can change the background color or change it to gradients which you should do that aligns with the topic. Also, you can change color of heading and paragraph so it looks good. If you use visuals, you should have the proper layout and then add it right next to the h1 element. ALL svg elements should be inside the div with the slideer classname. If its svg elements are not inside the div with slideer classname, it will ruin the code. NEVER use canvas for slides. "
+        },
+        {
+            "role":"user",
+            "content":"Dogs(no list)"
+        },
+        {
+            "role":"assistant",
+            "content":"<div id='dogscontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='dogs' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' /></svg><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>About Dogs</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>The Dog is a domestic animal. It is most of the often-used animal as a pet. People prefer to have a dog as a pet rather than any other animal. The dog serves its master selflessly. All that it wants in return is love and care of the owner. There are many breeds of dogs available in the world. </p></div><button class='btn btn-warning' onclick='"+ 'document.getElementById("dogscontainer").remove();document.getElementById("dogscontrol").remove()'+"'>Remove this Slide</button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#dogscontainer' >Stop Editing This Slide</button></div>"
+        },
+        {
+            "role":"user",
+            "content":text + " ...Use " + nameofslide +" for the slide names and containers."
+        }
+        
+    ],
+    "temperature": 0.8
+})
+};
+
+fetch(url, options)
+.then(response => response.json())
+.then(ai => {
+    
+    console.log(ai);
+    var response = ai.choices[0].message.content;
+   // alert(response)
+   var slidescode;
+    slidescode = response;
+    document.getElementById('progresstxt').innerHTML = "See Your Slide Preview on Side > <button class='btn btn-success' onclick='applyaicode()'> <i class='fa-solid fa-check'></i> Yes, it's fine!</button><button class='btn btn-danger' onclick='restartaiprocess()'><i class='fa-solid fa-circle-xmark'></i>No, Start Over!</button>"
+    document.getElementById('slidepreview').srcdoc = slidescode; 
+}
+)
+
+}
+function applyaicode(){
+    /*
+    function getIframeContent(frameId) {
+  var frameObj = document.getElementById(frameId);
+  var frameContent = frameObj.contentDocument || frameObj.contentWindow.document;
+  alert("frame content : " + frameContent.body.innerHTML);
+}*/
+  var frameObj = document.getElementById('slidepreview');
+    var frameContent = frameObj.contentDocument || frameObj.contentWindow.document;
+    var framecode = frameContent.body.innerHTML;
+    document.getElementById('slides').innerHTML =  document.getElementById('slides').innerHTML+framecode;
+                
+ $(function() {
+    var p = document.getElementsByTagName('p');
+    $(p).draggable();
+  });
+$(function() {
+    var h1 = document.getElementsByTagName('h1');
+    $(h1).draggable();
+  });
+   $(function() {
+    var img = document.getElementsByTagName('img');
+    $(img).draggable();
+  });
+$(function() {
+    var video = document.getElementsByTagName('video');
+    $(video).draggable();
+  });
+  $(function() {
+    var svg = document.getElementsByTagName('svg');
+    $(svg).draggable();
+  });
+    var nameofslide= document.getElementById('slidename').value;
+    var slidename2="#" + nameofslide+"container";
+    
+     var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+
+   
+            $("#lists").append(controltext); 
+    
+}
+
+
+
+
+    </script>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#"><img src="https://www.aswinapps.com/MasterslideIcon.jpeg" style="width:40px" >Aswin's MasterSlide</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="https://docs.aswinapps.com/masterslidesdocs.html">Documentation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://sites.google.com/view/masterslidedocs/templates?authuser=0">Templates</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://www.aswinapps.com">Back To Home</a>
+    </li>
+  </ul>
+</nav>
+   
+   <div class="spinner-border text-primary" id="loader"></div>
+   <SPAN id="signin" style="display: block;font-size:25pt;text-align:right;color:white;"></SPAN>
+   <!-- The Modal -->
+<div class="modal" id="AIprompt">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">AI Prompt for Slides</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <Div class="row">
+            <div class="col" ><div id="infotxt">Write your prompt ( include what you want on slide, elements, and more)<br><input type="text" class="form-control" id="slidesprompt">
+            <button class="btn btn-success" onclick="aislides()">Create Your Slides!!!</button>
+            </div>
+            
+            <div id="progresstxt" style="display:none;"><h2>Please wait for AI to respond...</h2></div> </div>
+            <div class="col"><iframe id="slidepreview" width="300px" height="200px"></iframe></div>
+        </Div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+   <form class="form-inline">
+   <INPUT TYPE="text" class="form-control" id="masterslidename"   placeholder="SlideShow Name"><button onclick="discard()" type="btn" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Discard</button>
+       </form>
+       <div class="jumbotron" style="color:black;">
+           <b class="badge badge-secondary">Options</b><br>
+      <button onclick="present()" class="btn btn-primary"><span class="material-icons-outlined"><i class="material-icons">airplay</i></span></button>
+      <button data-toggle="collapse" class="btn btn-primary" data-target="#formatingoption" id="formatbtn"><i class="fa-solid fa-paintbrush"></i></button>
+      <button data-toggle="collapse" class="btn btn-primary" data-target="#imgeditor" id="imgbtn"><i class="fa-solid fa-image"></i><i class="fa-solid fa-pen-to-square"></i></button>
+         <button data-toggle="collapse" class="btn btn-primary" data-target="#music"><i class="fa-solid fa-music"></i></button>
+         <button data-toggle="collapse" class="btn btn-primary" data-target="#additionalelements"><i class="fa-regular fa-square-plus"></i></button>
+         <button type="btn" data-toggle="collapse" class="btn btn-primary" data-target="#transitions"><i class="fa-solid fa-tent-arrow-left-right"></i></button>
+         <button class="btn btn-primary" onclick="exportthis()"><i class="fa-solid fa-file-export"></i></button>
+         <button class="btn btn-success" onclick="save()"><i class="fa-solid fa-floppy-disk"></i></button>
+         <button class="btn btn-success" onclick="download(document.getElementById('masterslidename').value + '.ams' ,document.getElementById('editor').innerHTML)"><i class="fa-solid fa-download"></i></button>
+        <button type="btn" data-toggle="collapse" class="btn btn-primary" data-target="#importfiles"><i class="fa-solid fa-file-import"></i></button>
+        <a href="https://sites.google.com/view/masterslidedocs/docs-home?authuser=0" class="btn btn-primary">Docs/Additional Templates</a>
+      <div id="importfiles" class="collapse">
+          <input type="file" id="fileToLoad" accept=".ams">
+    <button onclick="importthefiles()">Load Selected File</button>
+      </div>
+      <div id="additionalelements" class="collapse" style="color:black">
+          
+           <h3 style="Color:White;">Additional Elements</h3>
+          <form class="was-validated">  <div class="form-group">    <label style="color:white;" for="slidenameforelements"><h4>Slide Name:</h4></label><input type="text" class="form-control" id="slidenameforelements" placeholder="slide name"  required>  <div class="valid-feedback">Not Empty. Make sure it is the exact name of the slide</div>
+    <div class="invalid-feedback">Please fill out this field.</div></div></form>
+    <div class="alert alert-danger" id="slidenameerror" style="display:none">
+  <strong>Error!</strong> The slide name is invalid.    <button type="button" class="close" onclick="document.getElementById('slidenameerror').style.display='none';">&times;</button>
+</div>
+    <div class="row">
+           <div class="col">
+               <legend style="color:white;">Basic Elements:</legend>
+          <button class="btn btn-secondary" onclick="additionalparagraph()">Paragraph</button>
+          <button class="btn btn-secondary" onclick="additionalheading()">Heading</button>
+            <button class="btn btn-secondary" onclick="additionallist()">List</button>
+            <button class="btn btn-secondary" onclick="additionalquotation()">Quotation</button>
+            </div>
+            <div class="col">
+            <fieldset style="color:white;">
+                <legend>Table:</legend>
+                <label for="additionaltablerow">Number of Rows:</label><input type="number" class="form-control" id="additionaltablerow">
+                   <label for="additionaltablecolumn">Number of Columns:</label><input type="number" class="form-control" id="additionaltablecolumn">
+                   <button type="btn" class="btn btn-secondary" onclick="additionaltable()" data-toggle="collapse" data-target="#tableconfirmation">Add Table</button>
+                    <div class="collapse" id="tableconfirmation">
+   <div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-toggle="collapse" data-target="#tableconfirmation">&times;</button>
+  <strong>Success!</strong> Your table has been successfully added! 
+</div>
+    </div>
+            </fieldset>
+            </div>
+            
+            <div class="col">
+            <fieldset style="color:white;">
+                <legend >Images/Videos:</legend>
+                
+                    <div class="col">
+                        <div class="collapse show" id="imgvidp1">
+                <input type="file" id="additionalmedia" accept="video/*,image/*">
+                  <br> <button type="btn" class="btn btn-light" onclick="additionallandscapemedia()"  data-toggle="collapse" data-target="#imgvidp1,#imgvidp2">Landscape</button>
+     <button type="btn" class="btn btn-light" onclick="additionalportraitmedia()" data-toggle="collapse" data-target="#imgvidp1,#imgvidp2">Portrait</button>
+     </div>
+     <div class="collapse" id="imgvidp2">
+     <h4>Adjust Width and height:</h4>
+     <i>Scaled to Pixels</i><br>
+     <span>Width:</span><input type="number" placeholder="Width" id="widthformediaadd"><br><span>Height:</span><input type="number" placeholder="height" id="heightformediaadd"><Br>
+     <button type="btn" class="btn btn-secondary" onclick="additionalimage()" data-toggle="collapse" data-target="#imgvidp1,#imgvidp2,#imgvidconfirmation"><i class="fa-solid fa-image"></i><br><i class="fa-solid fa-plus"></i></button>
+     <button type="btn" class="btn btn-secondary" onclick="additionalvideo()" data-toggle="collapse" data-target="#imgvidp1,#imgvidp2,#imgvidconfirmation"><i class="fa-solid fa-video"></i><br><i class="fa-solid fa-plus"></i></button>
+    </div>
+    <div class="collapse" id="imgvidconfirmation">
+   <div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-toggle="collapse" data-target="#imgvidconfirmation">&times;</button>
+  <strong>Success!</strong> Your image/video has been successfully added! 
+</div>
+    </div>
+    </div>
+   
+     
+            </fieldset>
+            
+            </div>
+             <div class="col">
+        <fieldset style="color:white;">
+            <legend> AI Image:</legend>
+            <div id="aipart1" class="collapse show">
+        <label for="#aiimage">AI Prompt</label><br>
+        <textarea id="aiimage" name="aiimage" rows="3" class="form-control" cols="20" placeholder="type here..."></textarea>
+         <button class="btn btn-success" data-toggle="collapse" data-target="#aipart2,#aipart1"  onclick="startaiprompt()" ><i class="fa-solid fa-check"></i></button><br>
+         </div>
+         <div id="aipart2" class="collapse">
+         <div class="row">
+             <div class="col">
+        <img src="" id="aiimgpreview" width="100" height="100"></div><Div class="col">
+        <button class="btn btn-success" onclick="addaiimage()" data-toggle="collapse" data-target="#aiimgconfirmation,#aipart1,#aipart2"><i class="fa-solid fa-face-smile"></i>Looks Good</button>
+        <button class="btn btn-danger" data-toggle="collapse" data-target="#aipart2,#aipart1" ><i class="fa-solid fa-face-sad-tear"></i>Start Over</button>
+        </Div>
+        </div>
+         
+        </div>
+        <div class="collapse" id="aiimgconfirmation">
+   <div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-toggle="collapse" data-target="#aiimgconfirmation">&times;</button>
+  <strong>Success!</strong> Your AI image has been successfully added! 
+</div>
+    </div>
+        </fieldset>
+    </div>
+            </div>
+      </div>
+      <div id="editor">
+        <div id="transitions" class="collapse">
+         <form>
+  <select name="transition"  id="transition" class="custom-select">
+    <option value="" selected>Select Transition</option>
+    <option value="Fade">Fade</option>
+    <option value="SlideUp">Slide Up/Downs</option>
+    <option value="SlideLeft">Slide Right/Left</option>
+     <option value="Pulsate">Pulsate</option>
+     <option value="highlight">Highlight</option>
+     <option value="bounce">Bounce</option>
+     <option value="clip">Clip</option>
+          <option value="puff">Puff</option>
+          <option value="fold">Fold</option>
+          <option value="slide">Slide In</option>
+          <option value="explode">Explode</option>
+  </select>
+</form>
+     </div>
+      <div id="formatingoption" class="collapse">
+          
+      <form>
+       <fieldset style='color:white;'>
+    
+       <legend><i class="fa-solid fa-paintbrush"></i>Formatting Options:</legend>
+       <p>Selected Element: <span id="htmlselectedelmt" class="badge badge-primary"></span></p>
+  <select name='fontheading' placeholder="Font for Heading" id='headingfont' onchange="fontchange()" class='custom-select'>
+    <option id='sans-serif' value='sans-serif' selected>Font for Heading</option>
+    <option id='arial' value='arial'>Arial</option>
+    <option id="Times New Roman" value='Times New Roman'>Times New Roman</option>
+    <option id='cursive' value='cursive'>Comic Sans MS</option>
+    <option id="'Pacifico'" value="'Pacifico'">Pacifico</option>
+    <option id="'Sofia'" value="'Sofia'">Sofia</option>
+  </select>
+   <label for='favcolor'>Color:</label>
+  <input type='color' id='headingcolor' name='headingcolor' onchange="colorchange()" ><br><br>
+<input type='text' placeholder='font size - add pt to end of #. Example:24pt' value='24' class='form-control' id='headingsize' onchange="sizechange()">
+<div class="alert alert-danger" id="fonterror" style="display:none;">
+  <button type="button" class="close" onclick="this.parentElement.style.display='none'">&times;</button>
+  <strong>Error!</strong> "pt" is not added after number.
+</div>
+    </fieldset>
+    </form>
+  <form>
+    
+</form>
+
+    <Center><h3 ><span class="badge badge-primary"><i class='material-icons'>format_color_fill</i>Background</span></h4></Center><br>
+<button type='btn' class='btn btn-warning' data-toggle='modal' data-target='#changebackground'><i class="fa-solid fa-palette"></i>Color</button> <button type='btn'   data-toggle='modal' data-target='#gradients' class='btn btn-warning'><i class='material-icons'><i class="fa-solid fa-fill"></i></i>Gradient</button>
+
+</div>
+<div id="imgeditor" class="collapse">
+    <fieldset style="color:white">
+        <legend>
+          <h3>  Image Editing:  </h3><span class="close" style="color:white" data-toggle="collapse" data-target="#imgeditor" >x</span>
+        </legend>
+       <div>Selected Image: <span id="imgselectedelmt" class="badge badge-primary"></span><button class="btn btn-light"  data-toggle="collapse" data-target="#replaceimg"><i class="fa-solid fa-rotate"></i></button></div>
+       <div class="collapse replaceimg" id="replaceimg">
+           <div class="row" style="border:8px solid black">
+               <div class="col">
+                   <h4>From Local File</h4>
+                   <input type="file" accept="image/*" id="updateimgfile" onchange="updateimage()">
+               </div>
+               <div class="col">
+                   <h4>From URL</h4>
+                   <input type="text" class="form-control" id="imgurl" onchange="updateimgurl()" placeholder="Type Proper Image Url Here">
+               </div>
+               <!-- Say success msg -->
+               <div class="alert alert-success alert-dismissible"  style="display:none" id="imgchangeconfirmmsg">
+  <button type="button" class="close" onclick="document.getElementById('imgchangeconfirmmsg').style.display='none';">&times;</button>
+  <strong>Success!</strong> Image has been changed.
+</div>
+           </div>
+       </div>
+       
+        <div class="row">
+            <div class="col"><label for="imgwidth">Width:</label><input type="text" class="form-control" id="imgwidth"></div>
+            <div class="col"><label for="imgheight">Height:</label><input type="text" class="form-control" id="imgheight"></div>
+          
+        </div>
+       <h4> Instant Filters:</h4>
+        <div class="row">
+            <div class="col"><button type="btn" class="btn btn-light" onclick="imagegreyscale()"><i class="fa-brands fa-black-tie"></i></button><br>GreyScale</div>
+             <div class="col"><button type="btn" class="btn btn-light" onclick="imageblur()"><i class="fa-solid fa-compact-disc"></i></button><br>Blur</div>
+        </div>
+        <h4>Adjust Filters:</h4>
+        <div class="row">
+            <div class="col">
+    <label for="bright"><i class="fa-solid fa-sun"></i>Brightness</label>
+  <input type="number" class="form-control" id="brightness" value="100" min="0" max="200">
+  </div>
+  <div class="col">
+      <label for="contrast"><i class="fa-solid fa-circle-half-stroke"></i>Contrast</label>
+      <input type="number" class="form-control" id="contrast" value="100" min="0" max="200">
+  </div>
+  <div class="col">
+      <label for="contrast"><i class="fa-solid fa-chart-simple"></i>Opacity</label>
+      <input type="number" class="form-control" id="opacity" value="100" min="0" max="200">
+  </div>
+  <div class="col">
+      <label for="contrast"><i class="fa-solid fa-bolt"></i>Invert</label>
+      <input type="number" class="form-control" id="invert" value="0" min="0" max="200">
+  </div>
+   <div class="col">
+      <label for="contrast"><i class="fa-solid fa-paint-roller"></i>Hue-Rotate</label>
+      <input type="number" class="form-control" id="huerotate" value="0" min="0" max="200">
+  </div>
+        </div>
+        <button class="btn btn-success" onclick="applyimageeffects()">Apply</button>
+         <h4>Flip Image:</h4>
+    <button class="btn btn-light" onclick="imgfliphorizontal()"><i class="fa-solid fa-ellipsis"></i></button>
+        <button class="btn btn-light" onclick="imgflipvertical()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+    </fieldset>
+   
+</div>
+  <div id="music" class="collapse">
+     <input id="musicinput" type="file" onchange="musicapplier()" hidden multiple>
+    <label for="musicinput" accept=".mp3" class="btn btn-success">Choose Background Music for SlideShow</label><br><br>
+      <audio id="backgroundmusic" ></audio>
+  </div>
+  </div>
+  <br>
+    <button class="form-control btn-primary"  data-toggle="modal" data-target="#newslide"><i class="fa-solid fa-address-card"></i><i class="fa-solid fa-plus"></i></button>
+    </div>
+<div id="slides">
+
+</div>
+<div class="slideer" id="end" style="display:none;background-color:white;"><h2 style="font-size:24pt;font-family:'Pacifico';">Presentation is over</h2><span style="font-size:12pt;font-family:Times New Roman;">Please press the Stop Slideshow button to stop the presentation.</span><h4>(C) Aswin's MasterSlide 2024</h4></div>
+<div id="lists"></div>
+
+<div id="present" style="width:500px;height:350px;border:9px solid black;background-color:white;position:relative;"></div>
+<div class="modal fade" id="newslide">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select Layout for New Slide</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <input type="text" class="form-control" id="slidename" placeholder="Slide name.Don't include spaces-don't reuse any slide names.">
+            <div class="alert alert-warning alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Warning!</strong> The slide name is required or else it will cause problems and you might need to refresh the page.
+  </div>
+  <div class="row">
+      <div class="col"><button type="btn" class="btn btn-primary" onclick="newslide()">Heading and Paragraph</button><br></div>
+      <div class="col"><button type="btn" class="btn btn-primary" onclick="headingandlist()">Heading and List</button><Br></div>
+  </div>
+        <div class="row">
+            <div class="col"> <button class="btn btn-primary"  data-toggle="modal" data-target="#imgandheading">Heading and Image</button><br></div>
+            <div class="col"><button class="btn btn-primary"  data-toggle="modal" data-target="#videoheading">Heading and Video</button><br></div>
+        </div>
+    <div class="row">
+        <div class="col"><button class="btn btn-primary"  data-toggle="modal" data-target="#tableheading">Table and heading</button><br></div>
+        <div class="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AIprompt" onclick="restartaiprocess()">
+  AI Slide
+  <br><Small><i>Let AI Create Your Slide</i></Small>
+</button><br></div>
+    </div>
+       
+            
+                 
+                 
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+<div class="modal fade" id="imgandheading">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select Image File</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <input type="file" id="fileimage" accept="image/*"><br>
+    <h4>Select Orientation:</h4>
+   <button type="btn" class="btn btn-light" onclick="landscapeimage()">Landscape</button>
+     <button type="btn" class="btn btn-light" onclick="portraitimage()">Portrait</button>
+     <h4>Adjust Width and height:</h4><Br>
+         <i>Scaled to Pixels</i>
+     <span>Width:</span><input type="number" placeholder="Width" id="widthforimage"><br><span>Height:</span><input type="number" placeholder="height" id="heightforimage">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="headingandimage()" data-dismiss="modal">Continue</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="changebackground">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="material-icons">format_color_fill</i>Select Background Color</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <input type="text" class="form-control" id="selectslideforbackground" placeholder="slidename">
+    <span>Color Picker:</span>
+    <input type="color" class="form-control" value="#FFFFFF" id="backgroundselecter">
+    
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="changebackground()" data-dismiss="modal"><i class="material-icons">format_color_fill</i>Change Background</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="gradients">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="material-icons">format_color_fill</i>Select Type of Gradient</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <button type="btn"   data-toggle="modal" class="btn btn-light" data-target="#lineargradient">Linear Gradients</button>
+    <button type="btn" data-toggle="modal" class="btn btn-light" data-target="#radialgradient">Radial Gradients</button>
+    <button type="btn" data-toggle="modal" class="btn btn-light" data-target="#conicgradient">Conic Gradients</button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+<button type="button" class="btn on> btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="lineargradient">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="material-icons">format_color_fill</i>Select the colors</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <input type="text" id="slidenamelinear" class="form-control" placeholder="slide name">
+    <input type="color" id="color1gradient" class="form-control">
+        <input type="color" id="color2gradient" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="lineargradient()" data-dismiss="modal"><i class="material-icons">format_color_fill</i>Change Background</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="radialgradient">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="material-icons">format_color_fill</i>Select the colors</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <input type="text" id="slidenameradial" class="form-control"  placeholder="slide name">
+    <input type="color" id="color1radial" class="form-control">
+        <input type="color" id="color2radial" class="form-control">
+        <input type="color" id="color3radial" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="radialgradient()" data-dismiss="modal"><i class="material-icons">format_color_fill</i>Change Background</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="conicgradient">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="material-icons">format_color_fill</i>Select the colors</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <input type="text" id="slidenameconic" class="form-control"  placeholder="slide name">
+    <input type="color" id="color1conic" class="form-control">
+        <input type="color" id="color2conic" class="form-control">
+        <input type="color" id="color3conic" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="conicgradient()" data-dismiss="modal"><i class="material-icons">format_color_fill</i>Change Background</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="fornonmembers">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Option is available for members only</h4>
+        <button type="button" class="close"  onclick="document.getElementById('fornonmembers').style.display=null;">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+We're sorry, but this option is available for memebers only. <br>
+Have an account?  Visit the <a href="/index.html">Main Page<i class="material-icons">&#xe879;</i></a> to log in.<br>
+Don't have an account? Visit the <a href="/index.html">Main Page<i class="material-icons">&#xe879;</i></a> to sign up.It is completely free.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="document.getElementById('fornonmembers').style.display=null;">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="savemodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Successfully saved.</h4>
+        <button type="button" class="close"  onclick="document.getElementById('savemodal').style.display=null;">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+<div class="alert alert-success">
+  <strong>Success!</strong> Your slideshow has been successfully saved.
+</div>
+Your slideshow will apear everytime you refresh the page or close the page unless you press the discard button or restart the browser.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="document.getElementById('savemodal').style.display=null;">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="videoheading">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select Video File</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <input type="file" id="filevideo" accept="video/*"><br>
+    <h4>Select Orientation:</h4>
+   <button type="btn" class="btn btn-light" onclick="landscapevideo()">Landscape</button>
+     <button type="btn" class="btn btn-light" onclick="portraitvideo()">Portrait</button>
+     <h4>Adjust Width and height:</h4>
+     <i>Scaled to Pixels</i>
+     <span>Width:</span><input type="number" placeholder="Width" id="widthforvideo"><br><span>Height:</span><input type="number" placeholder="height" id="heightforvideo">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="headingandvideo()" data-dismiss="modal">Continue</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="tableheading">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Select Number of rows and columns</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <label for="tablerows">Number of rows:</label><input type="number" id="tablerows" class="form-control">
+    <label for="tablecolumns">Number of Columns:</label><input type="number" id="tablecolumns" class="form-control">
+    
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="btn" class="btn btn-success" onclick="headingandtable()" data-dismiss="modal">Continue</button> <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<Script>
+var previouselmtselect = null;
+var btnformat = document.getElementById('formatbtn');
+btnformat.onmousedown = function() {
+      previouselmtselect = document.activeElement;
+       
+      htmlselectedelmt.innerHTML = previouselmtselect
+   setTimeout(updateselects,243)
+};
+const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+function updateselects(){
+     document.getElementById('headingcolor').value =  rgb2hex(previouselmtselect.style.color);
+     document.getElementById('headingfont').value = previouselmtselect.style.fontFamily;
+     document.getElementById('headingsize').value = previouselmtselect.style.fontSize;
+}
+function fontchange(){
+   var fontheadingvalue =  document.getElementById('headingfont').value;
+     //selector
+  previouselmtselect.style.fontFamily = fontheadingvalue;
+
+}
+function colorchange(){
+   var colorheadingvalue = document.getElementById('headingcolor').value;
+
+previouselmtselect.style.color = colorheadingvalue;
+}
+
+function sizechange(){
+var sizeheadingvalue = document.getElementById('headingsize').value;
+if(sizeheadingvalue.includes("pt")){
+previouselmtselect.style.fontSize = sizeheadingvalue;
+  document.getElementById('fonterror').style.display="none"
+}else{
+     document.getElementById('fonterror').style.display="block"
+}
+}
+
+var intervalpaused = false;
+var intervaltimer = setInterval(function() {
+    if(!intervalpaused){
+    if(document.activeElement.tagName === "IMG"){
+        document.getElementById('formatbtn').style.display="none";
+        document.getElementById('imgbtn').style.display="inline"
+    }else{
+         document.getElementById('formatbtn').style.display="inline";
+        document.getElementById('imgbtn').style.display="none"
+    }
+    }
+}, 10);
+
+var imgformat = document.getElementById('imgbtn')
+imgformat.onmousedown = function() {
+
+    if(status==="noimg"){
+          intervalpaused = true;
+        status = "yesimg"
+    } 
+    
+    
+      previouselmtselect = document.activeElement;
+           document.getElementById('imgwidth').value = previouselmtselect.style.width;
+      document.getElementById('imgheight').value = previouselmtselect.style.height;
+      document.getElementById('imgselectedelmt').innerHTML = previouselmtselect.name
+  
+};
+
+let status="noimg";
+
+imgformat.onclick= function(){
+
+      if(status==="yesimg"){
+        
+          intervalpaused = false;
+        status = "noimg"
+    } 
+};
+function applyimageeffects(){
+    var brightness = document.getElementById('brightness').value;
+    var contrast = document.getElementById('contrast').value;
+    var invert = document.getElementById('invert').value;
+    var opacity = document.getElementById('opacity').value;
+    var width = document.getElementById('imgwidth').value;
+     var height = document.getElementById('imgheight').value;
+     var huerotate = document.getElementById('huerotate').value;
+previouselmtselect.style.filter = "brightness("+brightness+"%) contrast("+contrast+"%) invert("+invert+"%) opacity("+opacity+"%) hue-rotate("+huerotate+"deg)"
+//width/height
+
+var width = document.getElementById('imgwidth').value;
+var height= document.getElementById('imgheight').value
+previouselmtselect.style.width = width;
+previouselmtselect.style.height = height;
+
+}
+function imagegreyscale(){
+    previouselmtselect.style.filter = previouselmtselect.style.filter + " grayscale(200%)"
+}
+function imageblur(){
+    previouselmtselect.style.filter = previouselmtselect.style.filter + " blur(2px)"
+}
+  function imgfliphorizontal(){
+      previouselmtselect.style.transform= previouselmtselect.style.transform+" scaleX(-1)";
+  }
+    function imgflipvertical(){
+     previouselmtselect.style.transform= previouselmtselect.style.transform+ " scaleY(-1)";
+  }
+  var aiimgsrc; //to be shared with following 2 functions for AI IMG
+  function startaiprompt(){
+      var aiprompt = document.getElementById('aiimage').value;
+      document.getElementById('aiimgpreview').src = "https://aistar.aswinapps.com/AIprompt.gif";
+        const url = 'https://open-ai21.p.rapidapi.com/texttoimage2';
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': '3fba8e378amshb92af0aaff07c7fp1c00a9jsn3fd7952a75c3',
+		'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
+	},
+	body: JSON.stringify({text:aiprompt})
+};
+
+fetch(url,options)
+.then(response => response.json())
+            .then(ai => {
+                 //ai.generated_image
+            
+            aiimgsrc = ai.generated_image;
+            document.getElementById('aiimgpreview').src = aiimgsrc;
+           
+    })
+  }
+  function addaiimage(){
+       let aiimg = document.createElement('img')
+             aiimg.src = aiimgsrc;
+             aiimg.style.width="300px"
+             aiimg.style.height = "300px"
+              var slidename = document.getElementById('slidenameforelements').value;
+            if(document.getElementById(slidename)){
+                document.getElementById(slidename).appendChild(aiimg)
+                $(function() {
+    var img = document.getElementsByTagName('img');
+    $(img).draggable();
+  });
+               
+            }else{
+                document.getElementById('slidenameerror').style.display="block";
+            }
+  }
+  function updateimage(){
+        var updateimgfile = document.getElementById('updateimgfile');
+  // Make sure we have files to use
+ previouselmtselect.src = window.URL.createObjectURL(updateimgfile.files[0])
+ //alert msg for success
+ document.getElementById('imgchangeconfirmmsg').style.display="block"
+ //close collapse
+
+ 
+ previouselmtselect.name = updateimgfile.value;
+ document.getElementById('imgselectedelmt').innerHTML = updateimgfile.value
+ //updatemsg
+  }
+  function updateimgurl(){
+      var imgurl = document.getElementById('imgurl').value;
+      previouselmtselect.src = imgurl;
+       document.getElementById('imgchangeconfirmmsg').style.display="block"
+        document.getElementById('imgselectedelmt').innerHTML = imgurl
+        previouselmtselect.name = imgurl;
+           
+  }
+</Script>
+</body>
+</html>
