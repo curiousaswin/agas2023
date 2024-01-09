@@ -155,7 +155,7 @@ h3{
     
      <A class="btn"><i class="fa-solid fa-chart-line"></i><Br>Dashboard</A>
         <a class="btn" href="https://docs.aswinapps.com/masterslidesdocs.html"><i class="fa-solid fa-file"></i><br>Docs</a>
-          <A class="btn" href="/masterslide/loginrecommendation.html"><i class="fa-solid fa-right-to-bracket"></i><Br>Login</A>
+          <A class="btn" id="loginbtn" href="/masterslide/loginrecommendation.html"><i class="fa-solid fa-right-to-bracket"></i><Br>Login</A>
           <a class="btn"><i class="fa-solid fa-mobile-screen-button"></i><br>Templates</a>
   </div>
    <div id="loaderarea" style="background-color:blue;z-index:4;">
@@ -173,6 +173,9 @@ h3{
   });
   setTimeout(function() {
       document.getElementById('loaderarea').style.display="none"
+      if(localStorage.getItem("savedslides")){
+          document.getElementById('loginbtn').style.display="none";
+      }
   }, 5000);
   </script>
 </body>
