@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+         <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--draggable-->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+   <link  href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!--Pacifico-->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <!--ICONS-->
+ <script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+      
+      <link rel="icon" href="https://www.aswinapps.com/MasterslideIcon.jpeg" 	type = "image/x-icon">
+      <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <title>Dashboard | Aswin's MasterSlide</title>
+    <style>
+         body{
+            background-image: url('https://cdn.wallpapersafari.com/93/24/oUE9uI.png');
+         
+        }
+         #loaderarea {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  margin: -76px 0 0 -76px;
+ 
+ @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+}
+.btn-shortcuts{
+       color:white;
+    border:1px solid white;
+    font-size:12pt;
+     background-color: rgba(0,0,0, 0.4);
+}
+.btn-shortcuts:hover{
+    color:#ADD8E6;
+    background-color:rgba(0,0,139, 0.75);
+}
+.i-shortucts{
+       font-size:72pt;
+}
+.jumbotron{
+    background-color:white;
+}
+p{
+    font-size:18pt;
+}
+.slideshow-icons{
+    font-size:24pt;
+}
+.slideshows-btn{
+           color:white;
+    border:1px solid white;
+    font-size:12pt;
+     background-color: rgba(0,0,0, 0.4);
+     height:100px;
+     justify-content:center;
+       padding: 20px 0;
+       margin:20px;
+         transition: width 2s, background-color 2s;
+         width:150px;
+}
+.slideshows-btn:hover{
+    color:#90EE90;
+      width:200px;
+      background-color: rgba(1,50,32, 0.75);
+    
+}
+.template-btn{
+           color:black;
+    border:1px solid white;
+    font-size:12pt;
+     background-color: rgba(0,255,0, 0.4);
+     height:100px;
+     justify-content:center;
+       padding: 40px 0;
+       margin:20px;
+         transition: width 2s, background-color 2s,color 2s;
+         width:150px;
+}
+.template-btn:hover{
+    width:200px;
+    background-color:rgba(11,11,69,0.4);
+    color:white;
+}
+.existing-btn{
+      color:black;
+    border:1px solid white;
+    font-size:12pt;
+     background-color: rgba(255,255,0, 0.4);
+     height:100px;
+     justify-content:center;
+       padding: 40px 0;
+       margin:20px;
+         transition: width 2s, background-color 2s,color 2s;
+         width:150px;
+}
+  
+  .existing-btn:hover{
+       width:200px;
+    background-color:rgba(0,0,225,0.4);
+    color:white;
+  }
+  .btn-export{
+               color:black;
+    border:2px solid black;
+    font-size:12pt;
+     background-color: rgba(255,255,255, 0.4);
+     height:100px;
+     justify-content:center;
+       padding: 20px 0;
+       margin:20px;
+         transition: width 2s, background-color 2s, color 2s,border 2s;
+         width:150px;
+         
+  }
+  .btn-export:hover{
+      color:white;
+      background-color: rgba(0,0,0, 0.4);
+      width:200px;
+      border:2px solid white;
+  }
+  ul.nav-pills {
+    top: 20px;
+    position: fixed;
+  }
+  
+    </style>
+</head>
+<body  data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+    
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="z-index:4;">
+  <!-- Brand/logo -->
+ 
+  <a class="navbar-brand" href="#"><img src="https://www.aswinapps.com/MasterslideIcon.jpeg" style="width:40px" >Aswin's MasterSlide</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="https://docs.aswinapps.com/masterslidesdocs.html">Documentation</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://sites.google.com/view/masterslidedocs/templates?authuser=0">Templates</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://www.aswinapps.com">Back To Home</a>
+    </li>
+  </ul>
+</nav>
+     <div id="loaderarea" style="background-color:blue;z-index:4;">
+        <img style="width:130px;" src="https://www.aswinapps.com/MasterslideIcon.jpeg"><br>
+         <div class="spinner-border text-primary" style="width:110px;height:110px;" id="loader"></div>
+    </div>
+      <div class="row">
+    <nav class="col-sm-2 col-3 bg-dark" id="myScrollspy">
+    
+      <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+              <p style="color:white"><strong>Jump To:</strong></p>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#shortcuts">Shortcuts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#slideshow">Slideshow Options</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#template">Templates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#saved">Saved Slideshows</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#export">Export</a>
+        </li>
+      </ul>
+    </nav> 
+     <div class="col-sm-10 col-9">
+         <div id="shortcuts">
+<div class="jumbotron" style="background-color:white">
+    <h2>Nice to see you, <span id="personname"></span>!</h2><br>
+    <h3>Quick Shortcuts:</h3>
+    
+    <br>
+  <a class="btn btn-shortcuts" href="/masterslide/newslideshow.html"><i class="fa-solid fa-circle-plus i-shortucts"></i><br>New Regular Slideshow</a>
+  <a class="btn btn-shortcuts" href="/masterslide/templates.html"><i class="fa-solid fa-mobile-screen-button i-shortucts"></i><br>Start with a template</a>
+</div>
+</div>
+
+<div id="slideshow">
+    <br>
+<div class="jumbotron">
+   <p><Strong>Slideshow Options:</Strong></p>
+   <a class="btn slideshows-btn " href="/masterslide/newslideshow.html"><i class="fa-solid fa-circle-plus slideshow-icons"></i>
+   <br>
+   Regular Slideshow
+   </a> 
+     <a class="btn slideshows-btn" href="/masterslide/imgslideshow.html"><i class="fa-solid fa-images slideshow-icons"></i>
+   <br>
+   Image Caurosel Slideshow
+   </a> 
+    <a class="btn slideshows-btn" href="/masterslide/aiimgslideshow.html"><i class="fa-solid fa-images slideshow-icons"></i><i class="fa-solid fa-wand-magic-sparkles slideshow-icons"></i>
+   <br>
+   AI Image Caurosel Slideshow
+   </a> 
+    <a class="btn slideshows-btn" href="/masterslide/imgmodal.html"><i class="fa-solid fa-photo-film slideshow-icons" ></i>
+   <br>
+   Regular Slideshow + Image Modal(s)
+   </a> 
+   <a class="btn slideshows-btn" href="/masterslide/imggallery.html"><i class="fa-regular fa-image slideshow-icons"></i><i class="fa-regular fa-image slideshow-icons"></i>
+   <br>
+  Image Gallery Slideshow
+   </a>
+   <a class="btn slideshows-btn" href="/masterslide/mapslideshow.html"><i class="fa-solid fa-map-location-dot slideshow-icons"></i>
+   <br>
+  Map Slideshow
+   </a> 
+   <a class="btn slideshows-btn" href="/masterslide/codesnippet.html"><i class="fa-solid fa-code slideshow-icons"></i>
+   <br>
+  Active Code Snippet Slideshow
+   </a> 
+    <a class="btn slideshows-btn" href="/masterslide/quote.html"><i class="fa-solid fa-quote-right slideshow-icons"></i>
+   <br>
+Quote Slideshow
+   </a> 
+    <a class="btn slideshows-btn" href="/masterslide/quote.html"><i class="fa-solid fa-headphones slideshow-icons"></i>
+   <br>
+Audio Gallery Slideshow
+   </a> 
+   <a class="btn slideshows-btn" href="/masterslide/ttsslideshow.html"><i class="fa-solid fa-file-audio slideshow-icons"></i>
+   <br>
+Reg Slideshow w/ TTS
+   </a> 
+</div>
+</div>
+<div id="template">
+<div class="jumbotron">
+    <p><strong>Templates:</strong></p>
+    <a class="btn template-btn" href="/masterslide/template/nature.html">Nature</a>
+     <a class="btn template-btn" href="/masterslide/template/space.html">Space</a>
+        <a class="btn template-btn" href="/masterslide/template/demographics.html">Demographics</a>
+         <a class="btn template-btn" href="/masterslide/template/graphs.html">Graphs</a>
+          <a class="btn template-btn" href="/masterslide/template/time.html">Time</a>
+           <a class="btn template-btn" href="/masterslide/template.html">View All ></a>
+</div>
+<br>
+</div>
+<div id="saved">
+   <div class="jumbotron">
+       <p><strong>Saved Slideshows:</strong></p>
+       <div id="savedslideshowsappearspot"></div>
+   </div> 
+</div>
+<div id="export">
+    <div class="jumbotron">
+    <p><strong>Export Your Slideshow:</strong></p>
+    <a class="btn btn-export" href="/masterslide/export/image.html"><i class="fa-solid fa-file-export slideshow-icons"></i><i class="fa-solid fa-image slideshow-icons"></i></a>
+    <a class="btn btn-export" href="/masterslide/export/pdf.html"><i class="fa-solid fa-file-export slideshow-icons"></i><i class="fa-solid fa-file-pdf slideshow-icons"></i></a>
+    <a class="btn btn-export" href="/masterslide/export/video.html"><i class="fa-solid fa-file-export slideshow-icons"></i><i class="fa-solid fa-video slideshow-icons"></i></a>
+    </div>
+</div>
+</div>
+</div>
+<script>
+
+      setTimeout(function() {
+      document.getElementById('loaderarea').style.display="none"
+      if(localStorage.getItem("agaslogin")){
+          document.getElementById('personname').innerHTML = localStorage.getItem("agaslogin")
+          if(localStorage.getItem("agasslideshowlist")){
+              var splitted = localStorage.getItem("agasslideshowlist").split(",")
+             console.log(splitted)
+             for (let i = 0; i < splitted.length; i++){
+                 var linktoslideshow = document.createElement("a")
+                 linktoslideshow.className = "btn existing-btn"
+                 linktoslideshow.href= "/masterslide/exisiting.html?name="+ splitted[i]
+                 linktoslideshow.innerHTML = splitted[i]
+                 document.getElementById('savedslideshowsappearspot').appendChild(linktoslideshow)
+             }
+          }else{
+              document.getElementById('savedslideshowsappearspot').innerHTML = "<-- No Saved Slideshows -->"
+          }
+      }else{
+          alert("Please log in for the best experience. Some features might not work!")
+      }
+  }, 5000);
+</script>
+</body>
+</html>
