@@ -7,9 +7,9 @@
 <head>
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
 <!-- Popper JS -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -17,7 +17,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <!--draggable-->
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
    <link  href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -98,7 +98,25 @@
 #imgeditor{
     background-color:#CC7722;
 }
+.jumbotron{
+    background-color:white;
+    position:sticky;
+    padding:2px;
 
+}
+.btn-slidenav{
+    width:200px;
+    height:100px;
+    border:2px solid black;
+    background-color:white;
+    display:block;
+    color:black;
+   margin-left:auto;
+   margin-right:auto;
+   margin-bottom:5px;
+   margin-top:2px;
+ 
+}
 </style>
     <script>
       function leavepagealert(){
@@ -112,6 +130,7 @@
 
 <body  onbeforeunload="return leavepagealert()" onload="myFunction()">
     <script>
+   
         function newslide(){
           
             var nameofslide= document.getElementById('slidename').value;
@@ -142,13 +161,13 @@
             document.getElementById(nameofslide).appendChild(paragraph);
              var remove = document.createElement('button');
              remove.className="btn btn-warning";
-             remove.innerHTML = "Remove this Slide";
+             remove.innerHTML = "<i class='fa-solid fa-trash'></i>";
              remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
              div.appendChild(remove);
             var slidename2="#" + nameofslide+"container";
-            var buttontext = "<br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button>";
+            var buttontext = "<button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse'" + "data-target='"+slidename2+"'><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button>";
             $(slidename2).append(buttontext);
-            var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+            var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext);
@@ -190,13 +209,13 @@ document.getElementById('slidename').value="";
      $("#"+nameofslide).append("<ul draggable='false' contenteditable='true'><li>This is a list</li></ul>");
       var remove = document.createElement('button');
              remove.className="btn btn-warning";
-             remove.innerHTML = "Remove this Slide";
+             remove.innerHTML = "<i class='fa-solid fa-trash'></i>";
              remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
              div.appendChild(remove);
             var slidename2="#" + nameofslide+"container";
-            var buttontext = "<br><br><BR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span></div>";
+            var buttontext = "<button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span></div>";
             $(slidename2).append(buttontext);
-             var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+             var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext);
@@ -256,18 +275,18 @@ image.setAttribute("name", imagestouse.value)
 document.getElementById(nameofslide).appendChild(image);
  var remove = document.createElement('button');
              remove.className="btn btn-warning";
-             remove.innerHTML = "Remove this Slide";
+             remove.innerHTML = "<i class='fa-solid fa-trash'></i>";
              remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
              div.appendChild(remove);
 
             var slidename2="#" + nameofslide+"container";
-            var buttontext = "<br><br><BR><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            var buttontext = "   <button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"<br>";
             
             $(slidename2).append(buttontext);
             var usableid = nameofslide+"color";
             /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
                  $(slidename2).append(backgroundcolor);*/
-             var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+             var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext);
@@ -334,18 +353,18 @@ document.getElementById(nameofslide+"video").appendChild(source);
 
   var remove = document.createElement('button');
              remove.className="btn btn-warning";
-             remove.innerHTML = "Remove this Slide";
+             remove.innerHTML = "<i class='fa-solid fa-trash'></i>";
              remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
              div.appendChild(remove);
              
             var slidename2="#" + nameofslide+"container";
-            var buttontext = "<Br><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            var buttontext = "<button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"<br>";
             
             $(slidename2).append(buttontext);
             var usableid = nameofslide+"color";
             /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
                  $(slidename2).append(backgroundcolor);*/
-        var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+        var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
    
             $("#lists").append(controltext);
             
@@ -354,6 +373,8 @@ $(function() {
     var h1 = document.getElementsByTagName('h1');
     $(h1).draggable();
   });
+
+
 $(function() {
     var video = document.getElementsByTagName('video');
     $(video).draggable();
@@ -390,7 +411,7 @@ for (let i = 0; i < headings.length; i++) {
 
  var elem = document.getElementById('present');
   requestFullScreen(elem);
-document.getElementById("present").innerHTML = firstslide + "<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
+document.getElementById("present").innerHTML = firstslide + "  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
  
 
 
@@ -400,7 +421,7 @@ function slidemanager(){
      var keeptext = document.getElementById('presentnumber').value;
      document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
        document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -513,7 +534,7 @@ function increaseslides(){
      var keeptext = document.getElementById('presentnumber').value;
      document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
        document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -627,7 +648,7 @@ function decreaseslides(){
      var keeptext = document.getElementById('presentnumber').value;
      document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
        document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"<div style='position: absolute;bottom: 0;'><button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -994,10 +1015,12 @@ function headingandtable(){
         }
       // Append the rows to the body
       table.appendChild(trL);
-       var remove = document.createElement('button');
+       
+    }
+    var remove = document.createElement('button');
              remove.className="btn btn-warning";
-             remove.innerHTML = "Remove this Slide";
-             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove();document.getElementById('"+nameofslide+"control').remove()");
+             remove.innerHTML = "<i class='fa-solid fa-trash'></i>";
+             remove.setAttribute("onclick", "document.getElementById('"+nameofslide+"container').remove()");
              div.appendChild(remove);
              
         $(function() {
@@ -1008,17 +1031,16 @@ function headingandtable(){
     var tables = document.getElementById(nameofslide+"tablediv");
     $(tables).resizable();
   });
-    }
      document.getElementById(nameofslide+"tablediv").appendChild(table);
 
             var slidename2="#" + nameofslide+"container";
-            var buttontext = "<br><br><BR><bR><div style='position: absolute;bottom: 0;'><button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'>Stop Editing This Slide</button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"</div><br>";
+            var buttontext = "   <button class='btn btn-danger'  data-toggle='collapse'" + "data-target='"+slidename2+"'><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button><span style='color:white;'><b>Coming Soon:</b>You can drag around lists.</span>"+"<br>";
             
             $(slidename2).append(buttontext);
             var usableid = nameofslide+"color";
             /*var backgroundcolor = "<input style='position: absolute;bottom: 0;' type='color' id='"+usableid+"' value='#FFFFFF' onchange='"+nameofslide+".style.backgroundColor=this.value;'>"
                  $(slidename2).append(backgroundcolor);*/
-              var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+              var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext);
@@ -1154,31 +1176,28 @@ function revert(){
 }
       function myFunction() {
   myVar = setTimeout(starter, 2000);
-    var getinfo = localStorage.getItem("Name");
-  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!";
+    var getinfo = localStorage.getItem("agaslogin");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo;
 
 
 } 
 function save(){
-    if(document.getElementById('signin').innerHTML== "Hello null!"){
+    if(document.getElementById('signin').innerHTML== "Hello null"){
     document.getElementById('fornonmembers').className = "modal fade show";
     document.getElementById('fornonmembers').style.display="block";
     } else {
         var slidestosavecode = document.getElementById('slides').innerHTML;
     var liststosave = document.getElementById('lists').innerHTML;
     var slidename = document.getElementById('masterslidename').value;
-     localStorage.setItem("savedslides", slidestosavecode);
-localStorage.setItem("savednavigators", liststosave);
-localStorage.setItem("nameofslide", slidename);
-localStorage.setItem("headingcolor",document.getElementById('headingcolor').value);
-localStorage.setItem("headingfont",document.getElementById('headingfont').value);
-localStorage.setItem("headingsize",document.getElementById('headingsize').value);
-localStorage.setItem("paragraphfont",document.getElementById('headingparagraph').value);
-localStorage.setItem("paragraphcolor",document.getElementById('paragraphcolor').value);
-localStorage.setItem("paragraphsize",document.getElementById('paragraphsize').value);
+     localStorage.setItem(slidename+"savedslides", slidestosavecode);
+localStorage.setItem(slidename+"savednavigators", liststosave);
+localStorage.setItem(slidename+"nameofslide", slidename);
+
 document.getElementById('savemodal').className ="modal fade show";
 document.getElementById('savemodal').style.display="block";
       document.body.removeAttribute("onbeforeunload"); 
+        document.getElementById('savestatus').innerHTML = "A version of the project is saved online."
+  document.getElementById('savestatus').style.color = "green"
     }
     
 
@@ -1196,11 +1215,14 @@ function discard(){
     localStorage.removeItem("paragraphcolor");
    localStorage.removeItem("paragraphsize");
 }
+
 function download(filename, text) {
   var pom = document.createElement('a');
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
 
-encodeURIComponent(text));
+encodeURIComponent(text
++'{"transition":"'+document.getElementById('transition').value+'"}'
+));
   pom.setAttribute('download', filename);
 
   pom.style.display = 'none';
@@ -1209,15 +1231,48 @@ encodeURIComponent(text));
   pom.click();
 
   document.body.removeChild(pom);
+  document.getElementById('savestatus').innerHTML = "A version of the project is downloaded."
+  document.getElementById('savestatus').style.color = "green"
 }
+/*function extractHTMLAndJSONFromAMSCode(amsCode) {
+    // Find the index of the opening curly brace of the JSON
+    const startIndex = amsCode.indexOf('{');
+    
+    // Find the index of the closing curly brace of the JSON
+    const endIndex = amsCode.lastIndexOf('}');
+    //done
+    // Extract the HTML substring (from the beginning to the JSON start)
+    const htmlSubstring = amsCode.substring(0, startIndex);
+    
+    // Extract the JSON substring
+    const jsonSubstring = amsCode.substring(startIndex, endIndex + 1);
+    
+    // Parse the JSON string to a JavaScript object
+    const jsonData = JSON.parse(jsonSubstring);
+    
+    return {
+        html: htmlSubstring,
+        json: jsonData
+    };
+}
+*/
     function importthefiles(){
-    document.getElementById('editor').innerHTML = "";
+    document.getElementById('slidescontainer').innerHTML = "";
   var fileToLoad = document.getElementById("fileToLoad").files[0];
 
   var fileReader = new FileReader();
   fileReader.onload = function(fileLoadedEvent){
-      var textFromFileLoaded = fileLoadedEvent.target.result;
-      document.getElementById("editor").innerHTML = textFromFileLoaded;
+      var amsCode = fileLoadedEvent.target.result;
+          const startIndex = amsCode.indexOf('{');
+    const endIndex = amsCode.lastIndexOf('}');
+       const htmlSubstring = amsCode.substring(0, startIndex);
+      document.getElementById("slidescontainer").innerHTML = htmlSubstring;
+          // Extract the JSON substring
+    const jsonSubstring = amsCode.substring(startIndex, endIndex + 1);
+    console.log(jsonSubstring)
+       const jsonData = JSON.parse(jsonSubstring);
+       var transitionval = jsonData.transition;
+       document.getElementById('transition').value = transitionval
   };
 
   fileReader.readAsText(fileToLoad, "UTF-8");
@@ -1246,7 +1301,7 @@ const options = {
     "messages": [
         {
             "role": "user",
-            "content": "You are an AI bot who is a slide maker. Users will give a prompt and you give the response by giving the html response. Here is the template for your response: <div id='slidenamecontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='slidename' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>This is a heading</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>This is a Paragraph</p></div><button class='btn btn-warning' onclick='document.getElementById('slidenamecontainer').remove();document.getElementById('slidenamecontrol').remove()'>Remove this Slide</button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#slidenamecontainer' >Stop Editing This Slide</button></div>... If the user requests lists, use the ul and li elements. If you want to do additional formatting or other elements, use the html elements. For tables, use the table element. The max rows / columns for table is 5x5. If you do any text elemnt, make sure to always use contentedible='true' attribute. If you want to draw visuals, use the html 5 svg elements! It is recommended that you do that. If you user provides some image url, make it an image. Also, you can change the background color or change it to gradients which you should do that aligns with the topic. Also, you can change color of heading and paragraph so it looks good. If you use visuals, you should have the proper layout and then add it right next to the h1 element. ALL svg elements should be inside the div with the slideer classname. If its svg elements are not inside the div with slideer classname, it will ruin the code. NEVER use canvas for slides. "
+            "content": "You are an AI bot who is a slide maker. Users will give a prompt and you give the response by giving the html response. Here is the template for your response: <div id='slidenamecontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='slidename' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>This is a heading</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>This is a Paragraph</p></div><button class='btn btn-warning' onclick='document.getElementById('slidenamecontainer').remove();document.getElementById('slidenamecontrol').remove()'><i class='fa-solid fa-trash'></i></button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#slidenamecontainer' ><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button></div>... If the user requests lists, use the ul and li elements. If you want to do additional formatting or other elements, use the html elements. For tables, use the table element. The max rows / columns for table is 5x5. If you do any text elemnt, make sure to always use contentedible='true' attribute. If you want to draw visuals, use the html 5 svg elements! It is recommended that you do that. If you user provides some image url, make it an image. Also, you can change the background color or change it to gradients which you should do that aligns with the topic. Also, you can change color of heading and paragraph so it looks good. If you use visuals, you should have the proper layout and then add it right next to the h1 element. ALL svg elements should be inside the div with the slideer classname. If its svg elements are not inside the div with slideer classname, it will ruin the code. NEVER use canvas for slides. "
         },
         {
             "role":"user",
@@ -1254,7 +1309,7 @@ const options = {
         },
         {
             "role":"assistant",
-            "content":"<div id='dogscontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='dogs' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' /></svg><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>About Dogs</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>The Dog is a domestic animal. It is most of the often-used animal as a pet. People prefer to have a dog as a pet rather than any other animal. The dog serves its master selflessly. All that it wants in return is love and care of the owner. There are many breeds of dogs available in the world. </p></div><button class='btn btn-warning' onclick='"+ 'document.getElementById("dogscontainer").remove();document.getElementById("dogscontrol").remove()'+"'>Remove this Slide</button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#dogscontainer' >Stop Editing This Slide</button></div>"
+            "content":"<div id='dogscontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='dogs' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' /></svg><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>About Dogs</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>The Dog is a domestic animal. It is most of the often-used animal as a pet. People prefer to have a dog as a pet rather than any other animal. The dog serves its master selflessly. All that it wants in return is love and care of the owner. There are many breeds of dogs available in the world. </p></div><button class='btn btn-warning' onclick='"+ 'document.getElementById("dogscontainer").remove();document.getElementById("dogscontrol").remove()'+"'><i class='fa-solid fa-trash'></i></button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#dogscontainer' ><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button></div>"
         },
         {
             "role":"user",
@@ -1316,7 +1371,7 @@ $(function() {
     var nameofslide= document.getElementById('slidename').value;
     var slidename2="#" + nameofslide+"container";
     
-     var controltext = "<button  class='btn btn-primary'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
+     var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext); 
@@ -1325,7 +1380,9 @@ $(function() {
 
 
 
-
+$(function() {
+    $('#intro').modal();
+  });
     </script>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
@@ -1346,7 +1403,7 @@ $(function() {
 </nav>
    
    <div class="spinner-border text-primary" id="loader"></div>
-   <SPAN id="signin" style="display: block;font-size:25pt;text-align:right;color:white;"></SPAN>
+  
    <!-- The Modal -->
 <div class="modal" id="AIprompt">
   <div class="modal-dialog modal-xl">
@@ -1378,11 +1435,51 @@ $(function() {
     </div>
   </div>
 </div>
-   <form class="form-inline">
-   <INPUT TYPE="text" class="form-control" id="masterslidename"   placeholder="SlideShow Name"><button onclick="discard()" type="btn" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Discard</button>
+  <!-- i know, introduction for remodel -->
+ 
+<!-- The Modal -->
+<div class="modal" id="intro">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Welcome to Aswin's MasterSlide Editor</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <h2> <SPAN id="signin"></SPAN>, Nice to see you! </h2>
+    <div class='row'>
+        <div class="col"><a href="/masterslide/templates.html" class="btn btn-primary">See Templates</a></div>
+        <div class="col"><a href="https://docs.aswinapps.com/masterslides.html" class="btn btn-primary">Need Help?</a></div>
+        <div class="col"><A href="https://aswintube.aswinapps.com/channelcontent/productrelease/home.html" class="btn btn-primary">See Our Product Release Videos</A></div>
+        <div class="col"><A href="https://docs.aswinapps.com/masterslide/tutorials.html" class="btn btn-primary">See Tutorials</A></div>
+    </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+       
+       <div class="jumbotron sticky-top" style="color:black;" >
+           <b class="badge badge-secondary">Options</b>  <br><form class="form-inline">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Slideshow Name" id="masterslidename">
+    <div class="input-group-append">
+      <span class="input-group-text"><div ><strong style="color:red;" id="savestatus">Unsaved</strong></div></span>
+    </div>
+  </div>
+
        </form>
-       <div class="jumbotron" style="color:black;">
-           <b class="badge badge-secondary">Options</b><br>
+       
+           
       <button onclick="present()" class="btn btn-primary"><span class="material-icons-outlined"><i class="material-icons">airplay</i></span></button>
       <button data-toggle="collapse" class="btn btn-primary" data-target="#formatingoption" id="formatbtn"><i class="fa-solid fa-paintbrush"></i></button>
       <button data-toggle="collapse" class="btn btn-primary" data-target="#imgeditor" id="imgbtn"><i class="fa-solid fa-image"></i><i class="fa-solid fa-pen-to-square"></i></button>
@@ -1391,9 +1488,8 @@ $(function() {
          <button type="btn" data-toggle="collapse" class="btn btn-primary" data-target="#transitions"><i class="fa-solid fa-tent-arrow-left-right"></i></button>
          <button class="btn btn-primary" onclick="exportthis()"><i class="fa-solid fa-file-export"></i></button>
          <button class="btn btn-success" onclick="save()"><i class="fa-solid fa-floppy-disk"></i></button>
-         <button class="btn btn-success" onclick="download(document.getElementById('masterslidename').value + '.ams' ,document.getElementById('editor').innerHTML)"><i class="fa-solid fa-download"></i></button>
+         <button class="btn btn-success" onclick="download(document.getElementById('masterslidename').value + '.ams' ,document.getElementById('slidescontainer').innerHTML)"><i class="fa-solid fa-download"></i></button>
         <button type="btn" data-toggle="collapse" class="btn btn-primary" data-target="#importfiles"><i class="fa-solid fa-file-import"></i></button>
-        <a href="https://sites.google.com/view/masterslidedocs/docs-home?authuser=0" class="btn btn-primary">Docs/Additional Templates</a>
       <div id="importfiles" class="collapse">
           <input type="file" id="fileToLoad" accept=".ams">
     <button onclick="importthefiles()">Load Selected File</button>
@@ -1486,7 +1582,7 @@ $(function() {
     </div>
             </div>
       </div>
-      <div id="editor">
+      
         <div id="transitions" class="collapse">
          <form>
   <select name="transition"  id="transition" class="custom-select">
@@ -1607,15 +1703,24 @@ $(function() {
       <audio id="backgroundmusic" ></audio>
   </div>
   </div>
-  <br>
+  
     <button class="form-control btn-primary"  data-toggle="modal" data-target="#newslide"><i class="fa-solid fa-address-card"></i><i class="fa-solid fa-plus"></i></button>
-    </div>
+    
+    <div id="slidescontainer">
+        <div class="row">
+            <div class="col-7">
 <div id="slides">
 
 </div>
-<div class="slideer" id="end" style="display:none;background-color:white;"><h2 style="font-size:24pt;font-family:'Pacifico';">Presentation is over</h2><span style="font-size:12pt;font-family:Times New Roman;">Please press the Stop Slideshow button to stop the presentation.</span><h4>(C) Aswin's MasterSlide 2024</h4></div>
-<div id="lists"></div>
-
+<div class="slideer" id="end" style="display:none;background-color:white;"><h2 style="font-size:24pt;font-family:'Pacifico';">Presentation is over</h2><span style="font-size:12pt;font-family:Times New Roman;">Please press the Stop Slideshow button to stop the presentation.</span><h4>(C) Aswin's MasterSlide 2024</h4></div></div>
+<div class="col-3" style="background-color:#d3d3d3;">
+    <div class="jumbotron">
+        <h2>List of Slides:</h2>
+    </div>
+<div id="lists" style="overflow-y:scroll;display:block;height:375px;border:3px solid black"></div><Br><br>
+</div>
+</div>
+</div>
 <div id="present" style="width:500px;height:350px;border:9px solid black;background-color:white;position:relative;"></div>
 <div class="modal fade" id="newslide">
   <div class="modal-dialog">
@@ -1927,6 +2032,7 @@ Your slideshow will apear everytime you refresh the page or close the page unles
   </div>
 </div>
 <Script>
+
 var previouselmtselect = null;
 var btnformat = document.getElementById('formatbtn');
 btnformat.onmousedown = function() {
