@@ -1185,7 +1185,7 @@ function save(){
      localStorage.setItem(slidename+"savedslides", slidestosavecode);
 localStorage.setItem(slidename+"savednavigators", liststosave);
 localStorage.setItem(slidename+"nameofslide", slidename);
-localStorage.setItem("savedslides",localStorage.getItem("savedslide")+","+slidename)
+localStorage.setItem("agasslideshowlist",localStorage.getItem("savedslide")+","+slidename)
 document.getElementById('savemodal').className ="modal fade show";
 document.getElementById('savemodal').style.display="block";
       document.body.removeAttribute("onbeforeunload"); 
