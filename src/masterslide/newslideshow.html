@@ -1169,13 +1169,13 @@ function revert(){
 }
       function myFunction() {
   myVar = setTimeout(starter, 2000);
-    var getinfo = localStorage.getItem("agaslogin");
+    let getinfo = localStorage.getItem("agaslogin");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo;
 
 
 } 
 function save(){
-    if(document.getElementById('agaslogin').innerHTML== "Hello null"){
+    if(getinfo == null){
     document.getElementById('fornonmembers').className = "modal fade show";
     document.getElementById('fornonmembers').style.display="block";
     } else {
