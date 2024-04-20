@@ -411,7 +411,7 @@ for (let i = 0; i < headings.length; i++) {
 
  var elem = document.getElementById('present');
   requestFullScreen(elem);
-document.getElementById("present").innerHTML = firstslide + "  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
+document.getElementById("present").innerHTML = firstslide + " <div class='fixed-bottom'> <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
  
 
 
@@ -786,14 +786,7 @@ for (let i = 0; i < headings.length; i++) {
 function starter(){
     document.getElementById("present").style.display="none";
       document.getElementById("loader").style.display = "none";
-      var getinfo = localStorage.getItem("savedslides");
-   console.log(getinfo);
-   console.log(localStorage.getItem("savednavigators"));
-   console.log(localStorage.getItem("nameofslide"));
-
- document.getElementById('slides').innerHTML= localStorage.getItem("savedslides");
- document.getElementById('lists').innerHTML = localStorage.getItem("savednavigators");
- document.getElementById('masterslidename').value = localStorage.getItem("nameofslide");
+   
 /*localStorage.setItem("savedslides", slidestosavecode);
 localStorage.setItem("savednavigators", liststosave);
 localStorage.setItem("nameofslide", slidename);
@@ -1182,7 +1175,7 @@ function revert(){
 
 } 
 function save(){
-    if(document.getElementById('signin').innerHTML== "Hello null"){
+    if(document.getElementById('agaslogin').innerHTML== "Hello null"){
     document.getElementById('fornonmembers').className = "modal fade show";
     document.getElementById('fornonmembers').style.display="block";
     } else {
@@ -1192,7 +1185,7 @@ function save(){
      localStorage.setItem(slidename+"savedslides", slidestosavecode);
 localStorage.setItem(slidename+"savednavigators", liststosave);
 localStorage.setItem(slidename+"nameofslide", slidename);
-
+localStorage.setItem("savedslides",localStorage.getItem("savedslide")+","+slidename)
 document.getElementById('savemodal').className ="modal fade show";
 document.getElementById('savemodal').style.display="block";
       document.body.removeAttribute("onbeforeunload"); 
