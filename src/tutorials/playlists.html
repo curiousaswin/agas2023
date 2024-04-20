@@ -35,11 +35,11 @@ color:green;
     var navcode;
     function myFunction() {
   myVar = setTimeout(getnavbar, 2000);
-if(localStorage.getItem("Name")){
+if(localStorage.getItem("agaslogin")){
    var getinfo = localStorage.getItem("Name");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
 }else{
-       var getinfo = localStorage.getItem("Name");
+       var getinfo = localStorage.getItem("agaslogin");
   document.getElementById("signin").innerHTML ="Not logged in. Click <a href='https://www.aswinapps.com/login.html'>here</a> to login"; 
 }
   
