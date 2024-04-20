@@ -322,7 +322,7 @@ Reg Slideshow w/ TTS
       if(localStorage.getItem("agaslogin")){
           document.getElementById('personname').innerHTML = localStorage.getItem("agaslogin")
           if(localStorage.getItem("agasslideshowlist")){
-              var splitted = localStorage.getItem("agasslideshowlist").split(",")
+              var splitted = localStorage.getItem("agasslideshowlist").split(",").filter(Boolean)
              console.log(splitted)
              for (let i = 0; i < splitted.length; i++){
                  var linktoslideshow = document.createElement("a")
