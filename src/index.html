@@ -108,7 +108,7 @@ console.log(localStorage.getItem("Name"));
    document.getElementById('p1').innerHTML = "Hello "+localStorage.getItem("agaslogin")+"!";
    if(document.getElementById('p1').innerHTML == "Hello null!"){
        document.getElementById('p1').innerHTML = "Not Logged In."
-	  
+	  document.getElementById('accountmng').style.display= "block";
    } else{
         document.getElementById("signup2").style.display = "none" ;
      document.getElementById("login1").style.display = "none" ;
@@ -229,7 +229,7 @@ function Scrolldown(btntouse) {
     <li class="nav-item" style="text-align:right;">
         <p id="p1">Not Logged In</p>
     </li>
-	       <li class="nav-item" style="text-align:right;">
+	       <li class="nav-item" style="text-align:right;" style="display:none" id="accountmng">
         <a href="https://stable-soul-97d2.e2.loginrocket.com/profile" class="btn btn-light">
 		<i class="fa-solid fa-user-pen"></i> Manage Account
 	</a>
