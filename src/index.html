@@ -1,15 +1,366 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Travel Itnery Guide</title>
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel = "icon" href = 
+"/AswinIcon.png"
+		type = "image/x-icon">
+    <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
+    <title>Aswin's Good Apps</title>
+    <meta name="google-site-verification" content="ZuIBSy1jNwRYqyhCZ4kQjzVM9GbQsXihCHHQ8FHu2Us" />
+    <style>
+
+
+        #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  margin: -76px 0 0 -76px;
+
+
+}
+
+h5{
+    color:grey;
+}
+h5:hover{
+    color:white;
+}
+
+p{
+    font-size:25pt;
+}
+	    .p1{
+		    font-size:12pt;
+	    }
+h3{
+    font-size:65pt;
+}
+a{
+  color:white;
+}
+.col{
+  border:3px solid greenyellow;
+}
+	    .carousel-inner img {
+    width: 600px
+    height: 400px;
+  } 
+	    .carousel-caption p {
+		    font-size:18pt;
+		    color:black;
+		    background-color:yellow;
+	    }
+	    .carousel-caption h3{
+		    background-color:yellow;
+		    color:black;
+	    }
+    </style>
+           <script type="text/javascript" src="//cdn.tectite.com/formval-v17.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-223753011-1"> </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
+   
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+</head>
+<body onload="myFunction()" oncontextmenu="return false"> 
+    <script>
+	    //check if login is active or is expired
+
+
+
+document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+     return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+     return false;
+    }      
+ }
+
+        function myFunction() {
+  myVar = setTimeout(showPage, 2000);
+console.log(localStorage.getItem("Name"));
+
+   document.getElementById('p1').innerHTML = "Hello "+localStorage.getItem("agaslogin")+"!";
+   if(document.getElementById('p1').innerHTML == "Hello null!"){
+       document.getElementById('p1').innerHTML = "Not Logged In."
+	  document.getElementById('accountmng').style.display= "block";
+   } else{
+        document.getElementById("signup2").style.display = "none" ;
+     document.getElementById("login1").style.display = "none" ;
+	    var exphours =  localStorage.getItem("exphours");
+	    var expmins = localStorage.getItem("expmins");
+	    console.log(exphours)
+	    //
+	/*    const d = new Date();
+var currenthrs = d.getHours();
+	    var currentmins = d.getMinutes();
+	    if(currenthrs>exphours){
+		localStorage.removeItem("agaslogin");
+		    location.reload();
+	    }else{
+		    if(currentmins>expmins){
+			    localStorage.removeItem("agaslogin");
+			    location.reload();
+		    }
+	    }*/
+   }
+
+
+}   
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+ document.getElementById('goonthetrack').style.display='none';
+ document.getElementById('nextstep').style.display="none";
+
+
+
+}
+
+//redisgned filter
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#appname tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+var bannerwidth = window.innerWidth+"px";
+
+
+//document.getElementById('banner').style.width = bannerwidth;
+//element.setAttribute("width", bannerwidth);
+
+function Scrolldown(btntouse) {
+     window.scroll(0,1000); 
+     btntouse.style.display="none";
+
+}
+
+    </script>
+
+    	<div class="spinner-border text-warning" id="loader"></div>
+
+
+		<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAK_HgtPBXsgqMtqtjC3Rn9Fav2IKPUWXA",
+    authDomain: "aswin-s-good-apps.firebaseapp.com",
+    projectId: "aswin-s-good-apps",
+    storageBucket: "aswin-s-good-apps.appspot.com",
+    messagingSenderId: "886485066534",
+    appId: "1:886485066534:web:0987294088bf27382a57e7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="https://www.aswinapps.com"><img src="/logoimg.png" style="width:40px"></a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="https://www.aswinapps.com"><i class="fa fa-home"></i>Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/applist.html"><i class="material-icons">apps</i>Apps List</a>
+    </li>
+    <li class="nav-item" id="login1">
+      <a class="nav-link" href="/login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
+    </li>
+     <li class="nav-item" id="signup2">
+      <a class="nav-link" href="/signup.html"><i class="fas fa-user-plus"></i>Sign Up</a>
+    </li>
+         <li class="nav-item">
+      <a class="nav-link" href="/quiz.html"><i class="fa-solid fa-circle-question"></i>Quizzes</a>
+    </li>
+      <li class="nav-item" >
+      <a class="nav-link"   href="https://docs.aswinapps.com"><i class="fa-solid fa-file"></i>Docs(Updated)</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="https://curiousaswin.github.io/aswinappsbeta"><i class="material-icons">developer_mode</i>Pre-Release</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+    <ul class="nav nav-tabs" style="justify-content:right;">
+
+          <li class="nav-item" style="text-align:right;">
+   <a href="/notifications.html" class="btn btn-primary">
+  <i class="fa fa-bell" aria-hidden="true"> </i>
+  </a>
+  </li>
+  <li class="nav-item" style="text-align:right;" style="display:none" id="accountmng">
+		       <span id="p1">Not Logged In</span><br>
+        <a href="https://stable-soul-97d2.e2.loginrocket.com/profile" class="btn btn-light">
+		<i class="fa-solid fa-user-pen"></i> Manage Account
+	</a>
+    </li>
+
+     </ul>
+<div id="introduction" class="carousel slide" data-ride="carousel" style="width:600px;height:400px">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#introduction" data-slide-to="0" class="active"></li>
+    <li data-target="#introduction" data-slide-to="1"></li>
+    <li data-target="#introduction" data-slide-to="2"></li>
+	   <li data-target="#introduction" data-slide-to="3"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/newlogo.png" alt="AGAS LOgo" width="600px" height="400px">
+	    <div class="carousel-caption">
+		    <h3>Welcome to Aswin's Good Apps</h3>
+		    <p>Free Apps For Real</p>
+	    </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/aistarlogo.png" alt="AI Star Ad" width="600px" height="400px">
+	      <div class="carousel-caption">
+		    <h3>Visit AIstar</h3>
+		    <p>See the difference you can make with AI</p>
+	    </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/masterslidesbanner.png" alt="Masterslide banner" width="600px" height="400px">
+	     <div class="carousel-caption">
+		    <h3>MasterSlide is for Under Development</h3>
+		    <p>You will have access but parts of isn't complete.</p>p
+	    </div>
+    </div>
+	   <div class="carousel-item">
+      <img src="/tutorialsstartup.gif" alt="Masterslide banner" width="600px" height="400px">
+	     <div class="carousel-caption">
+		    <h3>Check out math tricks in tutorials!</h3>
+		    <p>Simple math tricks that make math easier.</p>
+	    </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#introduction" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#introduction" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+
+      <h1 style="font-size:89pt;"><Center>Aswin's Good Apps</Center></h1>
+	    <br><br>
+      <h2 style="font-size:76pt;"><Center>Free Apps For Real<br></Center></h2>
+    <br><br>
+    <h3 style="font-size:65pt;text-align:center;">Feel the Q U A L I T Y</h3>
+    <p>Our apps have the true quality and have good functions. None of our apps are useless and have the best quality ever possible. Our apps keep getting good updates and always get quality features.</p>
+    <h3 style="font-size:65pt;text-align:center;">I N N O V A T I V E</h3>
+    <p>Our apps are always innovative and always come up with new concepts every day. Our apps come up with some conepts that none of the other apps use.</p>
+  <h3 style="text-align:center;font-size:65pt;">Why Us?</h3>
+  <p style="text-align:center;">We have good applications and are not malware unlike other providers. Our apps have only one purpose: to give the best experience.</p>
+  <br><h3 style="text-align:center;font-size:65pt;">Our Mission</h3>
+      <p style="text-align:center;"> Our mission is to give you the best experience for free so that you don't have to pay for anything. </p>
+      <h3 style="text-align:center;font-size:65pt">
+          Why you Should Sign Up
+      </h3>
+      <p style="text-align:center;"> You should sign up to get a more personalized experience and to get the best possible experience of all.</p>
+<div style="background-color:teal;">
+<div class="row">
+  <div class="col"><h3 style="color:black;font-size:65pt;"><A style="color:white" href="/applist.html">Explore our apps</A></h3></div>
+  <div class="col"><h3 style="color:black;font-size:65pt;"><A style="color:white" href="/signup.html">Sign Up</A></h3></div>
+</div>
+<br><br><br>
+</div>
+    </div>
+
+
+
+    <!-- Button to Open the Modal -->
+
+
+<!-- The Modal -->
+<div class="modal" id="notifications">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+          <div class="jumbotron">
+          <h5 style="color:black;"><i class="fa fa-bell" aria-hidden="true"> </i>Notifications</h5><span class="small font-italic">Updated as of 12/17/22 </span>
+          <ul>
+
+
+
+<li>Aswin's Fraction Calculator started giving Simplified fractions. <a href="/calculator/fractionscalc.html">Explore Now!</a></li>        
+<li>Aswin's Percentage Calculator Now rounds the percents to the nearest hundredth. <a href="/calculator/percent.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a new calculator called slope calculator.<a href="/calculator/slope.html">Explore Now!</a></li>
+<li>Aswin's Calculator has a calculator to find x and y intercepts.<a href="/calculator/intercept.html">Explore Now</a></li>
+<li>We're Creating an app called Aswin's Worksheet Finder<a href="/worksheet.html">Explore Now</a></li>
+<li>Aswin's Writer has some new changes.<a href="/docs.html">Explore Now</a></li>
+
+</ul>
+      </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
