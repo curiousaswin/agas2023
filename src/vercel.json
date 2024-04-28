@@ -3,6 +3,10 @@
         {
             "source": "/tutorials(.)",
             "destination": "/aswin_tutorials.html"
+        },
+         {
+            "source": "/masterslide(s)",
+            "destination": "/masterslide/home.html"
         }
     ]
 }
