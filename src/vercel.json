@@ -7,6 +7,10 @@
          {
             "source": "/masterslide(s)",
             "destination": "/masterslide/home.html"
+        },
+         {
+            "source": "/forecaststar",
+            "destination": "/weather.html"
         }
     ]
 }
