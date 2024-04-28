@@ -1,7 +1,7 @@
 {
     "redirects": [
         {
-            "source": "/tutorials(.*)",
+            "source": "/tutorials(.)",
             "destination": "/aswin_tutorials.html"
         }
     ]
