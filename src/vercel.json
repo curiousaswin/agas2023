@@ -1,15 +1,15 @@
 {
     "redirects": [
         {
-            "source": "/tutorials(.)",
+            "source": "/tutorials",
             "destination": "/aswin_tutorials.html"
         },
          {
-            "source": "/masterslide(s)",
+            "source": "/masterslide",
             "destination": "/masterslide/home.html"
         },
         {
-            "source": "/masterslide(s).html",
+            "source": "/masterslide.html",
             "destination": "/masterslide/home.html"
         },
          {
