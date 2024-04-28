@@ -9,7 +9,7 @@
             "destination": "/masterslide/home.html"
         },
          {
-            "source": "/forecaststar",
+            "source": "/forecaststar(.html)",
             "destination": "/weather.html"
         }
     ]
