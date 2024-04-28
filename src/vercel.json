@@ -5,7 +5,7 @@
             "destination": "/aswin_tutorials.html"
         },
          {
-            "source": "/masterslide(s)",
+            "source": "/masterslide(s)(.html)",
             "destination": "/masterslide/home.html"
         },
          {
