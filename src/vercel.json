@@ -13,7 +13,11 @@
             "destination": "/masterslide/home.html"
         },
          {
-            "source": "/forecaststar(.html)",
+            "source": "/forecaststar.html",
+            "destination": "/weather.html"
+        }
+          {
+            "source": "/forecaststar",
             "destination": "/weather.html"
         }
     ]
