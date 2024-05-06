@@ -15,7 +15,7 @@
          {
             "source": "/forecaststar.html",
             "destination": "/weather.html"
-        }
+        },
           {
             "source": "/forecaststar",
             "destination": "/weather.html"
