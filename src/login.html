@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,9 @@
     <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
     <title>Aswin's Good Apps | Login</title>
     <meta name="google-site-verification" content="ZuIBSy1jNwRYqyhCZ4kQjzVM9GbQsXihCHHQ8FHu2Us" />
+     <link rel = "icon" href = 
+"https://www.aswinapps.com/logoimg.png"
+		type = "image/x-icon">
     <style>
        
 
@@ -25,7 +29,9 @@
 
 }
 
-
+body{
+     background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+}
 
 
     </style>
@@ -48,89 +54,7 @@
 </head>
 <body onload="myFunction()">
     <script>
-        function validate(){
-    if(   document.getElementById("text1").value == "aswinemail@google.com"
-       && document.getElementById("text2").value == "aswinwebsitepass" )
-    {
-          document.getElementById("p1").innerHTML = "Hello Aswin";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-     localStorage.setItem("Name", "Aswin");
-    
-      
-    }
-    else if(   document.getElementById("text1").value == "sathyaemail@aswin.com"
-       && document.getElementById("text2").value == "sathyasaccount01" )
-       {
-          document.getElementById("p1").innerHTML = "Hello Sathya!";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-      localStorage.setItem("Name", "Sathya");
-    }
-   
-   else if(document.getElementById("text1").value == "arulvelmail@aswin.com"
-   &&  document.getElementById("text2").value == "skar$SP50zxcvArulaccount")
-   {
-     document.getElementById("p1").innerHTML = "Hello Arulvel!";
-   document.getElementById('goonthetrack').style.display='block';
-     document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-     localStorage.setItem("Name", "Arulvel");
-}
-
-else if(document.getElementById("text1").value == "mine@3478"
-   &&  document.getElementById("text2").value == "mine@3478")
-   {
-   document.getElementById("p1").innerHTML = "Hello Shreyan!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Shreyan");
-}
-else if(document.getElementById("text1").value == "arnrcatr@gmail.com"
-   &&  document.getElementById("text2").value == "Number1")
-   {
-   document.getElementById("p1").innerHTML = "Hello Arun R!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Arun R");
-}
-else if(document.getElementById("text1").value == "callely400@millardps.org"
-   &&  document.getElementById("text2").value == "newy6782")
-   {
-   document.getElementById("p1").innerHTML = "Hello Connor Allely!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Connor Allely");
-}
-else if(document.getElementById("text1").value == "sbairagya920@millardps.org"
-   &&  document.getElementById("text2").value == "newv5342")
-   {
-   document.getElementById("p1").innerHTML = "Hello Sreeja Bairagya!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Sreeja Bairagya");
-}
-		else if(document.getElementById("text1").value == "arulvel.kumarasamy@gmail.com"
-   &&  document.getElementById("text2").value == "xh4LND3pKZ7FWkK")
-   {
-   document.getElementById("p1").innerHTML = "Hello Arulvel!";
-    document.getElementById('goonthetrack').style.display='block';
-   document.getElementById("login1").style.display = "none" ;
-   document.getElementById("signup2").style.display = "none" ;
-   localStorage.setItem("Name", "Arulvel");
-}
-else
-    {
-     
-         document.getElementById("fail").style.display = "block" ;
-    }
-}
+ 
     function myFunction() {
   myVar = setTimeout(showPage, 2000);
 console.log(localStorage.getItem("Name"));
@@ -219,7 +143,7 @@ document.onkeydown = function(e) {
 <h5><center><i>Login to access additional benefits</i></center></h5>
 	<div class="jumbotron">
 <center>
-	<a href="https://stable-soul-97d2.e2.loginrocket.com/login" class="btn btn-primary">Login with Aswin's Good Apps Systems Powered by AuthRocket <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+	<a href="https://stable-soul-97d2.e2.loginrocket.com/login" class="btn btn-primary">Login with Aswin's Good Apps Systems <strong>Powered by AuthRocket</strong> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       
 </center>
 	</div>
