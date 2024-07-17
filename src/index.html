@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel = "icon" href = 
-"/AswinIcon.png"
+"https://aswinapps.com/logoimg.png"
 		type = "image/x-icon">
     <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
     <title>Aswin's Good Apps</title>
@@ -207,19 +207,7 @@ console.log(localStorage.getItem("Name"));
 	    var exphours =  localStorage.getItem("exphours");
 	    var expmins = localStorage.getItem("expmins");
 	    console.log(exphours)
-	    //
-	/*    const d = new Date();
-var currenthrs = d.getHours();
-	    var currentmins = d.getMinutes();
-	    if(currenthrs>exphours){
-		localStorage.removeItem("agaslogin");
-		    location.reload();
-	    }else{
-		    if(currentmins>expmins){
-			    localStorage.removeItem("agaslogin");
-			    location.reload();
-		    }
-	    }*/
+	        document.getElementById('notloggedinarea').style.display="none";
    }
 
 		
@@ -274,7 +262,7 @@ function showPage() {
     </li>
   </ul>
 
-  <div class="ml-auto d-flex align-items-center" style="display:none" id="notloggedinarea">
+  <div class="ml-auto d-flex align-items-center" style="display:none;" id="notloggedinarea">
     <a href="/notifications.html" class="btn btn-primary">
       <i class="fa fa-bell" aria-hidden="true"></i>
     </a>
