@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel = "icon" href = 
-"/AswinIcon.png"
-		type = "image/x-icon">
+    
     <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
     <title>Aswin's Good Apps | Sign Up</title>
     <meta name="google-site-verification" content="ZuIBSy1jNwRYqyhCZ4kQjzVM9GbQsXihCHHQ8FHu2Us" />
@@ -45,25 +43,19 @@
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
 <script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
+ <link rel = "icon" href = 
+"https://www.aswinapps.com/logoimg.png"
+		type = "image/x-icon">
+		<Style>
+		   body{
+     background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+}
+
+		</Style>
 </head>
 <body  onload="myFunction()">
 <script>
-    
-function signup() {
-	var mail= document.getElementById('mail').value;
-	var pass= document.getElementById('pass').value;
-	var name= document.getElementById('name').value;
-	var doc = new jsPDF();
-	
-	doc.text(20,20,'This is (c) Aswin');
-  doc.text(30,30,'This should be emailed to aswin.arulvel@gmail.com only');
-	doc.addPage();
-	doc.text(20,10,name);
-	doc.text(20,20,mail);
-	doc.text(20,30,pass);
-	doc.save('Test.pdf');
-	
-}
+
 function nextstep(){
     document.getElementById('nextstep').style.display="block";
 } 
@@ -143,17 +135,16 @@ function showPage() {
     </li>
   </ul>
 </nav>
- <ul class="nav nav-tabs" style="justify-content:right;">
+  <ul class="nav nav-tabs" style="justify-content:right;">
     
           <li class="nav-item" style="text-align:right;">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notifications">
-  <i class="fa fa-bell" aria-hidden="true"> </i>
-  </button>
-  </li>
-    <li class="nav-item" style="text-align:right;">
-    <a href="/notifications.html" class="Btn btn-primary">
+ <a href="/notifications.html" class="btn btn-primary">
   <i class="fa fa-bell" aria-hidden="true"> </i>
   </a>
+  </li>
+    <li class="nav-item" style="text-align:right;">
+        <button id="p1" type="button" style="background-color:white;" onclick="localStorage.clear();alert('done');" class="nav-link"> Not Logged In
+        </button>
     </li>
      </ul>
                    <h1><Center>Sign Up</Center></h1>
