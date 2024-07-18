@@ -91,13 +91,6 @@ a:hover{
 </div>
 <script>     function myFunction() {
   myVar = setTimeout(getnavbar, 5000);
-if(localStorage.getItem("agaslogin")){
-   var getinfo = localStorage.getItem("agaslogin");
-  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
-}else{
-       var getinfo = localStorage.getItem("agaslogin");
-  document.getElementById("signin").innerHTML ="Not Logged In."; 
-}
   
 }
 
@@ -109,6 +102,14 @@ function getnavbar(){
                   setTimeout(showPage, 5000);
               }
                     ) 
+                    
+        if(localStorage.getItem("agaslogin")){
+   var getinfo = localStorage.getItem("agaslogin");
+  document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
+}else{
+       var getinfo = localStorage.getItem("agaslogin");
+  document.getElementById("signin").innerHTML ="Not Logged In."; 
+}
     }
 
 function showPage() {
