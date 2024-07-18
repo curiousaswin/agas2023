@@ -100,7 +100,7 @@ function getnavbar(){
               .then(nav => {
                   navcode = nav.navbar;
                   setTimeout(showPage, 5000);
-                  checkcode();
+                
               }
                     ) 
                     
@@ -121,6 +121,7 @@ function showPage() {
   var content = navcode + document.getElementById('content').innerHTML
 $("#content").replaceWith(content);
   $("#startmodal").modal()
+    checkcode();
  
 }
 </script>
