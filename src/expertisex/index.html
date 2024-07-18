@@ -100,10 +100,13 @@ function getnavbar(){
               .then(nav => {
                   navcode = nav.navbar;
                   setTimeout(showPage, 5000);
+                  checkcode();
               }
                     ) 
                     
-        if(localStorage.getItem("agaslogin")){
+    }
+    function checkcode(){
+         if(localStorage.getItem("agaslogin")){
    var getinfo = localStorage.getItem("agaslogin");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo +"!"; 
 }else{
