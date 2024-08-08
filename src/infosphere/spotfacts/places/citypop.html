@@ -157,7 +157,7 @@ City Population Finder
      function getPopulation() {
             var location = document.getElementById('cityname').value;
             var username = "aasa";
-            var url = "http://api.geonames.org/searchJSON?username=" + username + "&q=" + location+ "&maxRows=1";
+            var url = "https://secure.geonames.org/searchJSON?username=" + username + "&q=" + location+ "&maxRows=1";
             fetch(url)
             .then(response => response.json())
             .then(citypop => {
