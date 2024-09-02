@@ -1283,13 +1283,13 @@ function aislides(){
        document.getElementById('progresstxt').style.display = "block";
        var nameofslide= document.getElementById('slidename').value;
     var text = document.getElementById('slidesprompt').value;
- const url = 'https://chatgpt-42.p.rapidapi.com/conversationgpt4-2';
+ const url = 'https://open-ai21.p.rapidapi.com/chatgpt';
 const options = {
 	method: 'POST',
 	headers: {
 		'content-type': 'application/json',
 		'X-RapidAPI-Key': 'e585a89c03msh91a6829d1756bb9p1b12f3jsnf8118ea4fc9c',
-		'X-RapidAPI-Host': 'chatgpt-42.p.rapidapi.com'
+		'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
 	},
 	body: JSON.stringify({
     "messages": [
@@ -1318,7 +1318,7 @@ fetch(url, options)
 .then(ai => {
     
     console.log(ai);
-    var response = ai.choices[0].message.content;
+    var response = ai.result;
    // alert(response)
    var slidescode;
     slidescode = response;
