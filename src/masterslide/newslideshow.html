@@ -1283,7 +1283,7 @@ function aislides(){
        document.getElementById('progresstxt').style.display = "block";
        var nameofslide= document.getElementById('slidename').value;
     var text = document.getElementById('slidesprompt').value;
- const url = 'https://open-ai21.p.rapidapi.com/chatgpt';
+ const url = 'https://custom-chatbot-api.p.rapidapi.com/chatbotapi';
 const options = {
 	method: 'POST',
 	headers: {
@@ -1292,24 +1292,21 @@ const options = {
 		'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
 	},
 	body: JSON.stringify({
+	    bot_id: 'QlhtRrDWe3qMsidFToKYFRfbaxGvAl2tIan172531000328Hr6kfeDvXTWAUJxmB0cL4uxbRSJCN87.
     "messages": [
-       
-        {
-            "role":"user",
-            "content":"Dogs(no list)"
-        },
-        {
-            "role":"assistant",
-            "content":"<div id='dogscontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='dogs' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><svg width='100' height='100'><circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' /></svg><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>About Dogs</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>The Dog is a domestic animal. It is most of the often-used animal as a pet. People prefer to have a dog as a pet rather than any other animal. The dog serves its master selflessly. All that it wants in return is love and care of the owner. There are many breeds of dogs available in the world. </p></div><button class='btn btn-warning' onclick='"+ 'document.getElementById("dogscontainer").remove();document.getElementById("dogscontrol").remove()'+"'><i class='fa-solid fa-trash'></i></button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#dogscontainer' ><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button></div>"
-        },
+      
         {
             "role":"user",
             "content":text + " ...Use " + nameofslide +" for the slide names and containers."
         }
         
     ],
-    "system_prompt": "You are an AI bot who is a slide maker. Users will give a prompt and you give the response by giving the html response. Here is the template for your response: <div id='slidenamecontainer' class='slidecontainers collapse show' name='slidesforuse' style='position: relative;'><div class='slideer' id='slidename' style='width: 700px; height: 500px; border: 9px solid black; position: relative; background-color: white;'><h1 contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 24pt;'>This is a heading</h1><p contenteditable='true' class='ui-draggable ui-draggable-handle' style='position: relative; color: rgb(0, 0, 0); font-size: 12pt;'>This is a Paragraph</p></div><button class='btn btn-warning' onclick='document.getElementById('slidenamecontainer').remove();document.getElementById('slidenamecontrol').remove()'><i class='fa-solid fa-trash'></i></button><br><br><button class='btn btn-danger' style='position: absolute;bottom: 0;' data-toggle='collapse' data-target='#slidenamecontainer' ><i class='fa-solid fa-circle-stop'></i><i class='fa-solid fa-pencil'></i></button></div>... If the user requests lists, use the ul and li elements. If you want to do additional formatting or other elements, use the html elements. For tables, use the table element. The max rows / columns for table is 5x5. If you do any text elemnt, make sure to always use contentedible='true' attribute. If you want to draw visuals, use the html 5 svg elements! It is recommended that you do that. If you user provides some image url, make it an image. Also, you can change the background color or change it to gradients which you should do that aligns with the topic. Also, you can change color of heading and paragraph so it looks good. If you use visuals, you should have the proper layout and then add it right next to the h1 element. ALL svg elements should be inside the div with the slideer classname. If its svg elements are not inside the div with slideer classname, it will ruin the code. NEVER use canvas for slides. You should give only the code, and write no descriptions for it. If you do, it will mess up wthe web page. You don't need to use controls.",
-    "temperature": 0.8
+   user_id: '104901471027793704247-user',
+		temperature: 0.9,
+		top_k: 5,
+		top_p: 0.9,
+		max_tokens: 256,
+		model: 'gpt 3.5'
 })
 };
 
