@@ -1297,7 +1297,7 @@ const options = {
       
         {
             "role":"user",
-            "content":text + " ...Use " + nameofslide +" for the slide names and containers."
+            "content":text + " ...Use " + nameofslide +" for the slide names and containers. You need to add 'container' after slide name with no space for the outer most div."
         }
         
     ],
@@ -1320,7 +1320,7 @@ fetch(url, options)
    // alert(response)
    var slidescode;
     slidescode = response;
-    document.getElementById('progresstxt').innerHTML = "See Your Slide Preview on Side > <button class='btn btn-success' onclick='applyaicode()'> <i class='fa-solid fa-check'></i> Yes, it's fine!</button><button class='btn btn-danger' onclick='restartaiprocess()'><i class='fa-solid fa-circle-xmark'></i>No, Start Over!</button>"
+    document.getElementById('progresstxt').innerHTML = "See Your Slide Preview on Side > <button class='btn btn-success' onclick='applyaicode()'> <i class='fa-solid fa-check'></i> Yes, it's fine!</button><button class='btn btn-danger' onclick='restartaiprocess()'><i class='fa-solid fa-circle-xmark'></i>No, Start Over!</button> A"
     document.getElementById('slidepreview').srcdoc = slidescode; 
 }
 )
@@ -1361,7 +1361,7 @@ $(function() {
     var nameofslide= document.getElementById('slidename').value;
     var slidename2="#" + nameofslide+"container";
     
-     var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+"#"+nameofslide+"'>"+nameofslide+"</button>";
+     var controltext = "<button  class='btn btn-primary btn-slidenav'  id='"+nameofslide+"control' "+"data-toggle='collapse'" + "data-target='"+slidename2+"'>"+nameofslide+"</button>";
 
    
             $("#lists").append(controltext); 
