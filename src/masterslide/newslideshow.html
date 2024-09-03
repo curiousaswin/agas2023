@@ -1289,10 +1289,10 @@ const options = {
 	headers: {
 		'content-type': 'application/json',
 		'X-RapidAPI-Key': 'e585a89c03msh91a6829d1756bb9p1b12f3jsnf8118ea4fc9c',
-		'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
+		'X-RapidAPI-Host': 'custom-chatbot-api.p.rapidapi.com'
 	},
 	body: JSON.stringify({
-	    bot_id: 'QlhtRrDWe3qMsidFToKYFRfbaxGvAl2tIan172531000328Hr6kfeDvXTWAUJxmB0cL4uxbRSJCN87.
+	    bot_id: 'QlhtRrDWe3qMsidFToKYFRfbaxGvAl2tIan172531000328Hr6kfeDvXTWAUJxmB0cL4uxbRSJCN87bkdX',
     "messages": [
       
         {
@@ -1308,6 +1308,7 @@ const options = {
 		max_tokens: 256,
 		model: 'gpt 3.5'
 })
+
 };
 
 fetch(url, options)
