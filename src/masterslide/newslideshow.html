@@ -37,6 +37,26 @@
     <meta charset="UTF-8">
     <title>Aswin's MasterSlide</title>
     <style>
+    #presentcontainer{
+        position:relative;
+    }
+    #present{
+     
+        width: 100%;
+        height: auto;
+    
+    }
+    #presentcontrols{
+            position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
         .slideer{
             width:700px;
             height:500px;
@@ -137,6 +157,7 @@
             var nameofslide= document.getElementById('slidename').value;
             var div=document.createElement("div")
             div.id=nameofslide+"container";
+             div.style.fontFamily = "Helvetica";
             div.className = "slidecontainers collapse show";
             div.style.position="relative";
              div.setAttribute('name', 'slidesforuse');
@@ -187,6 +208,7 @@ document.getElementById('slidename').value="";
    function headingandlist(){
             var nameofslide= document.getElementById('slidename').value;
             var div=document.createElement("div")
+            div.style.fontFamily = "Helvetica";
             div.id=nameofslide+"container";
             div.className = "slidecontainers collapse show";
             div.style.position="relative";
@@ -234,6 +256,7 @@ document.getElementById('slidename').value="";
             var div=document.createElement("div")
             div.id=nameofslide+"container";
             div.className = "slidecontainers collapse show";
+             div.style.fontFamily = "Helvetica";
             div.style.position="relative";
              div.setAttribute('name', 'slidesforuse');
             document.getElementById('slides').appendChild(div);
@@ -310,6 +333,7 @@ document.getElementById('widthforimage').value=0;
             var nameofslide= document.getElementById('slidename').value;
             var div=document.createElement("div")
             div.id=nameofslide+"container";
+             div.style.fontFamily = "Helvetica";
             div.className = "slidecontainers collapse show";
             div.style.position="relative";
              div.setAttribute('name', 'slidesforuse');
@@ -394,35 +418,44 @@ document.getElementById('widthforimage').value=0;
 
 
 function present(){
+       document.getElementById('presentnumber').value = 1;
     let firstslide = document.getElementsByClassName("slideer")[0].innerHTML;
-document.getElementById("present").innerHTML = firstslide ;
-document.getElementById('present').style.display="block";
-document.getElementById('present').style.backgroundColor= document.getElementsByClassName("slideer")[0].style.backgroundColor;
-document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[0].style.backgroundImage;
-document.getElementById('end').style.display="block";
-document.getElementById('backgroundmusic').play();
-    const paragraphs = document.getElementsByTagName("p");
-for (let i = 0; i < paragraphs.length; i++) {
-  paragraphs[i].contentEditable= "false";
-}
-  const headings = document.getElementsByTagName("h1");
-for (let i = 0; i < headings.length; i++) {
-  headings[i].contentEditable= "false";
-}
+   let id1 =  document.getElementsByClassName("slideer")[0].id;
+   let id2 = document.getElementById(id1+"container");
+   id2.className = "slidecontainers collapse show"
 
- var elem = document.getElementById('present');
-  requestFullScreen(elem);
-document.getElementById("present").innerHTML = firstslide + " <div class='fixed-bottom'> <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>";
- 
+    html2canvas($(".slideer")[0],{logging: true,useCORS: true}).then(function (canvas) {
+      
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+       document.getElementById('present').src=imgData;
+       document.getElementById('presentcontrols').style.display="block";
+        
+        
+        
+    })
+document.getElementById('present').style.display="block";
+document.getElementById('end').style.display="block";
+
+
+ var elem = document.getElementById('presentcontainer');
+ requestFullScreen(elem);
+
 
 
 }
 function slidemanager(){
     var numbertouse = document.getElementById('presentnumber').value - 1;
      var keeptext = document.getElementById('presentnumber').value;
-     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
-       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+    
+    html2canvas($(".slideer")[numbertouse],{logging: true,useCORS: true}).then(function (canvas) {
+      
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+       document.getElementById('present').src=imgData;
+        
+        
+        
+    })
+
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -530,12 +563,25 @@ setTimeout(stopexplode, 1000);
 }
 function increaseslides(){
    var newnumber = document.getElementById('presentnumber').value *1 +1;
+   
    document.getElementById('presentnumber').value = newnumber;
     var numbertouse = document.getElementById('presentnumber').value - 1;
+       let id1 =  document.getElementsByClassName("slideer")[numbertouse].id;
+   let id2 = document.getElementById(id1+"container");
+   if(id2){
+        id2.className = "slidecontainers collapse show"
+   }
+  
      var keeptext = document.getElementById('presentnumber').value;
-     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
-       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+         document.getElementsByClassName("slideer")[numbertouse].style.display="block";
+    html2canvas($(".slideer")[numbertouse],{logging: true,useCORS: true}).then(function (canvas) {
+      
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+       document.getElementById('present').src=imgData;
+        
+        
+        
+    })
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -647,9 +693,18 @@ function decreaseslides(){
    document.getElementById('presentnumber').value = newnumber;
     var numbertouse = document.getElementById('presentnumber').value - 1;
      var keeptext = document.getElementById('presentnumber').value;
-     document.getElementById("present").style.backgroundColor=document.getElementsByClassName("slideer")[numbertouse].style.backgroundColor;
-       document.getElementById("present").style.backgroundImage=document.getElementsByClassName("slideer")[numbertouse].style.backgroundImage;
-     document.getElementById("present").innerHTML = "<div id='abes'>" + document.getElementsByClassName("slideer")[numbertouse].innerHTML+"  <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number' id='presentnumber' min='1' onchange='slidemanager();' value='"+keeptext+"'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div></div>"
+    document.getElementsByClassName("slideer")[numbertouse].style.display="block";
+       let id1 =  document.getElementsByClassName("slideer")[numbertouse].id;
+   let id2 = document.getElementById(id1+"container");
+   id2.className = "slidecontainers collapse show"
+    html2canvas($(".slideer")[numbertouse],{logging: true,useCORS: true}).then(function (canvas) {
+      
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+       document.getElementById('present').src=imgData;
+        
+        
+        
+    })
  if(document.getElementById('transition').value == "Fade"){
      
  $("#present").fadeOut();
@@ -772,17 +827,11 @@ function stopexplode(){
                         $( "video" ).toggle( "explode","slow"  );
 }
 function stopslideshow(){
+         document.getElementById('presentcontrols').style.display="none";
     document.getElementById("end").style.display = "none";
-alert("Thanks for using Aswin's MasterSlide. We will now go back to editing mode.");
+document.exitFullscreen();
 document.getElementById('present').style.display="none";
-    const paragraphs = document.getElementsByTagName("p");
-for (let i = 0; i < paragraphs.length; i++) {
-  paragraphs[i].contentEditable= "true";
-}
-  const headings = document.getElementsByTagName("h1");
-for (let i = 0; i < headings.length; i++) {
-  headings[i].contentEditable= "true";
-}
+
 }
 function starter(){
     document.getElementById("present").style.display="none";
@@ -1173,6 +1222,7 @@ let getinfo;
   myVar = setTimeout(starter, 2000);
  getinfo = localStorage.getItem("agaslogin");
   document.getElementById("signin").innerHTML ="Hello "+ getinfo;
+  document.getElementById('presentcontrols').style.display = "none";
 
 
 } 
@@ -1711,7 +1761,13 @@ $(function() {
 </div>
 </div>
 </div>
-<div id="present" style="width:500px;height:350px;border:9px solid black;background-color:white;position:relative;"></div>
+<div id="presentcontainer">
+    <img id="present" />
+    <div id="presentcontrols">
+    <div class='fixed-bottom'> <button type='btn' class='btn btn-danger'  onclick='stopslideshow()'>Stop Slideshow</button><button class='btn btn-warning'type='btn' onclick='decreaseslides()'><i class='fa-solid fa-arrow-left'></i></button><input type='number'  id='presentnumber' onchange='slidemanager();' min='1' value='1'><button type='btn' class='btn btn-warning' onclick='increaseslides()'><i class='fa-solid fa-arrow-right'></i></button></div>
+    </div>
+</div>
+
 <div class="modal fade" id="newslide">
   <div class="modal-dialog">
     <div class="modal-content">
