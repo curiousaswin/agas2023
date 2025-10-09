@@ -163,16 +163,20 @@
         .signout{
             transform: scaleX(-1);
         }
-		.jumbotron {
-  position: relative;
-  margin-top: 50px; /* pushes it below the See All button */
-  width: 320px;
-  height: 250px;
+	.jumbotron {
+  margin-top: 50px;           /* pushes it below the See All button */
+  width: 160px;               /* matches ad script width */
+  height: 300px;              /* matches ad script height */
   padding: 10px;
   background: #f3f5f7;
   border-radius: 10px;
-  overflow: hidden;
+  display: block;
+  margin-left: auto;          /* centers horizontally */
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
 }
+
     </style>
 </head>
 <body onload="initialize()" oncontextmenu="return false">
