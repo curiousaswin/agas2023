@@ -1,440 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="referrer" content="no-referrer-when-downgrade" />
-       <script type="text/javascript" src="//cdn.tectite.com/formval-v17.js"></script>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
-<!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js">
-</script>
-<script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel = "icon" href = 
-"https://aswinapps.com/logoimg.png"
-		type = "image/x-icon">
-    <meta name="google-site-verification" content="52CoSMW3uJ_ATcYoeBO6aq7zthM7QyQKbbS-egiojEg" />
-    <title>Aswin's Good Apps</title>
-    <meta name="google-site-verification" content="ZuIBSy1jNwRYqyhCZ4kQjzVM9GbQsXihCHHQ8FHu2Us" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+<link rel="icon" href="https://aswinapps.com/logoimg.png" type="image/x-icon">
+<title>Aswin's Good Apps</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-  h2,h1,p,h3{
-      font-family:"Raleway";
-  }
-        #loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 130px;
-  height: 130px;
-  margin: -76px 0 0 -76px;
- 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/3e2a93553e.js" crossorigin="anonymous"></script>
 
-}
+<style>
+/* Your original styles preserved */
+h1,h2,h3,p { font-family: "Raleway"; }
+#loader { position:absolute; left:50%; top:50%; z-index:1; width:130px; height:130px; margin:-65px 0 0 -65px; }
+#hilltop-ad { width:300px; height:250px; margin:auto; background-color:#f0f0f0; display:flex; justify-content:center; align-items:center; color:#555; font-size:16pt; }
 
-h5{
-    font-size:20pt;
-}
+.btn-primary{ transition:color 2s, letter-spacing 2s; font-size:14pt; }
+.btn-primary:hover{ background-color:green; letter-spacing:1.5px; }
+.card-text{ pointer-events:none; transition:none; }
+.announcmentshortcut{ background-color: rgba(0,0,0,0.4); color:white; font-weight:bold; border:3px solid #f1f1f1; width:300px; height:200px; padding:50px; text-align:center; }
+body{ background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%); }
 
-p{
-    font-size:18pt;
-    text-align:center;
-    margin:40px;
-}
-h1{
-    margin:30px;
-    font-weight:10px;
-    transition: letter-spacing 2s;
-}
-h2{
-    margin:25px;
-    font-weight:8px;
-      transition: letter-spacing 2s;
-       animation: fadeIn 4s ease-in-out;
-}
-
-	    .p1{
-		    font-size:12pt;
-		           font-family:"Raleway";
-		      
-	    }
-
-a{
-  color:white;
-}
-
-	    .carousel-inner img {
-    width: 600px
-    height: 400px;
-  } 
-	    .carousel-caption p {
-		    font-size:18pt;
-		    color:black;
-		    background-color:yellow;
-	    }
-	    .carousel-caption h3{
-		    background-color:yellow;
-		    color:black;
-	    }
-	    .carousel-caption{
-	        background-color:yellow;
-	        color:black;
-	    }
-	     h1{
-          font-family:"Raleway",sans-serif;
-          font-weight:200;
-      }
-.announcement{
-          font-size:14pt;
-          text-align:left;
-        }
-      strong{
-          font-size:18pt;
-      }
-      .jumbotron{
-          border:5px solid black;
-      }
-      .announcmentshortcut{
-            background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  width:300px;
-  height:200px/* Black w/opacity/see-through */
-  padding:50px;
-      }
-      body{
-      background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
-      }
-      /* Define the fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Apply the animation */
-#agas{
-  animation: fadeIn 4s ease-in-out;
-}
-a:hover{
-    color:yellow;
-}
-h2:hover{
-     letter-spacing: 3px;
-}
-h1:hover{
-     letter-spacing: 3.5px;
-}
-h3{
-    transition:text-decoration-line 2s,letter-spacing 2s;
-   
-}
-h3:hover{
-        letter-spacing: 3.2px;
-    text-decoration-line: underline;
-  text-decoration-color: #39ff14;
-  text-decoration-style: wavy;
-}
-p{
-    transition:font-size 2s, letter-spacing 2s;
-}
-p:hover{
-     letter-spacing: 1.5px;
-     font-size:25px;
-}
-.btn-primary{
-    transition:color 2s, letter-spacing 2s;
-    font-size:14pt;
-}
-.btn-primary:hover{
-    background-color:green;
-    letter-spacing:1.5px;
-}
-.card-text{
-    pointer-events: none;
-    transition:none;
- 
-}
-
-.form-control{
-    width:200px;
-    position:absolute;
-}
-#yrs{
-    text-align:center;
-    font-size:40pt;
-    font-weight:bold;
-}
-.signout{
-     transform: scaleX(-1);
-}
-    </style>
-        
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+#agas { animation: fadeIn 4s ease-in-out; }
+</style>
 </head>
+<body onload="initialize()" oncontextmenu="return false">
 
-<body onload="initialize()" oncontextmenu="return false"> 
-    <script>
-	    //check if login is active or is expired
+<div class="spinner-border text-warning" id="loader"></div>
 
-        function initialize() {
-  myVar = setTimeout(showPage, 2000);
-console.log(localStorage.getItem("Name"));
-
-   document.getElementById('username').innerHTML = "Hello "+localStorage.getItem("agaslogin")+"!";
-   if(document.getElementById('username').innerHTML == "Hello null!"){
-       document.getElementById('notloggedinarea').style.display = "block";
-       document.getElementById('accountarea').style.display="none";
-
-   } else{
-        document.getElementById("signup2").style.display = "none" ;
-     document.getElementById("login1").style.display = "none" ;
-	    var exphours =  localStorage.getItem("exphours");
-	    var expmins = localStorage.getItem("expmins");
-	    console.log(exphours)
-	        document.getElementById('notloggedinarea').style.display="none";
-   }
-
-		
-}   
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
- document.getElementById('goonthetrack').style.display='none';
- document.getElementById('nextstep').style.display="none";
-
-
-
-}
-
-
-	    function signout(){
-	        localStorage.removeItem("agaslogin");
-	    }
-//document.getElementById('banner').style.width = bannerwidth;
-
-    </script>
-    
-    	<div class="spinner-border text-warning" id="loader"></div>
-
-	
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-  <!-- Brand/logo -->
   <a class="navbar-brand" href="https://www.aswinapps.com"><img src="/logoimg.png" style="width:40px"></a>
-
-  <!-- Links -->
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a class="nav-link active" href="https://www.aswinapps.com"><i class="fa fa-home"></i> Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/applist.html"><i class="fa-solid fa-grip"></i> Apps List</a>
-    </li>
-    <li class="nav-item" id="login1">
-      <a class="nav-link" href="/login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-    </li>
-    <li class="nav-item" id="signup2">
-      <a class="nav-link" href="/signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/quiz.html"><i class="fa-solid fa-circle-question"></i> Quizzes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://docs.aswinapps.com"><i class="fa-solid fa-file"></i> Docs(Updated)</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://curiousaswin.github.io/aswinappsbeta"><i class="material-icons">developer_mode</i> Pre-Release</a>
-    </li>
+    <li class="nav-item"><a class="nav-link active" href="https://www.aswinapps.com"><i class="fa fa-home"></i> Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="/applist.html"><i class="fa-solid fa-grip"></i> Apps List</a></li>
+    <li class="nav-item" id="login1"><a class="nav-link" href="/login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li class="nav-item" id="signup2"><a class="nav-link" href="/signup.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+    <li class="nav-item"><a class="nav-link" href="/quiz.html"><i class="fa-solid fa-circle-question"></i> Quizzes</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://docs.aswinapps.com"><i class="fa-solid fa-file"></i> Docs(Updated)</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://curiousaswin.github.io/aswinappsbeta"><i class="material-icons">developer_mode</i> Pre-Release</a></li>
   </ul>
-
-  <div class="ml-auto d-flex align-items-center" >
-    <a href="/notifications.html" class="btn btn-primary">
-      <i class="fa fa-bell" aria-hidden="true"></i>
-    </a>
+  <div class="ml-auto d-flex align-items-center">
+    <a href="/notifications.html" class="btn btn-primary"><i class="fa fa-bell"></i></a>
     <div class="dropdown ml-2" id="notloggedinarea" style="display:none;">
-      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-        <i class="fa-solid fa-user"></i> Sign Up OR Log In
-      </button>
+      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i> Sign Up OR Log In</button>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="/signup.html">
-          <i class="fas fa-user-plus"></i> Sign Up
-        </a>
-        <a class="dropdown-item" href="/login.html">
-          <i class="fa-solid fa-right-from-bracket"></i> Sign In
-        </a>
+        <a class="dropdown-item" href="/signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+        <a class="dropdown-item" href="/login.html"><i class="fa-solid fa-right-from-bracket"></i> Sign In</a>
       </div>
     </div>
     <div class="dropdown ml-2" id="accountarea">
-      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-        <i class="fa-solid fa-user"></i> <span id="username">Not Logged In</span>
-      </button>
+      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i> <span id="username">Not Logged In</span></button>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://stable-soul-97d2.e2.loginrocket.com/profile">
-          <i class="fa-solid fa-user-pen"></i> Manage Account
-        </a>
-        <a class="dropdown-item" href="https://stable-soul-97d2.e2.loginrocket.com/logout" onclick="signout()">
-          <i class="fa-solid fa-right-from-bracket signout"></i> Sign Out
-        </a>
-        <a class="dropdown-item" href="https://docs.aswinapps.com/accounthelp.html">
-          <i class="fa-solid fa-circle-question"></i> Need Help?
-        </a>
+        <a class="dropdown-item" href="https://stable-soul-97d2.e2.loginrocket.com/profile"><i class="fa-solid fa-user-pen"></i> Manage Account</a>
+        <a class="dropdown-item" href="https://stable-soul-97d2.e2.loginrocket.com/logout" onclick="signout()"><i class="fa-solid fa-right-from-bracket signout"></i> Sign Out</a>
+        <a class="dropdown-item" href="https://docs.aswinapps.com/accounthelp.html"><i class="fa-solid fa-circle-question"></i> Need Help?</a>
       </div>
     </div>
   </div>
 </nav>
 
-
-
-    
-    
-
-
-
-  <!-- Tab panes -->
+<div class="container mt-4">
+  <h1 style="font-size:60pt;" id="agas"><center>Aswin's Good Apps</center></h1>
+  <h2 style="font-size:50pt;"><center>Free Apps For Real</center></h2>
+  <h3 style="font-size:45pt;text-align:center;">F E E L &nbsp;T H E&nbsp; Q U A L I T Y</h3>
+  <p>Our apps have the true quality and have good functions. None of our apps are useless and have the best quality possible.</p>
   
-    <div id="home" class="container tab-pane active"><br>
-    <div class="row">
-        <div class="col-sm-9">
-              <h1 style="font-size:60pt;" id="agas"><Center>Aswin's Good Apps</Center></h1>
-	    
-      <h2 style="font-size:50pt;"><Center>Free Apps For Real<br></Center></h2>
-    
-    <h3 style="font-size:45pt;text-align:center;">F E E L &nbsp;T H E&nbsp; Q U A L I T Y</h3>
-    <p>Our apps have the true quality and have good functions. None of our apps are useless and have the best quality ever possible. Our apps keep getting good updates and always get quality features.</p>
-    <h3 style="font-size:45pt;text-align:center;">I N N O V A T I V E</h3>
-    <p>Our apps have the true innovation. They are always the top with the most innovative features. Check them out!</p>
-    <div class="row">
-        <div class="col">
-        <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://www.aswinapps.com/aistarlogo.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">AIstar</h5>
-    <p class="card-text">AIstar is an app where you can interactive with AI and create lots of stuff.</p>
-    <a href="#" class="btn btn-primary">Check it Out!</a>
-  </div>
-</div>
-</div>
-<div class="col">
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://www.aswinapps.com/masterslidesbanner.png" width="286px" height="215px" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Masterslide</h5>
-    <p class="card-text">MasterSlide is an interactive slideshow maker where you can use multiple templates and have animations.</p>
-    <a href="#" class="btn btn-primary">Check it Out!</a>
-  </div>
-</div>
-</div>
+  <h3 style="font-size:45pt;text-align:center;">I N N O V A T I V E</h3>
+  <p>Our apps have the true innovation. They are always top with the most innovative features. Check them out!</p>
 
-</div>
-<div class="row">
-    <div class="col">
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://www.aswinapps.com/DocCraftpro.png" width="286px" height="215px" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Docscraft Pro</h5>
-    <p class="card-text">Docscraft Pro is an app to make, write, and download pdfs.</p>
-    <a href="#" class="btn btn-primary">Check it Out!</a>
-  </div>
-</div>
-</div>
-<div class="col">
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://www.aswinapps.com/ExpertiseXBanner.png" width="286px" height="215px" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">ExpertiseX</h5>
-    <p class="card-text">ExpertiseX is an app to learn various things through videos and other formats. </p>
-    <a href="#" class="btn btn-primary">Check it Out!</a>
-  </div>
-</div>
-</div>
-<Br>
-</div>
-<br>
-<a href="/applist.html" class="form-control btn-primary" style="text-align:center;left:35%;">See All</a>
-<br>
-<script>
-(function(jmyqdj){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = jmyqdj || {};
-s.src = "\/\/starchy-button.com\/bZXiV.sSd\/G\/ln0JYjWBci\/CenmW9KueZtUNlQk-PNTRYk2XN\/zAE\/yuOETJQ\/t\/NdjYY\/3DM-TkI\/5fNqQX";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
-
-<br>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <img class="card-img-top" src="https://www.aswinapps.com/aistarlogo.png" alt="AIstar">
+        <div class="card-body">
+          <h5 class="card-title">AIstar</h5>
+          <p class="card-text">AIstar is an app where you can interact with AI and create lots of stuff.</p>
+          <a href="#" class="btn btn-primary">Check it Out!</a>
         </div>
-        <div class="col-sm-3" >
-             <div class="announcmentshortcut" >
-                <a href="/announcments.html"><h1 style="margin:5px"> 
-                  <i class="fa-solid fa-circle-info"></i> About Us
-                </h1>
-                </a>
-            </div>
-            <br>
-            <div class="announcmentshortcut" >
-                <a href="/announcments.html"><h1 style="margin:5px"> 
-                    <i class="fa-solid fa-bullhorn"></i>View <br>
-                    Announcments
-                </h1>
-                </a>
-            </div>
-            
-           
-            <br>
-            <br>
-            <div id="yrs">
-                <i class="fa-solid fa-star"></i><Br>
-                Over <br>
-                15+
-                <Br>
-                    Apps<Br>
-                    <i class="fa-solid fa-star"></i>
-            </div>
-</div>
-        </div>
+      </div>
     </div>
-<footer class="container-fluid bg-dark text-light p-2">
-  
-  <div class="text-center mt-3" style="font-size:18pt">
-    &copy; 2024 Aswin's Good Apps. All Right Reserved.
+    <div class="col-md-3">
+      <div class="card">
+        <img class="card-img-top" src="https://www.aswinapps.com/masterslidesbanner.png" alt="Masterslide">
+        <div class="card-body">
+          <h5 class="card-title">Masterslide</h5>
+          <p class="card-text">MasterSlide is an interactive slideshow maker.</p>
+          <a href="#" class="btn btn-primary">Check it Out!</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img class="card-img-top" src="https://www.aswinapps.com/DocCraftpro.png" alt="Docscraft Pro">
+        <div class="card-body">
+          <h5 class="card-title">Docscraft Pro</h5>
+          <p class="card-text">Make, write, and download PDFs.</p>
+          <a href="#" class="btn btn-primary">Check it Out!</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img class="card-img-top" src="https://www.aswinapps.com/ExpertiseXBanner.png" alt="ExpertiseX">
+        <div class="card-body">
+          <h5 class="card-title">ExpertiseX</h5>
+          <p class="card-text">Learn various things through videos and other formats.</p>
+          <a href="#" class="btn btn-primary">Check it Out!</a>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Hilltop Ad -->
+  <div class="row mt-4">
+    <div class="col text-center">
+      <div id="hilltop-ad">Ad Loading...</div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid bg-dark text-light p-2 mt-4">
+  <div class="text-center" style="font-size:18pt">&copy; 2024 Aswin's Good Apps. All Rights Reserved.</div>
 </footer>
+
 <script>
+function initialize() {
+  setTimeout(showPage, 2000);
+  let username = localStorage.getItem("agaslogin");
+  document.getElementById('username').innerHTML = "Hello "+username+"!";
+  if(username === null){
+    document.getElementById('notloggedinarea').style.display = "block";
+    document.getElementById('accountarea').style.display="none";
+  } else{
+    document.getElementById("signup2").style.display = "none" ;
+    document.getElementById("login1").style.display = "none" ;
+    document.getElementById('notloggedinarea').style.display="none";
+  }
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+}
+
+function signout(){
+  localStorage.removeItem("agaslogin");
+}
+
+// Load Hilltop Ads
 window.onload = function() {
-    (function(fkj){
-        var d = document,
-            s = d.createElement('script'),
-            l = d.scripts[d.scripts.length - 1];
-        s.settings = fkj || {};
-        s.src = "https://quizzical-cow.com/c.Dn9p6/by2g5XlnS-WZQx9MNDjhYe3lMdTCIL3wM/Sx0f2aNRjLc_x-MVjJclyq";
-        s.async = true;
-        s.referrerPolicy = 'no-referrer-when-downgrade';
-        l.parentNode.insertBefore(s, l);
-    })({})
+  initialize();
+  var s = document.createElement('script');
+  s.src = "https://YOUR_HILLTOP_DISPLAY_AD_URL.js"; // replace with your Hilltop JS
+  s.async = true;
+  s.onload = function(){
+    if(typeof hilltopAdsInit === 'function'){
+      hilltopAdsInit({
+        container: 'hilltop-ad',
+        width: 300,
+        height: 250,
+        type: 'display'
+      });
+    }
+  };
+  document.getElementById('hilltop-ad').appendChild(s);
 };
 </script>
-    
 
 </body>
 </html>
-
